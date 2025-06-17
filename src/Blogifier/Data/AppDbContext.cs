@@ -9,7 +9,8 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Blogifier.Data;
 
-public class AppDbContext(DbContextOptions options) : IdentityUserContext<UserInfo, int>(options)
+public class AppDbContext(DbContextOptions options)
+    : IdentityDbContext<UserInfo, IdentityRole<int>, int>(options)
 {
   public DbSet<OptionInfo> Options { get; set; } = default!;
   public DbSet<Post> Posts { get; set; } = default!;
@@ -36,20 +37,33 @@ public class AppDbContext(DbContextOptions options) : IdentityUserContext<UserIn
       e.Property(p => p.PhoneNumber).HasMaxLength(32);
     });
 
+    modelBuilder.Entity<IdentityRole<int>>(e =>
+    {
+      e.ToTable("Roles");
+      e.Property(p => p.Name).HasMaxLength(128);
+    });
+
+    modelBuilder.Entity<IdentityUserRole<int>>(e =>
+    {
+      e.ToTable("UserRoles");
+    });
+
     modelBuilder.Entity<IdentityUserClaim<int>>(e =>
     {
-      e.ToTable("UserClaim");
+      e.ToTable("UserClaims");
       e.Property(p => p.ClaimType).HasMaxLength(16);
       e.Property(p => p.ClaimValue).HasMaxLength(256);
     });
+
     modelBuilder.Entity<IdentityUserLogin<int>>(e =>
     {
-      e.ToTable("UserLogin");
+      e.ToTable("UserLogins");
       e.Property(p => p.ProviderDisplayName).HasMaxLength(128);
     });
+
     modelBuilder.Entity<IdentityUserToken<int>>(e =>
     {
-      e.ToTable("UserToken");
+      e.ToTable("UserTokens");
       e.Property(p => p.Value).HasMaxLength(1024);
     });
 
@@ -70,16 +84,17 @@ public class AppDbContext(DbContextOptions options) : IdentityUserContext<UserIn
       e.ToTable("Storages");
     });
 
-    //modelBuilder.Entity<StorageReference>(e =>
-    //{
-    //  e.ToTable("StorageReferences");
-    //  e.HasKey(t => new { t.StorageId, t.EntityId });
-    //});
-
     modelBuilder.Entity<PostCategory>(e =>
     {
       e.ToTable("PostCategories");
       e.HasKey(t => new { t.PostId, t.CategoryId });
     });
+
+    // Optional: nếu dùng StorageReference
+    //modelBuilder.Entity<StorageReference>(e =>
+    //{
+    //    e.ToTable("StorageReferences");
+    //    e.HasKey(t => new { t.StorageId, t.EntityId });
+    //});
   }
 }
