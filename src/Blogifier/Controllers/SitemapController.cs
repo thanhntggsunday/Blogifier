@@ -1,4 +1,4 @@
-using Blogifier.Posts;
+using Blogifier.Core.Posts;
 using Blogifier.Shared;
 using Microsoft.AspNetCore.Mvc;
 using System;

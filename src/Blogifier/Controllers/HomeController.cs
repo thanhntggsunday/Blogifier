@@ -1,6 +1,6 @@
-using Blogifier.Blogs;
+using Blogifier.Core.Blogs;
+using Blogifier.Core.Posts;
 using Blogifier.Models;
-using Blogifier.Posts;
 using Blogifier.Shared;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;

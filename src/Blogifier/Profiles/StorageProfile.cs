@@ -1,6 +1,6 @@
 using AutoMapper;
+using Blogifier.Core.Storages;
 using Blogifier.Shared;
-using Blogifier.Storages;
 
 namespace Blogifier.Profiles;
 

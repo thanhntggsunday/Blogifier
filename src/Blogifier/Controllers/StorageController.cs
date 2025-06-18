@@ -1,4 +1,4 @@
-using Blogifier.Storages;
+using Blogifier.Core.Storages;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.OutputCaching;
 using System.IO;

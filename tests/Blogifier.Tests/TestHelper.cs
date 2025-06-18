@@ -1,4 +1,4 @@
-using Blogifier.Data;
+using Blogifier.Core.Data;
 using Microsoft.EntityFrameworkCore;
 using System.IO;
 

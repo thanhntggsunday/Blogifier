@@ -1,5 +1,5 @@
 using AutoMapper;
-using Blogifier.Newsletters;
+using Blogifier.Core.Newsletters;
 using Blogifier.Shared;
 
 namespace Blogifier.Profiles;

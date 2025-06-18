@@ -1,4 +1,5 @@
 using AutoMapper;
+using Blogifier.Core.Posts;
 using Blogifier.Shared;
 
 namespace Blogifier.Profiles;

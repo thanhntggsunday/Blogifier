@@ -1,5 +1,5 @@
-using Blogifier.Blogs;
-using Blogifier.Posts;
+using Blogifier.Core.Blogs;
+using Blogifier.Core.Posts;
 using Blogifier.Shared;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;

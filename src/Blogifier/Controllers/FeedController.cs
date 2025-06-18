@@ -1,5 +1,5 @@
-using Blogifier.Blogs;
-using Blogifier.Posts;
+using Blogifier.Core.Blogs;
+using Blogifier.Core.Posts;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
