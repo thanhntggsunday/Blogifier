@@ -67,6 +67,11 @@ public class AppDbContext(DbContextOptions options)
       e.Property(p => p.Value).HasMaxLength(1024);
     });
 
+    modelBuilder.Entity<IdentityRoleClaim<int>>(e =>
+    {
+      e.ToTable("RoleClaims");
+    });
+
     modelBuilder.Entity<OptionInfo>(e =>
     {
       e.ToTable("Options");
