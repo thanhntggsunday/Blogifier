@@ -1,10 +1,11 @@
 ﻿using Blogifier.Core.Common;
 using Blogifier.Core.Data.Domain;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace Blogifier.Core.Data
 {
-	public class BlogifierDbContext : DbContext
+	public class BlogifierDbContext : IdentityDbContext<ApplicationUser>
     {
         public BlogifierDbContext(DbContextOptions<BlogifierDbContext> options) : base(options) { }
 

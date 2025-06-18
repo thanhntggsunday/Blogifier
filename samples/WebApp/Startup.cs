@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using Blogifier.Core.Data;
+using Blogifier.Core.Data.Domain;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -35,10 +37,10 @@ namespace WebApp
 
             System.Action<DbContextOptionsBuilder> databaseOptions = options => options.UseSqlServer(connectionString);
 
-            services.AddDbContext<ApplicationDbContext>(databaseOptions);
+            services.AddDbContext<BlogifierDbContext>(databaseOptions);
 
             services.AddIdentity<ApplicationUser, IdentityRole>()
-                .AddEntityFrameworkStores<ApplicationDbContext>()
+                .AddEntityFrameworkStores<BlogifierDbContext>()
                 .AddDefaultTokenProviders();
 
             services.AddLogging(loggingBuilder =>
