@@ -13,7 +13,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blogifier.Test", "tests\Blogifier.Test\Blogifier.Test.csproj", "{D7ABFDEF-036A-4ACA-B898-F0D93D12B989}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApp", "samples\WebApp\WebApp.csproj", "{0A0D2EA6-7BFC-4BDF-89CB-557E34CE6316}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blogifier.WebApp", "samples\WebApp\Blogifier.WebApp.csproj", "{0A0D2EA6-7BFC-4BDF-89CB-557E34CE6316}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
