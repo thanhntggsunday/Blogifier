@@ -12,7 +12,7 @@ using System;
 namespace Blogifier.Core.Migrations
 {
     [DbContext(typeof(BlogifierDbContext))]
-    [Migration("20250619175325_AddPmsModel")]
+    [Migration("20250619180438_AddPmsModel")]
     partial class AddPmsModel
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -206,10 +206,6 @@ namespace Blogifier.Core.Migrations
                     b.Property<int>("RelatedProductId");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("ProductId");
-
-                    b.HasIndex("RelatedProductId");
 
                     b.ToTable("ProductRelatedProducts");
                 });
@@ -730,19 +726,6 @@ namespace Blogifier.Core.Migrations
                     b.HasOne("AspnetRun.Core.Entities.Product", "Product")
                         .WithMany()
                         .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("AspnetRun.Core.Entities.ProductRelatedProduct", b =>
-                {
-                    b.HasOne("AspnetRun.Core.Entities.Product", "Product")
-                        .WithMany()
-                        .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("AspnetRun.Core.Entities.Product", "RelatedProduct")
-                        .WithMany()
-                        .HasForeignKey("RelatedProductId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 

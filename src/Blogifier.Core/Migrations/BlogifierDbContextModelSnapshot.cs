@@ -206,10 +206,6 @@ namespace Blogifier.Core.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ProductId");
-
-                    b.HasIndex("RelatedProductId");
-
                     b.ToTable("ProductRelatedProducts");
                 });
 
@@ -729,19 +725,6 @@ namespace Blogifier.Core.Migrations
                     b.HasOne("AspnetRun.Core.Entities.Product", "Product")
                         .WithMany()
                         .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("AspnetRun.Core.Entities.ProductRelatedProduct", b =>
-                {
-                    b.HasOne("AspnetRun.Core.Entities.Product", "Product")
-                        .WithMany()
-                        .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("AspnetRun.Core.Entities.Product", "RelatedProduct")
-                        .WithMany()
-                        .HasForeignKey("RelatedProductId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 

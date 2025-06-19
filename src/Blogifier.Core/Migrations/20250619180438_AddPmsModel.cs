@@ -63,6 +63,24 @@ namespace Blogifier.Core.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "ProductRelatedProducts",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    ModifiedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ModifiedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    ProductId = table.Column<int>(type: "int", nullable: false),
+                    RelatedProductId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ProductRelatedProducts", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Wishlists",
                 columns: table => new
                 {
@@ -169,36 +187,6 @@ namespace Blogifier.Core.Migrations
                     table.ForeignKey(
                         name: "FK_ProductCompares_Product_ProductId",
                         column: x => x.ProductId,
-                        principalTable: "Product",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "ProductRelatedProducts",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    ModifiedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    ModifiedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    ProductId = table.Column<int>(type: "int", nullable: false),
-                    RelatedProductId = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_ProductRelatedProducts", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_ProductRelatedProducts_Product_ProductId",
-                        column: x => x.ProductId,
-                        principalTable: "Product",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_ProductRelatedProducts_Product_RelatedProductId",
-                        column: x => x.RelatedProductId,
                         principalTable: "Product",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -334,16 +322,6 @@ namespace Blogifier.Core.Migrations
                 name: "IX_ProductCompares_ProductId",
                 table: "ProductCompares",
                 column: "ProductId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_ProductRelatedProducts_ProductId",
-                table: "ProductRelatedProducts",
-                column: "ProductId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_ProductRelatedProducts_RelatedProductId",
-                table: "ProductRelatedProducts",
-                column: "RelatedProductId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_ProductWishlists_ProductId",
