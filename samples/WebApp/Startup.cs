@@ -1,5 +1,6 @@
 ﻿using Blogifier.Core.Data;
 using Blogifier.Core.Data.Domain;
+using Blogifier.Core.Services.Logger;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
@@ -21,11 +22,6 @@ namespace WebApp
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
-
-            Log.Logger = new LoggerConfiguration()
-              .Enrich.FromLogContext()
-              .WriteTo.RollingFile("Logs/blogifier-{Date}.txt", LogEventLevel.Warning)
-              .CreateLogger();
         }
 
         public IConfiguration Configuration { get; }
@@ -60,6 +56,8 @@ namespace WebApp
                 options => { options.Filters.Add(new CorsAuthorizationFilterFactory("Blogifier")); });
 
             Blogifier.Core.Configuration.InitServices(services, databaseOptions, Configuration);
+
+            services.AddSingleton(typeof(IAppLogger<>), typeof(AppLogger<>));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
