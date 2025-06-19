@@ -20,6 +20,9 @@ namespace Blogifier.Core.Services.Data
             _db = db;
             _custom = custom;
             _search = search;
+
+            //
+            Blogifier.Core.Common.Logger.LogInformation("DataService contructor");
         }
 
         public BlogPostsModel GetPosts(int page, bool pub = false)

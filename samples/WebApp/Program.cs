@@ -15,7 +15,11 @@ namespace WebApp
         {
             Log.Logger = new LoggerConfiguration()
                 .MinimumLevel.Information()
-                .WriteTo.File("Logs/log-.txt", rollingInterval: RollingInterval.Day)
+                .WriteTo.File(
+                    "Logs/blogifier-.txt", 
+                    rollingInterval: RollingInterval.Day,
+                    shared:true
+                 )
                 .CreateLogger();
 
             try

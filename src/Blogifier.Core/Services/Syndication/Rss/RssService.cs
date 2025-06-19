@@ -20,12 +20,10 @@ namespace Blogifier.Core.Services.Syndication.Rss
     {
         IUnitOfWork _db;
         RssImportModel _model;
-        private readonly AppLogger _logger;
 
         public RssService(IUnitOfWork db, ILogger<RssService> logger)
         {
             _db = db;
-            _logger = new AppLogger(logger);
         }
 
         public async Task<HttpResponseMessage> Import(RssImportModel model)
@@ -53,7 +51,7 @@ namespace Blogifier.Core.Services.Syndication.Rss
                 var storage = new BlogStorage(blog.Slug);
                 var items = GetFeedItems(model.FeedUrl);
 
-                _logger.LogInformation(string.Format("Start importing {0} posts", items.Count));
+                Blogifier.Core.Common.Logger.LogInformation(string.Format("Start importing {0} posts", items.Count));
 
                 foreach (var item in items)
                 {
@@ -82,7 +80,7 @@ namespace Blogifier.Core.Services.Syndication.Rss
                     }
                     _db.BlogPosts.Add(post);
                     _db.Complete();
-                    _logger.LogInformation(string.Format("RSS item added : {0}", item.Title));
+                    Blogifier.Core.Common.Logger.LogInformation(string.Format("RSS item added : {0}", item.Title));
 
                     await AddCategories(item, model.ProfileId);
                 }
@@ -91,7 +89,7 @@ namespace Blogifier.Core.Services.Syndication.Rss
             }
             catch(Exception ex)
             {
-                _logger.LogError(string.Format("Error importing RSS : {0}", ex.Message));
+                Blogifier.Core.Common.Logger.LogError(string.Format("Error importing RSS : {0}", ex.Message));
 
                 response.StatusCode = HttpStatusCode.BadRequest;
                 response.ReasonPhrase = ex.Message;
@@ -156,7 +154,7 @@ namespace Blogifier.Core.Services.Syndication.Rss
             var client = new HttpClient();
             var doc = new XDocument();
 
-            _logger.LogInformation("Importing RSS from feed: " + url);
+            Blogifier.Core.Common.Logger.LogInformation("Importing RSS from feed: " + url);
 
             if (url.StartsWith("http", StringComparison.OrdinalIgnoreCase))
             {
@@ -280,7 +278,7 @@ namespace Blogifier.Core.Services.Syndication.Rss
                     }
                     catch (Exception ex)
                     {
-                        _logger.LogError(string.Format("Error importing [{0}] : {1}", item, ex.Message));
+                        Blogifier.Core.Common.Logger.LogError(string.Format("Error importing [{0}] : {1}", item, ex.Message));
                     }
                 }
             }
