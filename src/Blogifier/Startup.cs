@@ -16,7 +16,7 @@ namespace Blogifier
             Configuration = configuration;
             Log.Logger = new LoggerConfiguration()
                   .Enrich.FromLogContext()
-                  .WriteTo.File("Logs/log-.txt", rollingInterval: RollingInterval.Day)
+                  .WriteTo.File("Logs/log-.txt", rollingInterval: RollingInterval.Day, shared: true)
                   .CreateLogger();
 
             Log.Warning("Application start");

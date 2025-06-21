@@ -1,16 +1,17 @@
+using Blogifier.Core.Common;
 using Blogifier.Core.Extensions;
 using Blogifier.Core.Providers;
 using Blogifier.Shared;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ViewEngines;
 using System;
-using System.Threading.Tasks;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 using System.ServiceModel.Syndication;
 using System.Text;
+using System.Threading.Tasks;
 using System.Xml;
-using System.IO;
-using System.Collections.Generic;
-using System.Linq;
-using Microsoft.AspNetCore.Mvc.ViewEngines;
 
 namespace Blogifier.Controllers
 {
@@ -35,7 +36,11 @@ namespace Blogifier.Controllers
 			_themeProvider = themeProvider;
 			_storageProvider = storageProvider;
             _compositeViewEngine = compositeViewEngine;
-		}
+
+            // Log initialization
+            AppLogger.LogInformation("HomeController initialized.");
+
+        }
 
 		public async Task<IActionResult> Index(int page = 1)
 		{
