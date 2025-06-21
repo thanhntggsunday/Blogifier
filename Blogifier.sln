@@ -19,7 +19,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Widgets", "Widgets", "{B93C
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Newsletter", "Packages\Widgets\Newsletter\Newsletter.csproj", "{634E6730-E284-4FE6-8209-F50D6966CA13}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PostList", "Packages\Widgets\PostList\PostList.csproj", "{9852B814-5D78-467B-A5E7-F42DA06C35DE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PostList", "Packages\Widgets\PostList\PostList.csproj", "{9852B814-5D78-467B-A5E7-F42DA06C35DE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{8DC3881F-FEED-4907-A7DA-155241E8B7FE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -52,6 +54,7 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
+		{45D9236F-4D1E-46C0-B38A-D97564EFFD67} = {8DC3881F-FEED-4907-A7DA-155241E8B7FE}
 		{634E6730-E284-4FE6-8209-F50D6966CA13} = {B93C150D-4EB4-405F-95C2-D8EBB8AE80DB}
 		{9852B814-5D78-467B-A5E7-F42DA06C35DE} = {B93C150D-4EB4-405F-95C2-D8EBB8AE80DB}
 	EndGlobalSection
