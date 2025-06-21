@@ -2,6 +2,7 @@
 using Blogifier.Core.Data;
 using Blogifier.Core.Data.Domain;
 using Blogifier.Core.Middleware;
+using Blogifier.Core.Services.Log;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
@@ -19,11 +20,6 @@ namespace Blogifier
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
-
-            Log.Logger = new LoggerConfiguration()
-              .Enrich.FromLogContext()
-              .WriteTo.RollingFile("Logs/blogifier-{Date}.txt", LogEventLevel.Warning)
-              .CreateLogger();
         }
 
         public IConfiguration Configuration { get; }
@@ -55,6 +51,7 @@ namespace Blogifier
             });
 
             services.AddBlogifier(databaseOptions, Configuration);
+            services.AddSingleton(typeof(IAppLogger<>), typeof(AppLogger<>));
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)

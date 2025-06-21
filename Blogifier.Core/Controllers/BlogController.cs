@@ -19,6 +19,8 @@ namespace Blogifier.Core.Controllers
             _ds = ds;
             _logger = logger;
             _theme = $"~/{ApplicationSettings.BlogThemesFolder}/{BlogSettings.Theme}/";
+
+            Logger.LogInformation($"Theme: {_theme}");
         }
 
         public IActionResult Index(int page = 1)
