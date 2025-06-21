@@ -11,9 +11,9 @@ namespace Blogifier.Core.Modules.Pms.Repositories
 {
     public static class ProductRepository
     {
-        public static List<ProductDto> GetProducts(this Blogifier.Core.AdoNet.SQLite.DataAccess dataAccess, string cultureName = "")
+        public static List<ProductDto> GetProducts(this Blogifier.Core.AdoNet.SQLServer.DataAccess dataAccess, string cultureName = "")
         {
-            var mapper = Blogifier.Core.AdoNet.SQLite.Mapper.CreateMapper<ProductDto>();
+            var mapper = Blogifier.Core.AdoNet.SQLServer.Mapper.CreateMapper<ProductDto>();
             return dataAccess.GetAllItems<ProductDto>("Select * From Product", CommandType.Text, mapper);
         }
     }

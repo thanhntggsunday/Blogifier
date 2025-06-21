@@ -12,11 +12,11 @@ namespace Blogifier.Core.Modules.Pms.Providers
 {
     public class ProductProvider
     {
-        private readonly Blogifier.Core.AdoNet.SQLite.DataAccess _dbContext;
+        private readonly Blogifier.Core.AdoNet.SQLServer.DataAccess _dbContext;
 
         public ProductProvider()
         {
-            _dbContext = new Blogifier.Core.AdoNet.SQLite.DataAccess();
+            _dbContext = new Blogifier.Core.AdoNet.SQLServer.DataAccess();
         }
 
         public List<ProductDto> GetProducts()

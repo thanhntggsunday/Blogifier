@@ -1,4 +1,6 @@
-﻿using Blogifier.Core.Common;
+﻿using System;
+using Blogifier.Core.Common;
+using Blogifier.Core.Modules.Pms.Providers;
 using Blogifier.Core.Services.Data;
 using Blogifier.Core.Services.Syndication.Rss;
 using Microsoft.AspNetCore.Mvc;
@@ -21,6 +23,10 @@ namespace Blogifier.Core.Controllers
             _theme = $"~/{ApplicationSettings.BlogThemesFolder}/{BlogSettings.Theme}/";
 
             Logger.LogInformation($"Theme: {_theme}");
+            //
+            var productProvider = new ProductProvider();
+            var items = productProvider.GetProducts();
+            Console.WriteLine(items);
         }
 
         public IActionResult Index(int page = 1)
