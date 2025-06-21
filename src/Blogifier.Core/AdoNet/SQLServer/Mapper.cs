@@ -7,7 +7,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Blogifier.Core.AdoNet
+namespace Blogifier.Core.AdoNet.SQLServer
 {
     public static class Mapper
     {

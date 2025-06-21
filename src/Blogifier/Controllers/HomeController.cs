@@ -1,5 +1,6 @@
 using Blogifier.Core.Common;
 using Blogifier.Core.Extensions;
+using Blogifier.Core.Modules.Pms.Providers;
 using Blogifier.Core.Providers;
 using Blogifier.Shared;
 using Microsoft.AspNetCore.Mvc;
@@ -39,6 +40,8 @@ namespace Blogifier.Controllers
 
             // Log initialization
             AppLogger.LogInformation("HomeController initialized.");
+            var productProvider = new ProductProvider();
+            var items = productProvider.GetProducts();
 
         }
 

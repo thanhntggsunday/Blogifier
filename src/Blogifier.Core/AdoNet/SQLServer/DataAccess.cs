@@ -11,7 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Blogifier.Core.AdoNet
+namespace Blogifier.Core.AdoNet.SQLServer
 {
     public class DataAccess : BaseClass
     {
