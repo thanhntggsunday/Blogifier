@@ -21,7 +21,14 @@ namespace Blogifier.Core.Modules.Pms.Providers
 
         public List<ProductDto> GetProducts()
         {
-            return _dbContext.GetProducts();
+            try
+            {
+                return _dbContext.GetProducts();
+            }
+            finally
+            {
+                _dbContext.Dispose();
+            }           
         }
     }
 }
