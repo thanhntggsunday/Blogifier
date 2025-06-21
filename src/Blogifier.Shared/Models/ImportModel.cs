@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+using Blogifier.Shared.Models;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace Blogifier.Shared
@@ -9,8 +10,8 @@ namespace Blogifier.Shared
       public string Message { get; set; }
    }
 
-   public class ImportModel
-	{
+   public class ImportModel : TransactionalInformation
+    {
       [Required]
       [Url]
       public string FeedUrl { get; set; }

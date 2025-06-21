@@ -1,9 +1,10 @@
-﻿using System.Collections.Generic;
+using Blogifier.Shared.Models;
+using System.Collections.Generic;
 
 namespace Blogifier.Shared
 {
-	public class ListModel
-   {
+	public class ListModel : TransactionalInformation
+    {
       public BlogItem Blog { get; set; }
       public Author Author { get; set; } // posts by author
       public string Category { get; set; } // posts by category

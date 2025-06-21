@@ -1,7 +1,9 @@
+using Blogifier.Shared.Models;
+
 namespace Blogifier.Shared
 {
-	public class AnalyticsModel
-	{
+	public class AnalyticsModel : TransactionalInformation
+    {
 		public int TotalPosts { get; set; }
         public int TotalPages { get; set; }
 		public int TotalViews { get; set; }
