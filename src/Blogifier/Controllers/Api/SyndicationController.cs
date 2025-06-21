@@ -1,4 +1,4 @@
-﻿using Blogifier.Core.Data;
+using Blogifier.Core.Data;
 using Blogifier.Core.Providers;
 using Blogifier.Shared;
 using Microsoft.AspNetCore.Authorization;
@@ -9,7 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Blogifier.Controllers
+namespace Blogifier.Controllers.Api
 {
 	[Route("api/[controller]")]
 	[ApiController]
@@ -34,7 +34,7 @@ namespace Blogifier.Controllers
 
 			string webRoot = Url.Content("~/");
 
-			return await _syndicationProvider.GetPosts(feedUrl, author.Id, new System.Uri(baseUrl), webRoot);
+			return await _syndicationProvider.GetPosts(feedUrl, author.Id, new Uri(baseUrl), webRoot);
 		}
 
 		[Authorize]

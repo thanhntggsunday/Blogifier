@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
-namespace Blogifier.Controllers
+namespace Blogifier.Controllers.Api
 {
 	[Route("api/[controller]")]
 	[ApiController]

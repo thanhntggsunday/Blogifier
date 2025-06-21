@@ -7,7 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Blogifier.Controllers
+namespace Blogifier.Controllers.Api
 {
 	[Route("api/[controller]")]
 	[ApiController]
@@ -37,7 +37,7 @@ namespace Blogifier.Controllers
 		[HttpPut("exists")]
 		public async Task<IActionResult> FileExists([FromBody] string path)
 		{
-			return (await Task.FromResult(_storageProvider.FileExists(path))) ? Ok() : BadRequest();
+			return await Task.FromResult(_storageProvider.FileExists(path)) ? Ok() : BadRequest();
 		}
 
 		[Authorize]
@@ -61,13 +61,13 @@ namespace Blogifier.Controllers
 				{
 					case UploadType.Avatar:
 						author.Avatar = fileName;
-						return (await _authorProvider.Update(author)) ? new JsonResult(fileName) : BadRequest();
+						return await _authorProvider.Update(author) ? new JsonResult(fileName) : BadRequest();
 					case UploadType.AppLogo:
 						blog.Logo = fileName;
-						return (await _blogProvider.Update(blog)) ? new JsonResult(fileName) : BadRequest();
+						return await _blogProvider.Update(blog) ? new JsonResult(fileName) : BadRequest();
 					case UploadType.AppCover:
 						blog.Cover = fileName;
-						return (await _blogProvider.Update(blog)) ? new JsonResult(fileName) : BadRequest();
+						return await _blogProvider.Update(blog) ? new JsonResult(fileName) : BadRequest();
 					case UploadType.PostCover:
 						post.Cover = fileName;
                         return new JsonResult(fileName);
