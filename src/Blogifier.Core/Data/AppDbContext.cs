@@ -1,3 +1,4 @@
+using AspnetRun.Core.Entities;
 using Blogifier.Shared;
 using Microsoft.EntityFrameworkCore;
 
@@ -21,6 +22,21 @@ namespace Blogifier.Core.Data
         public DbSet<Newsletter> Newsletters { get; set; }
         public DbSet<MailSetting> MailSettings { get; set; }
         public DbSet<PostCategory> PostCategories { get; set; }
+
+        #region Pms
+        public DbSet<Cart> Carts { get; set; }
+        public DbSet<CartItem> CartItems { get; set; }
+        public DbSet<ProductCategory> ProductCategories { get; set; }
+        public DbSet<Compare> Compares { get; set; }
+        public DbSet<ProductCompare> ProductCompares { get; set; }
+        public DbSet<ProductRelatedProduct> ProductRelatedProducts { get; set; }
+        public DbSet<ProductWishlist> ProductWishlists { get; set; }
+        public DbSet<Review> Reviews { get; set; }
+        public DbSet<Specification> Specifications { get; set; }
+        public DbSet<Tag> Tags { get; set; }
+        public DbSet<Wishlist> Wishlists { get; set; }
+        #endregion
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
