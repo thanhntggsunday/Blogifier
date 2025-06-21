@@ -77,10 +77,10 @@ namespace Blogifier.Core
 		public static void InitApplication(IApplicationBuilder app, IHostingEnvironment env)
 		{
             app.UseMiddleware<AppSettingsLoader>();
-			app.UseMiddleware<EmbeddedResources>();     
+            app.UseMiddleware<EmbeddedResources>();
 
             ApplicationSettings.WebRootPath = env.WebRootPath;
-			ApplicationSettings.ContentRootPath = env.ContentRootPath;
+            ApplicationSettings.ContentRootPath = env.ContentRootPath;
 
             //if (!ApplicationSettings.UseInMemoryDatabase && ApplicationSettings.InitializeDatabase)
             //{

@@ -159,7 +159,7 @@ namespace Blogifier.Controllers
             _db.Complete();
             _logger.LogInformation("Posts deleted");
 
-            var fields = _db.CustomFields.Find(f => f.CustomType == CustomType.Profile && f.ParentId == id);
+            var fields = _db.CustomFields.Find(f => f.CustomType == (int)CustomType.Profile && f.ParentId == id);
             _db.CustomFields.RemoveRange(fields);
             _db.Complete();
             _logger.LogInformation("Custom fields deleted");

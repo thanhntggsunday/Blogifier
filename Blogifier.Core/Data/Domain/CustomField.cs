@@ -4,7 +4,7 @@ namespace Blogifier.Core.Data.Domain
 {
     public class CustomField : BaseEntity
     {
-        public CustomType CustomType { get; set; }
+        public int CustomType { get; set; }
         public int ParentId { get; set; }
 
         [Required]
