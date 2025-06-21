@@ -1,113 +1,73 @@
-## Blogifier.Core [![NuGet](https://img.shields.io/nuget/v/Blogifier.Core.svg)](https://www.nuget.org/packages/Blogifier.Core)
+<br>
+<p align="center">
+  <a href="https://blogifier.net/">
+    <img src="https://blogifier.net/files/brand/logo.svg" alt="Blogifier Logo" width="100" height="100">
+  </a>
+</p>
 
-The goal of this project is to "blogify" ASP.NET applications; Blogifier.Core built and published as a [Nuget package](https://www.nuget.org/packages/Blogifier.Core) that can be installed by ASP.NET application to provide common blogging functionality.
+<h3 align="center">Blogifier</h3>
+<p align="center">
+    Blogifier is self hosted open source publishing platform written in ASP.NET and Blazor WebAssembly.<br>
+    Right now Blogifier can be used as a personal or group blog, and more features are under development.<br><br>
+    <a href="https://blogifier.net/"><b>Official Website »</b></a>
+    &nbsp;&nbsp;
+    <a href="https://demo.blogifier.net/"><b>Live Demo »</b></a>
+</p>
 
-## Demo site
+<p align="center">
+    username: &nbsp; <b>admin@example.com</b>
+    &nbsp;&nbsp;&nbsp;
+    password: &nbsp; <b>admin</b>
+</p>
 
-The [demo site](http://blogifier.azurewebsites.net) is a playground you can use to check out Blogifier features. You can register new user and write post to test admin panel.
+<br><br>
 
-![demo site](https://user-images.githubusercontent.com/1932785/30626484-dfc57f74-9d8f-11e7-9896-4dedcaad641b.PNG)
+## Installation
 
-## System Requirements
+This version is built and compiled, and ready to use:
 
-* Windows or Linux
-* ASP.NET Core 2.0
-* Visual Studio 2017 or VS Code
-* Authentication enabled
-* Entity Framework Core
+1. .NET Core Runtime (currently 6.0) must be installed on your host server.
+2. [Download](https://github.com/blogifierdotnet/Blogifier/releases) the latest release.
+3. Unzip and copy to your host server.<br>
+4. Restart your website.
+5. Open your website and only the first time you'll be redirected to the register page.<br> `example.com/admin/register/`
+6. Register, and then log in.<br> `example.com/admin/login/`
+7. Done, enjoy.
 
-Designed for cross-platform development, every build pushed to Windows and Linux servers.
+<br><br>
+## Development
+If you want to customize the Blogifier, or contribute:
 
-## Getting Started
+1. [Download](https://dotnet.microsoft.com/download/dotnet) and Install .NET SDK.
+2. Download, fork, or clone the repository.
+3. Open the project with your favorite IDE (VS Code, Visual Studio, Atom, etc).
+4. Run the app with your IDE or these commands:
 
-1. Open in VS 2017 and run WebApp sample application
-2. Register new user
-3. You should be able navigate to `/blog` and `/admin`
-
-## Using Blogifier.Core Nuget Package
-
-1. In VS 2017, create new ASP.NET Core 2.0 Web Application with user authentication (single user accounts)
-2. Open Nuget Package Manager console and run this command:
 ```
-Install-Package Blogifier.Core
+$ cd /your-local-path/Blogifier/src/Blogifier/
+$ dotnet run
 ```
-3. Configure services and application in Startup.cs to use Blogifier:
-```csharp
-public void ConfigureServices(IServiceCollection services)
-{
-  var connectionString = Configuration.GetConnectionString("DefaultConnection");
-  System.Action<DbContextOptionsBuilder> databaseOptions = options => options.UseSqlServer(connectionString);
-  services.AddDbContext<ApplicationDbContext>(databaseOptions);
-  ...
-  services.AddMvc();
-  Blogifier.Core.Configuration.InitServices(services, databaseOptions, Configuration);
-}
-
-public void Configure(IApplicationBuilder app, IHostingEnvironment env)
-{
-  ...
-  Blogifier.Core.Configuration.InitApplication(app, env);
-}
+Then you can open `localhost:5000` with your browser, Also login to the admin panel `localhost:5000/admin/`.
 ```
-4. You should be able to run application and navigate to `/blog` and `/admin`
-
-## Security
-
-* Blogifier.Core inherits user authentication from `parent` application and acts accordingly.
-* If user authenticated but there is no profile for user identity, navigating to `/admin` will redirect to profile page. Filling in profile will effectively create a new blog. 
-* First application user will be marked as application administrator and will be able manage application settings.
-
-## Application Settings
-
-Default application settings can be overwritten in application `appsettings.json` configuration file (you can add one if not exists). For example, to change connection string for your database provider:
-
-```json
-{
-  "Blogifier": {
-    "ConnectionString": "your connection string here"
-  }
-}
+username: admin@example.com
+password: admin
 ```
 
-[More on application settings](https://github.com/blogifierdotnet/Blogifier.Core/wiki/Application-Settings)
+<br><br>
+## Documentation
+We are working on the [version 3.0](https://github.com/blogifierdotnet/Blogifier/projects/1) and after we release this version, we'll begin to write all the documents.<br>
+We publish docs on the [Blogifier website](https://blogifier.net/docs/).
 
-## Database Providers
+<br><br>
+## Contributing
+Please read [contributing guidelines](https://github.com/blogifierdotnet/Blogifier/blob/main/.github/CONTRIBUTING.md). We have a list of things there that you can help us with.
 
-Blogifier.Core implements Entity Framework (code first) as ORM. It uses MS SQL Server provider by default but supports other Entity Framework databases.
+<br><br>
+## Team
+[![@farzindev](https://avatars.githubusercontent.com/u/6384978?s=60&v=4)](https://github.com/farzindev) &nbsp;
+[![@rxtur](https://avatars.githubusercontent.com/u/1932785?s=60&v=4)](https://github.com/rxtur)
 
-For example, to use PostgreSql provider you would install "Npgsql.EntityFrameworkCore.PostgreSQL" package and then use it instead of MS Sql Server:
-
-```json
-{
-  "ConnectionStrings": {
-    "DefaultConnection": "User ID=appuser;Password=blogifier;Host=localhost;Port=5432;Database=Blogifier;Pooling=true;"
-  }
-}
-```
-
-```csharp
-public void ConfigureServices(IServiceCollection services)
-{
-  var connectionString = Configuration.GetConnectionString("DefaultConnection");
-  System.Action<DbContextOptionsBuilder> databaseOptions = options => options.UseNpgsql(connectionString);
-  services.AddDbContext<ApplicationDbContext>(databaseOptions);
-  ...
-  services.AddMvc();
-  Blogifier.Core.Configuration.InitServices(services, databaseOptions, Configuration);
-}
-```
-
-Connection string cascades based on conditions:
-* Use default built-in Blogifier connection string
-* Use default parent application connection string in `appsettings.json`
-* Use Blogifier connection string in `appsettings.json`.
-
-## Administration
-
-Blogifier provides built-in full featured administration pannel to create, update and publish posts.
-
-![admin](https://user-images.githubusercontent.com/1932785/30626534-25b5b260-9d90-11e7-814e-fc14f510f23e.PNG)
-
-## Credits
-
-In 1.2 release, we've got a good number of pull requests from [alexandrudanpop](https://github.com/alexandrudanpop) helping significantly improve our testing suite. Greatly appreciated!
+<br><br>
+## Copyright and License
+Code released under the MIT License. Docs released under Creative Commons.<br>
+Copyright 2017–2021 Blogifier

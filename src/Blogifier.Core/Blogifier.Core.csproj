@@ -1,40 +1,40 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>netcoreapp2.0</TargetFramework>
-    <AssemblyVersion>1.2.4.0</AssemblyVersion>
-    <FileVersion>1.2.4.0</FileVersion>
-    <Version>1.2.4.0</Version>
-    <Authors>blogifierdotnet</Authors>
-    <Company>Blogifier</Company>
-    <Description>Blogifier.Core will add full-featured, multi-user blog to your ASP.NET Core application. Along with administration panel to create, update and publish posts, upload files and images, expose RSS feed to subscribers and more.</Description>
-    <PackageIconUrl>https://avatars0.githubusercontent.com/u/19671571?v=4&amp;s=180</PackageIconUrl>
-    <RepositoryUrl>https://github.com/blogifierdotnet/Blogifier.Core</RepositoryUrl>
-    <PackageProjectUrl>https://github.com/blogifierdotnet</PackageProjectUrl>
-    <Copyright>Copyright (c) 2017 Blogifier.NET</Copyright>
-    <PackageLicenseUrl>https://github.com/blogifierdotnet/Blogifier.Core/blob/master/LICENSE</PackageLicenseUrl>
-    <PackageTags>blog blogging blogifier blogifier.net blogifierdotnet</PackageTags>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<Version>3.0.0.0</Version>
+		<Authors>blogifierdotnet</Authors>
+		<Description>Blogifier is an open-source publishing platform Written in ASP.NET and Blazor WebAssembly.</Description>
+		<Copyright>Blogifier.Net</Copyright>
+		<PackageProjectUrl>https://blogifier.net</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/blogifierdotnet/Blogifier</RepositoryUrl>
+		<PackageTags>blog,blogifier,asp.net,.net core,blogifier.net,asp.net core</PackageTags>
+	</PropertyGroup>
 
-  <ItemGroup>
-	  <EmbeddedResource Include="embedded\**\*" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="6.0.1" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.1" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="6.0.1" />
+		<PackageReference Include="Microsoft.SyndicationFeed.ReaderWriter" Version="1.0.2" />
+		<PackageReference Include="NETCore.MailKit" Version="2.0.3" />
+		<PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="6.0.3" />
+		<PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="6.0.1" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.1">
+		  <PrivateAssets>all</PrivateAssets>
+		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="Serilog.Sinks.File" Version="5.0.0" />
+		<PackageReference Include="System.ServiceModel.Syndication" Version="6.0.0" />
+		<PackageReference Include="ReverseMarkdown" Version="3.23.0" />
+		<PackageReference Include="Markdig" Version="0.27.0" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.0" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="2.0.0" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.0.0" PrivateAssets="All" />
-    <PackageReference Include="Microsoft.Extensions.FileProviders.Embedded" Version="2.0.0" />
-	  <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="2.0.0" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="2.0.0" />
-    <PackageReference Include="Serilog" Version="2.7.1" />
-    <PackageReference Include="Serilog.AspNetCore" Version="2.0.0" />
-    <PackageReference Include="Serilog.Extensions.Logging" Version="2.0.0" />
-    <PackageReference Include="Serilog.Sinks.File" Version="4.0.0" />
-  </ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\Blogifier.Shared\Blogifier.Shared.csproj" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <DotNetCliToolReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet" Version="2.0.0" />
-  </ItemGroup>
+	<ItemGroup>
+	  <Folder Include="Data\Migrations\" />
+	</ItemGroup>
 
 </Project>
