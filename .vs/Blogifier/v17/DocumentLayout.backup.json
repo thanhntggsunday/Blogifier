@@ -1,0 +1,955 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Admin\\Documents\\Github\\Blogifier\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{30113938-1040-459A-A0B6-3663E9534C8B}|src\\Blogifier\\Blogifier.csproj|c:\\users\\admin\\documents\\github\\blogifier\\src\\blogifier\\core\\posts\\postprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30113938-1040-459A-A0B6-3663E9534C8B}|src\\Blogifier\\Blogifier.csproj|solutionrelative:src\\blogifier\\core\\posts\\postprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30113938-1040-459A-A0B6-3663E9534C8B}|src\\Blogifier\\Blogifier.csproj|c:\\users\\admin\\documents\\github\\blogifier\\src\\blogifier\\core\\blogs\\blogmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30113938-1040-459A-A0B6-3663E9534C8B}|src\\Blogifier\\Blogifier.csproj|solutionrelative:src\\blogifier\\core\\blogs\\blogmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30113938-1040-459A-A0B6-3663E9534C8B}|src\\Blogifier\\Blogifier.csproj|c:\\users\\admin\\documents\\github\\blogifier\\src\\blogifier\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30113938-1040-459A-A0B6-3663E9534C8B}|src\\Blogifier\\Blogifier.csproj|solutionrelative:src\\blogifier\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30113938-1040-459A-A0B6-3663E9534C8B}|src\\Blogifier\\Blogifier.csproj|c:\\users\\admin\\documents\\github\\blogifier\\src\\blogifier\\core\\blogs\\mainmamager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30113938-1040-459A-A0B6-3663E9534C8B}|src\\Blogifier\\Blogifier.csproj|solutionrelative:src\\blogifier\\core\\blogs\\mainmamager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30113938-1040-459A-A0B6-3663E9534C8B}|src\\Blogifier\\Blogifier.csproj|c:\\users\\admin\\documents\\github\\blogifier\\src\\blogifier\\core\\blogs\\blognotiitializeexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30113938-1040-459A-A0B6-3663E9534C8B}|src\\Blogifier\\Blogifier.csproj|solutionrelative:src\\blogifier\\core\\blogs\\blognotiitializeexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30113938-1040-459A-A0B6-3663E9534C8B}|src\\Blogifier\\Blogifier.csproj|c:\\users\\admin\\documents\\github\\blogifier\\src\\blogifier\\core\\blogs\\analyticsprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30113938-1040-459A-A0B6-3663E9534C8B}|src\\Blogifier\\Blogifier.csproj|solutionrelative:src\\blogifier\\core\\blogs\\analyticsprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30113938-1040-459A-A0B6-3663E9534C8B}|src\\Blogifier\\Blogifier.csproj|c:\\users\\admin\\documents\\github\\blogifier\\src\\blogifier\\core\\blogs\\blogdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30113938-1040-459A-A0B6-3663E9534C8B}|src\\Blogifier\\Blogifier.csproj|solutionrelative:src\\blogifier\\core\\blogs\\blogdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30113938-1040-459A-A0B6-3663E9534C8B}|src\\Blogifier\\Blogifier.csproj|c:\\users\\admin\\documents\\github\\blogifier\\src\\blogifier\\controllers\\errorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30113938-1040-459A-A0B6-3663E9534C8B}|src\\Blogifier\\Blogifier.csproj|solutionrelative:src\\blogifier\\controllers\\errorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30113938-1040-459A-A0B6-3663E9534C8B}|src\\Blogifier\\Blogifier.csproj|c:\\users\\admin\\documents\\github\\blogifier\\src\\blogifier\\controllers\\categorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30113938-1040-459A-A0B6-3663E9534C8B}|src\\Blogifier\\Blogifier.csproj|solutionrelative:src\\blogifier\\controllers\\categorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30113938-1040-459A-A0B6-3663E9534C8B}|src\\Blogifier\\Blogifier.csproj|c:\\users\\admin\\documents\\github\\blogifier\\src\\blogifier\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30113938-1040-459A-A0B6-3663E9534C8B}|src\\Blogifier\\Blogifier.csproj|solutionrelative:src\\blogifier\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30113938-1040-459A-A0B6-3663E9534C8B}|src\\Blogifier\\Blogifier.csproj|c:\\users\\admin\\documents\\github\\blogifier\\src\\blogifier\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30113938-1040-459A-A0B6-3663E9534C8B}|src\\Blogifier\\Blogifier.csproj|solutionrelative:src\\blogifier\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30113938-1040-459A-A0B6-3663E9534C8B}|src\\Blogifier\\Blogifier.csproj|c:\\users\\admin\\documents\\github\\blogifier\\src\\blogifier\\api\\analyticscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30113938-1040-459A-A0B6-3663E9534C8B}|src\\Blogifier\\Blogifier.csproj|solutionrelative:src\\blogifier\\api\\analyticscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30113938-1040-459A-A0B6-3663E9534C8B}|src\\Blogifier\\Blogifier.csproj|c:\\users\\admin\\documents\\github\\blogifier\\src\\blogifier\\api\\postcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30113938-1040-459A-A0B6-3663E9534C8B}|src\\Blogifier\\Blogifier.csproj|solutionrelative:src\\blogifier\\api\\postcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30113938-1040-459A-A0B6-3663E9534C8B}|src\\Blogifier\\Blogifier.csproj|c:\\users\\admin\\documents\\github\\blogifier\\src\\blogifier\\extensions\\stringextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30113938-1040-459A-A0B6-3663E9534C8B}|src\\Blogifier\\Blogifier.csproj|solutionrelative:src\\blogifier\\extensions\\stringextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30113938-1040-459A-A0B6-3663E9534C8B}|src\\Blogifier\\Blogifier.csproj|c:\\users\\admin\\documents\\github\\blogifier\\src\\blogifier\\extensions\\principalextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30113938-1040-459A-A0B6-3663E9534C8B}|src\\Blogifier\\Blogifier.csproj|solutionrelative:src\\blogifier\\extensions\\principalextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30113938-1040-459A-A0B6-3663E9534C8B}|src\\Blogifier\\Blogifier.csproj|c:\\users\\admin\\documents\\github\\blogifier\\src\\blogifier\\core\\data\\sqlitedbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30113938-1040-459A-A0B6-3663E9534C8B}|src\\Blogifier\\Blogifier.csproj|solutionrelative:src\\blogifier\\core\\data\\sqlitedbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30113938-1040-459A-A0B6-3663E9534C8B}|src\\Blogifier\\Blogifier.csproj|c:\\users\\admin\\documents\\github\\blogifier\\src\\blogifier\\core\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30113938-1040-459A-A0B6-3663E9534C8B}|src\\Blogifier\\Blogifier.csproj|solutionrelative:src\\blogifier\\core\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30113938-1040-459A-A0B6-3663E9534C8B}|src\\Blogifier\\Blogifier.csproj|c:\\users\\admin\\documents\\github\\blogifier\\src\\blogifier\\core\\identity\\userprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30113938-1040-459A-A0B6-3663E9534C8B}|src\\Blogifier\\Blogifier.csproj|solutionrelative:src\\blogifier\\core\\identity\\userprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30113938-1040-459A-A0B6-3663E9534C8B}|src\\Blogifier\\Blogifier.csproj|c:\\users\\admin\\documents\\github\\blogifier\\src\\blogifier\\core\\identity\\usermanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30113938-1040-459A-A0B6-3663E9534C8B}|src\\Blogifier\\Blogifier.csproj|solutionrelative:src\\blogifier\\core\\identity\\usermanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30113938-1040-459A-A0B6-3663E9534C8B}|src\\Blogifier\\Blogifier.csproj|c:\\users\\admin\\documents\\github\\blogifier\\src\\blogifier\\core\\identity\\signinmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30113938-1040-459A-A0B6-3663E9534C8B}|src\\Blogifier\\Blogifier.csproj|solutionrelative:src\\blogifier\\core\\identity\\signinmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30113938-1040-459A-A0B6-3663E9534C8B}|src\\Blogifier\\Blogifier.csproj|c:\\users\\admin\\documents\\github\\blogifier\\src\\blogifier\\core\\identity\\identityextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30113938-1040-459A-A0B6-3663E9534C8B}|src\\Blogifier\\Blogifier.csproj|solutionrelative:src\\blogifier\\core\\identity\\identityextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30113938-1040-459A-A0B6-3663E9534C8B}|src\\Blogifier\\Blogifier.csproj|c:\\users\\admin\\documents\\github\\blogifier\\src\\blogifier\\profiles\\mailsettingprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30113938-1040-459A-A0B6-3663E9534C8B}|src\\Blogifier\\Blogifier.csproj|solutionrelative:src\\blogifier\\profiles\\mailsettingprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30113938-1040-459A-A0B6-3663E9534C8B}|src\\Blogifier\\Blogifier.csproj|c:\\users\\admin\\documents\\github\\blogifier\\src\\blogifier\\profiles\\categoryprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30113938-1040-459A-A0B6-3663E9534C8B}|src\\Blogifier\\Blogifier.csproj|solutionrelative:src\\blogifier\\profiles\\categoryprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30113938-1040-459A-A0B6-3663E9534C8B}|src\\Blogifier\\Blogifier.csproj|c:\\users\\admin\\documents\\github\\blogifier\\src\\blogifier\\profiles\\blogprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30113938-1040-459A-A0B6-3663E9534C8B}|src\\Blogifier\\Blogifier.csproj|solutionrelative:src\\blogifier\\profiles\\blogprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30113938-1040-459A-A0B6-3663E9534C8B}|src\\Blogifier\\Blogifier.csproj|c:\\users\\admin\\documents\\github\\blogifier\\src\\blogifier\\core\\options\\optionprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30113938-1040-459A-A0B6-3663E9534C8B}|src\\Blogifier\\Blogifier.csproj|solutionrelative:src\\blogifier\\core\\options\\optionprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30113938-1040-459A-A0B6-3663E9534C8B}|src\\Blogifier\\Blogifier.csproj|c:\\users\\admin\\documents\\github\\blogifier\\src\\blogifier\\core\\options\\optioninfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30113938-1040-459A-A0B6-3663E9534C8B}|src\\Blogifier\\Blogifier.csproj|solutionrelative:src\\blogifier\\core\\options\\optioninfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30113938-1040-459A-A0B6-3663E9534C8B}|src\\Blogifier\\Blogifier.csproj|c:\\users\\admin\\documents\\github\\blogifier\\src\\blogifier\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{30113938-1040-459A-A0B6-3663E9534C8B}|src\\Blogifier\\Blogifier.csproj|solutionrelative:src\\blogifier\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ABD5820B-6A81-42C3-89C7-B324329345C8}|src\\Blogifier.Admin\\Blogifier.Admin.csproj|c:\\users\\admin\\documents\\github\\blogifier\\src\\blogifier.admin\\components\\posteditorcomponent.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{ABD5820B-6A81-42C3-89C7-B324329345C8}|src\\Blogifier.Admin\\Blogifier.Admin.csproj|solutionrelative:src\\blogifier.admin\\components\\posteditorcomponent.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ABD5820B-6A81-42C3-89C7-B324329345C8}|src\\Blogifier.Admin\\Blogifier.Admin.csproj|c:\\users\\admin\\documents\\github\\blogifier\\src\\blogifier.admin\\components\\categoriescomponent.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{ABD5820B-6A81-42C3-89C7-B324329345C8}|src\\Blogifier.Admin\\Blogifier.Admin.csproj|solutionrelative:src\\blogifier.admin\\components\\categoriescomponent.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30113938-1040-459A-A0B6-3663E9534C8B}|src\\Blogifier\\Blogifier.csproj|c:\\users\\admin\\documents\\github\\blogifier\\src\\blogifier\\api\\tokencontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30113938-1040-459A-A0B6-3663E9534C8B}|src\\Blogifier\\Blogifier.csproj|solutionrelative:src\\blogifier\\api\\tokencontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ABD5820B-6A81-42C3-89C7-B324329345C8}|src\\Blogifier.Admin\\Blogifier.Admin.csproj|c:\\users\\admin\\documents\\github\\blogifier\\src\\blogifier.admin\\blogauthstateprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ABD5820B-6A81-42C3-89C7-B324329345C8}|src\\Blogifier.Admin\\Blogifier.Admin.csproj|solutionrelative:src\\blogifier.admin\\blogauthstateprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A0173B1A-FDC9-4E48-94E1-21D6C0B19257}|src\\Blogifier.Shared\\Blogifier.Shared.csproj|c:\\users\\admin\\documents\\github\\blogifier\\src\\blogifier.shared\\blogifiersharedconstant.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A0173B1A-FDC9-4E48-94E1-21D6C0B19257}|src\\Blogifier.Shared\\Blogifier.Shared.csproj|solutionrelative:src\\blogifier.shared\\blogifiersharedconstant.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30113938-1040-459A-A0B6-3663E9534C8B}|src\\Blogifier\\Blogifier.csproj|c:\\users\\admin\\documents\\github\\blogifier\\src\\blogifier\\api\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30113938-1040-459A-A0B6-3663E9534C8B}|src\\Blogifier\\Blogifier.csproj|solutionrelative:src\\blogifier\\api\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ABD5820B-6A81-42C3-89C7-B324329345C8}|src\\Blogifier.Admin\\Blogifier.Admin.csproj|c:\\users\\admin\\documents\\github\\blogifier\\src\\blogifier.admin\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ABD5820B-6A81-42C3-89C7-B324329345C8}|src\\Blogifier.Admin\\Blogifier.Admin.csproj|solutionrelative:src\\blogifier.admin\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30113938-1040-459A-A0B6-3663E9534C8B}|src\\Blogifier\\Blogifier.csproj|c:\\users\\admin\\documents\\github\\blogifier\\src\\blogifier\\core\\identity\\userclaimsprincipalfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30113938-1040-459A-A0B6-3663E9534C8B}|src\\Blogifier\\Blogifier.csproj|solutionrelative:src\\blogifier\\core\\identity\\userclaimsprincipalfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ABD5820B-6A81-42C3-89C7-B324329345C8}|src\\Blogifier.Admin\\Blogifier.Admin.csproj|c:\\users\\admin\\documents\\github\\blogifier\\src\\blogifier.admin\\components\\navmenucomponent.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{ABD5820B-6A81-42C3-89C7-B324329345C8}|src\\Blogifier.Admin\\Blogifier.Admin.csproj|solutionrelative:src\\blogifier.admin\\components\\navmenucomponent.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ABD5820B-6A81-42C3-89C7-B324329345C8}|src\\Blogifier.Admin\\Blogifier.Admin.csproj|c:\\users\\admin\\documents\\github\\blogifier\\src\\blogifier.admin\\shared\\blogslayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{ABD5820B-6A81-42C3-89C7-B324329345C8}|src\\Blogifier.Admin\\Blogifier.Admin.csproj|solutionrelative:src\\blogifier.admin\\shared\\blogslayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30113938-1040-459A-A0B6-3663E9534C8B}|src\\Blogifier\\Blogifier.csproj|c:\\users\\admin\\documents\\github\\blogifier\\src\\blogifier\\core\\posts\\postsearch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30113938-1040-459A-A0B6-3663E9534C8B}|src\\Blogifier\\Blogifier.csproj|solutionrelative:src\\blogifier\\core\\posts\\postsearch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30113938-1040-459A-A0B6-3663E9534C8B}|src\\Blogifier\\Blogifier.csproj|c:\\users\\admin\\documents\\github\\blogifier\\src\\blogifier\\core\\posts\\reverseprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30113938-1040-459A-A0B6-3663E9534C8B}|src\\Blogifier\\Blogifier.csproj|solutionrelative:src\\blogifier\\core\\posts\\reverseprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30113938-1040-459A-A0B6-3663E9534C8B}|src\\Blogifier\\Blogifier.csproj|c:\\users\\admin\\documents\\github\\blogifier\\src\\blogifier\\profiles\\newsletterprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30113938-1040-459A-A0B6-3663E9534C8B}|src\\Blogifier\\Blogifier.csproj|solutionrelative:src\\blogifier\\profiles\\newsletterprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30113938-1040-459A-A0B6-3663E9534C8B}|src\\Blogifier\\Blogifier.csproj|c:\\users\\admin\\documents\\github\\blogifier\\src\\blogifier\\profiles\\postprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30113938-1040-459A-A0B6-3663E9534C8B}|src\\Blogifier\\Blogifier.csproj|solutionrelative:src\\blogifier\\profiles\\postprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30113938-1040-459A-A0B6-3663E9534C8B}|src\\Blogifier\\Blogifier.csproj|c:\\users\\admin\\documents\\github\\blogifier\\src\\blogifier\\profiles\\subscriberprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30113938-1040-459A-A0B6-3663E9534C8B}|src\\Blogifier\\Blogifier.csproj|solutionrelative:src\\blogifier\\profiles\\subscriberprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30113938-1040-459A-A0B6-3663E9534C8B}|src\\Blogifier\\Blogifier.csproj|c:\\users\\admin\\documents\\github\\blogifier\\src\\blogifier\\profiles\\userprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30113938-1040-459A-A0B6-3663E9534C8B}|src\\Blogifier\\Blogifier.csproj|solutionrelative:src\\blogifier\\profiles\\userprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30113938-1040-459A-A0B6-3663E9534C8B}|src\\Blogifier\\Blogifier.csproj|c:\\users\\admin\\documents\\github\\blogifier\\src\\blogifier\\core\\posts\\postmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30113938-1040-459A-A0B6-3663E9534C8B}|src\\Blogifier\\Blogifier.csproj|solutionrelative:src\\blogifier\\core\\posts\\postmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30113938-1040-459A-A0B6-3663E9534C8B}|src\\Blogifier\\Blogifier.csproj|c:\\users\\admin\\documents\\github\\blogifier\\src\\blogifier\\core\\posts\\postcategory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30113938-1040-459A-A0B6-3663E9534C8B}|src\\Blogifier\\Blogifier.csproj|solutionrelative:src\\blogifier\\core\\posts\\postcategory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30113938-1040-459A-A0B6-3663E9534C8B}|src\\Blogifier\\Blogifier.csproj|c:\\users\\admin\\documents\\github\\blogifier\\src\\blogifier\\core\\posts\\post.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30113938-1040-459A-A0B6-3663E9534C8B}|src\\Blogifier\\Blogifier.csproj|solutionrelative:src\\blogifier\\core\\posts\\post.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30113938-1040-459A-A0B6-3663E9534C8B}|src\\Blogifier\\Blogifier.csproj|c:\\users\\admin\\documents\\github\\blogifier\\src\\blogifier\\core\\identity\\userinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30113938-1040-459A-A0B6-3663E9534C8B}|src\\Blogifier\\Blogifier.csproj|solutionrelative:src\\blogifier\\core\\identity\\userinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30113938-1040-459A-A0B6-3663E9534C8B}|src\\Blogifier\\Blogifier.csproj|c:\\users\\admin\\documents\\github\\blogifier\\src\\blogifier\\core\\data\\sqlserverdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30113938-1040-459A-A0B6-3663E9534C8B}|src\\Blogifier\\Blogifier.csproj|solutionrelative:src\\blogifier\\core\\data\\sqlserverdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30113938-1040-459A-A0B6-3663E9534C8B}|src\\Blogifier\\Blogifier.csproj|c:\\users\\admin\\documents\\github\\blogifier\\src\\blogifier\\api\\importcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30113938-1040-459A-A0B6-3663E9534C8B}|src\\Blogifier\\Blogifier.csproj|solutionrelative:src\\blogifier\\api\\importcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30113938-1040-459A-A0B6-3663E9534C8B}|src\\Blogifier\\Blogifier.csproj|c:\\users\\admin\\documents\\github\\blogifier\\src\\blogifier\\api\\categorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30113938-1040-459A-A0B6-3663E9534C8B}|src\\Blogifier\\Blogifier.csproj|solutionrelative:src\\blogifier\\api\\categorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30113938-1040-459A-A0B6-3663E9534C8B}|src\\Blogifier\\Blogifier.csproj|c:\\users\\admin\\documents\\github\\blogifier\\src\\blogifier\\core\\data\\appdbcontextextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30113938-1040-459A-A0B6-3663E9534C8B}|src\\Blogifier\\Blogifier.csproj|solutionrelative:src\\blogifier\\core\\data\\appdbcontextextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ABD5820B-6A81-42C3-89C7-B324329345C8}|src\\Blogifier.Admin\\Blogifier.Admin.csproj|c:\\users\\admin\\documents\\github\\blogifier\\src\\blogifier.admin\\pages\\homeview.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{ABD5820B-6A81-42C3-89C7-B324329345C8}|src\\Blogifier.Admin\\Blogifier.Admin.csproj|solutionrelative:src\\blogifier.admin\\pages\\homeview.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ABD5820B-6A81-42C3-89C7-B324329345C8}|src\\Blogifier.Admin\\Blogifier.Admin.csproj|c:\\users\\admin\\documents\\github\\blogifier\\src\\blogifier.admin\\wwwroot\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{ABD5820B-6A81-42C3-89C7-B324329345C8}|src\\Blogifier.Admin\\Blogifier.Admin.csproj|solutionrelative:src\\blogifier.admin\\wwwroot\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30113938-1040-459A-A0B6-3663E9534C8B}|src\\Blogifier\\Blogifier.csproj|c:\\users\\admin\\documents\\github\\blogifier\\src\\blogifier\\core\\data\\migrations\\sqlserver\\20250617172933_addfullidentityschema.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30113938-1040-459A-A0B6-3663E9534C8B}|src\\Blogifier\\Blogifier.csproj|solutionrelative:src\\blogifier\\core\\data\\migrations\\sqlserver\\20250617172933_addfullidentityschema.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30113938-1040-459A-A0B6-3663E9534C8B}|src\\Blogifier\\Blogifier.csproj|c:\\users\\admin\\documents\\github\\blogifier\\src\\blogifier\\app_data\\logs\\orchard-log20250618.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{30113938-1040-459A-A0B6-3663E9534C8B}|src\\Blogifier\\Blogifier.csproj|solutionrelative:src\\blogifier\\app_data\\logs\\orchard-log20250618.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "PostProvider.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\Github\\Blogifier\\src\\Blogifier\\Core\\Posts\\PostProvider.cs",
+              "RelativeDocumentMoniker": "src\\Blogifier\\Core\\Posts\\PostProvider.cs",
+              "ToolTip": "C:\\Users\\Admin\\Documents\\Github\\Blogifier\\src\\Blogifier\\Core\\Posts\\PostProvider.cs",
+              "RelativeToolTip": "src\\Blogifier\\Core\\Posts\\PostProvider.cs",
+              "ViewState": "AgIAAC8BAAAAAAAAAAAowDYBAABEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-18T16:03:51.838Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "MainMamager.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\Github\\Blogifier\\src\\Blogifier\\Core\\Blogs\\MainMamager.cs",
+              "RelativeDocumentMoniker": "src\\Blogifier\\Core\\Blogs\\MainMamager.cs",
+              "ToolTip": "C:\\Users\\Admin\\Documents\\Github\\Blogifier\\src\\Blogifier\\Core\\Blogs\\MainMamager.cs",
+              "RelativeToolTip": "src\\Blogifier\\Core\\Blogs\\MainMamager.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-18T16:01:32.879Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "BlogNotIitializeException.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\Github\\Blogifier\\src\\Blogifier\\Core\\Blogs\\BlogNotIitializeException.cs",
+              "RelativeDocumentMoniker": "src\\Blogifier\\Core\\Blogs\\BlogNotIitializeException.cs",
+              "ToolTip": "C:\\Users\\Admin\\Documents\\Github\\Blogifier\\src\\Blogifier\\Core\\Blogs\\BlogNotIitializeException.cs",
+              "RelativeToolTip": "src\\Blogifier\\Core\\Blogs\\BlogNotIitializeException.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-18T16:01:30.607Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "AnalyticsProvider.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\Github\\Blogifier\\src\\Blogifier\\Core\\Blogs\\AnalyticsProvider.cs",
+              "RelativeDocumentMoniker": "src\\Blogifier\\Core\\Blogs\\AnalyticsProvider.cs",
+              "ToolTip": "C:\\Users\\Admin\\Documents\\Github\\Blogifier\\src\\Blogifier\\Core\\Blogs\\AnalyticsProvider.cs",
+              "RelativeToolTip": "src\\Blogifier\\Core\\Blogs\\AnalyticsProvider.cs",
+              "ViewState": "AgIAABsAAAAAAAAAAAAYwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-18T16:01:17.881Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\Github\\Blogifier\\src\\Blogifier\\Program.cs",
+              "RelativeDocumentMoniker": "src\\Blogifier\\Program.cs",
+              "ToolTip": "C:\\Users\\Admin\\Documents\\Github\\Blogifier\\src\\Blogifier\\Program.cs",
+              "RelativeToolTip": "src\\Blogifier\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-17T17:22:20.399Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "BlogManager.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\Github\\Blogifier\\src\\Blogifier\\Core\\Blogs\\BlogManager.cs",
+              "RelativeDocumentMoniker": "src\\Blogifier\\Core\\Blogs\\BlogManager.cs",
+              "ToolTip": "C:\\Users\\Admin\\Documents\\Github\\Blogifier\\src\\Blogifier\\Core\\Blogs\\BlogManager.cs",
+              "RelativeToolTip": "src\\Blogifier\\Core\\Blogs\\BlogManager.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAxwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-17T17:33:24.31Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ErrorController.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\Github\\Blogifier\\src\\Blogifier\\Controllers\\ErrorController.cs",
+              "RelativeDocumentMoniker": "src\\Blogifier\\Controllers\\ErrorController.cs",
+              "ToolTip": "C:\\Users\\Admin\\Documents\\Github\\Blogifier\\src\\Blogifier\\Controllers\\ErrorController.cs",
+              "RelativeToolTip": "src\\Blogifier\\Controllers\\ErrorController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-18T16:00:42.345Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "CategoryController.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\Github\\Blogifier\\src\\Blogifier\\Controllers\\CategoryController.cs",
+              "RelativeDocumentMoniker": "src\\Blogifier\\Controllers\\CategoryController.cs",
+              "ToolTip": "C:\\Users\\Admin\\Documents\\Github\\Blogifier\\src\\Blogifier\\Controllers\\CategoryController.cs",
+              "RelativeToolTip": "src\\Blogifier\\Controllers\\CategoryController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-18T16:00:40.663Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "AdminController.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\Github\\Blogifier\\src\\Blogifier\\Controllers\\AdminController.cs",
+              "RelativeDocumentMoniker": "src\\Blogifier\\Controllers\\AdminController.cs",
+              "ToolTip": "C:\\Users\\Admin\\Documents\\Github\\Blogifier\\src\\Blogifier\\Controllers\\AdminController.cs",
+              "RelativeToolTip": "src\\Blogifier\\Controllers\\AdminController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-18T16:00:37.522Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "StringExtensions.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\Github\\Blogifier\\src\\Blogifier\\Extensions\\StringExtensions.cs",
+              "RelativeDocumentMoniker": "src\\Blogifier\\Extensions\\StringExtensions.cs",
+              "ToolTip": "C:\\Users\\Admin\\Documents\\Github\\Blogifier\\src\\Blogifier\\Extensions\\StringExtensions.cs",
+              "RelativeToolTip": "src\\Blogifier\\Extensions\\StringExtensions.cs",
+              "ViewState": "AgIAAFgAAAAAAAAAAAAwwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-18T15:59:14.099Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "BlogData.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\Github\\Blogifier\\src\\Blogifier\\Core\\Blogs\\BlogData.cs",
+              "RelativeDocumentMoniker": "src\\Blogifier\\Core\\Blogs\\BlogData.cs",
+              "ToolTip": "C:\\Users\\Admin\\Documents\\Github\\Blogifier\\src\\Blogifier\\Core\\Blogs\\BlogData.cs",
+              "RelativeToolTip": "src\\Blogifier\\Core\\Blogs\\BlogData.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-17T17:33:23.32Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "PrincipalExtensions.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\Github\\Blogifier\\src\\Blogifier\\Extensions\\PrincipalExtensions.cs",
+              "RelativeDocumentMoniker": "src\\Blogifier\\Extensions\\PrincipalExtensions.cs",
+              "ToolTip": "C:\\Users\\Admin\\Documents\\Github\\Blogifier\\src\\Blogifier\\Extensions\\PrincipalExtensions.cs",
+              "RelativeToolTip": "src\\Blogifier\\Extensions\\PrincipalExtensions.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-18T15:59:13.138Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "PostController.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\Github\\Blogifier\\src\\Blogifier\\API\\PostController.cs",
+              "RelativeDocumentMoniker": "src\\Blogifier\\API\\PostController.cs",
+              "ToolTip": "C:\\Users\\Admin\\Documents\\Github\\Blogifier\\src\\Blogifier\\API\\PostController.cs",
+              "RelativeToolTip": "src\\Blogifier\\API\\PostController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-17T17:24:28.952Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "AnalyticsController.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\Github\\Blogifier\\src\\Blogifier\\API\\AnalyticsController.cs",
+              "RelativeDocumentMoniker": "src\\Blogifier\\API\\AnalyticsController.cs",
+              "ToolTip": "C:\\Users\\Admin\\Documents\\Github\\Blogifier\\src\\Blogifier\\API\\AnalyticsController.cs",
+              "RelativeToolTip": "src\\Blogifier\\API\\AnalyticsController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-17T17:23:45.639Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "AccountController.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\Github\\Blogifier\\src\\Blogifier\\Controllers\\AccountController.cs",
+              "RelativeDocumentMoniker": "src\\Blogifier\\Controllers\\AccountController.cs",
+              "ToolTip": "C:\\Users\\Admin\\Documents\\Github\\Blogifier\\src\\Blogifier\\Controllers\\AccountController.cs",
+              "RelativeToolTip": "src\\Blogifier\\Controllers\\AccountController.cs",
+              "ViewState": "AgIAABQAAAAAAAAAAAAAwB0AAABMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-17T17:33:13.121Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "SqliteDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\Github\\Blogifier\\src\\Blogifier\\Core\\Data\\SqliteDbContext.cs",
+              "RelativeDocumentMoniker": "src\\Blogifier\\Core\\Data\\SqliteDbContext.cs",
+              "ToolTip": "C:\\Users\\Admin\\Documents\\Github\\Blogifier\\src\\Blogifier\\Core\\Data\\SqliteDbContext.cs",
+              "RelativeToolTip": "src\\Blogifier\\Core\\Data\\SqliteDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-18T15:58:34.261Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "SignInManager.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\Github\\Blogifier\\src\\Blogifier\\Core\\Identity\\SignInManager.cs",
+              "RelativeDocumentMoniker": "src\\Blogifier\\Core\\Identity\\SignInManager.cs",
+              "ToolTip": "C:\\Users\\Admin\\Documents\\Github\\Blogifier\\src\\Blogifier\\Core\\Identity\\SignInManager.cs",
+              "RelativeToolTip": "src\\Blogifier\\Core\\Identity\\SignInManager.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-17T17:31:36.743Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "IdentityExtensions.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\Github\\Blogifier\\src\\Blogifier\\Core\\Identity\\IdentityExtensions.cs",
+              "RelativeDocumentMoniker": "src\\Blogifier\\Core\\Identity\\IdentityExtensions.cs",
+              "ToolTip": "C:\\Users\\Admin\\Documents\\Github\\Blogifier\\src\\Blogifier\\Core\\Identity\\IdentityExtensions.cs",
+              "RelativeToolTip": "src\\Blogifier\\Core\\Identity\\IdentityExtensions.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAxwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-17T17:31:28.496Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "UserManager.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\Github\\Blogifier\\src\\Blogifier\\Core\\Identity\\UserManager.cs",
+              "RelativeDocumentMoniker": "src\\Blogifier\\Core\\Identity\\UserManager.cs",
+              "ToolTip": "C:\\Users\\Admin\\Documents\\Github\\Blogifier\\src\\Blogifier\\Core\\Identity\\UserManager.cs",
+              "RelativeToolTip": "src\\Blogifier\\Core\\Identity\\UserManager.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-17T17:31:44.722Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "UserProvider.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\Github\\Blogifier\\src\\Blogifier\\Core\\Identity\\UserProvider.cs",
+              "RelativeDocumentMoniker": "src\\Blogifier\\Core\\Identity\\UserProvider.cs",
+              "ToolTip": "C:\\Users\\Admin\\Documents\\Github\\Blogifier\\src\\Blogifier\\Core\\Identity\\UserProvider.cs",
+              "RelativeToolTip": "src\\Blogifier\\Core\\Identity\\UserProvider.cs",
+              "ViewState": "AgIAABsAAAAAAAAAAAAYwBQAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-17T17:31:47.482Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "AppDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\Github\\Blogifier\\src\\Blogifier\\Core\\Data\\AppDbContext.cs",
+              "RelativeDocumentMoniker": "src\\Blogifier\\Core\\Data\\AppDbContext.cs",
+              "ToolTip": "C:\\Users\\Admin\\Documents\\Github\\Blogifier\\src\\Blogifier\\Core\\Data\\AppDbContext.cs",
+              "RelativeToolTip": "src\\Blogifier\\Core\\Data\\AppDbContext.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAA1wAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-17T17:22:17.255Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "MailSettingProfile.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\Github\\Blogifier\\src\\Blogifier\\Profiles\\MailSettingProfile.cs",
+              "RelativeDocumentMoniker": "src\\Blogifier\\Profiles\\MailSettingProfile.cs",
+              "ToolTip": "C:\\Users\\Admin\\Documents\\Github\\Blogifier\\src\\Blogifier\\Profiles\\MailSettingProfile.cs",
+              "RelativeToolTip": "src\\Blogifier\\Profiles\\MailSettingProfile.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-17T17:32:57.632Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "CategoryProfile.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\Github\\Blogifier\\src\\Blogifier\\Profiles\\CategoryProfile.cs",
+              "RelativeDocumentMoniker": "src\\Blogifier\\Profiles\\CategoryProfile.cs",
+              "ToolTip": "C:\\Users\\Admin\\Documents\\Github\\Blogifier\\src\\Blogifier\\Profiles\\CategoryProfile.cs",
+              "RelativeToolTip": "src\\Blogifier\\Profiles\\CategoryProfile.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-17T17:32:58.292Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "BlogProfile.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\Github\\Blogifier\\src\\Blogifier\\Profiles\\BlogProfile.cs",
+              "RelativeDocumentMoniker": "src\\Blogifier\\Profiles\\BlogProfile.cs",
+              "ToolTip": "C:\\Users\\Admin\\Documents\\Github\\Blogifier\\src\\Blogifier\\Profiles\\BlogProfile.cs",
+              "RelativeToolTip": "src\\Blogifier\\Profiles\\BlogProfile.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-17T17:32:59.063Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "OptionProvider.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\Github\\Blogifier\\src\\Blogifier\\Core\\Options\\OptionProvider.cs",
+              "RelativeDocumentMoniker": "src\\Blogifier\\Core\\Options\\OptionProvider.cs",
+              "ToolTip": "C:\\Users\\Admin\\Documents\\Github\\Blogifier\\src\\Blogifier\\Core\\Options\\OptionProvider.cs",
+              "RelativeToolTip": "src\\Blogifier\\Core\\Options\\OptionProvider.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-18T15:50:24.079Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "OptionInfo.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\Github\\Blogifier\\src\\Blogifier\\Core\\Options\\OptionInfo.cs",
+              "RelativeDocumentMoniker": "src\\Blogifier\\Core\\Options\\OptionInfo.cs",
+              "ToolTip": "C:\\Users\\Admin\\Documents\\Github\\Blogifier\\src\\Blogifier\\Core\\Options\\OptionInfo.cs",
+              "RelativeToolTip": "src\\Blogifier\\Core\\Options\\OptionInfo.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-18T15:50:20.25Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "PostEditorComponent.razor",
+              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\Github\\Blogifier\\src\\Blogifier.Admin\\Components\\PostEditorComponent.razor",
+              "RelativeDocumentMoniker": "src\\Blogifier.Admin\\Components\\PostEditorComponent.razor",
+              "ToolTip": "C:\\Users\\Admin\\Documents\\Github\\Blogifier\\src\\Blogifier.Admin\\Components\\PostEditorComponent.razor",
+              "RelativeToolTip": "src\\Blogifier.Admin\\Components\\PostEditorComponent.razor",
+              "ViewState": "AgIAAKUAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-18T13:57:49.421Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "UserController.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\Github\\Blogifier\\src\\Blogifier\\API\\UserController.cs",
+              "RelativeDocumentMoniker": "src\\Blogifier\\API\\UserController.cs",
+              "ToolTip": "C:\\Users\\Admin\\Documents\\Github\\Blogifier\\src\\Blogifier\\API\\UserController.cs",
+              "RelativeToolTip": "src\\Blogifier\\API\\UserController.cs",
+              "ViewState": "AgIAACwAAAAAAAAAAAAgwAsAAABAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-17T17:23:18.423Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 54,
+              "Title": "orchard-log20250618.txt",
+              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\Github\\Blogifier\\src\\Blogifier\\App_Data\\logs\\orchard-log20250618.txt",
+              "RelativeDocumentMoniker": "src\\Blogifier\\App_Data\\logs\\orchard-log20250618.txt",
+              "ToolTip": "C:\\Users\\Admin\\Documents\\Github\\Blogifier\\src\\Blogifier\\App_Data\\logs\\orchard-log20250618.txt",
+              "RelativeToolTip": "src\\Blogifier\\App_Data\\logs\\orchard-log20250618.txt",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2025-06-17T18:14:30.057Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\Github\\Blogifier\\src\\Blogifier\\appsettings.json",
+              "RelativeDocumentMoniker": "src\\Blogifier\\appsettings.json",
+              "ToolTip": "C:\\Users\\Admin\\Documents\\Github\\Blogifier\\src\\Blogifier\\appsettings.json",
+              "RelativeToolTip": "src\\Blogifier\\appsettings.json",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAA0AAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-06-17T17:31:04.073Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "CategoriesComponent.razor",
+              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\Github\\Blogifier\\src\\Blogifier.Admin\\Components\\CategoriesComponent.razor",
+              "RelativeDocumentMoniker": "src\\Blogifier.Admin\\Components\\CategoriesComponent.razor",
+              "ToolTip": "C:\\Users\\Admin\\Documents\\Github\\Blogifier\\src\\Blogifier.Admin\\Components\\CategoriesComponent.razor",
+              "RelativeToolTip": "src\\Blogifier.Admin\\Components\\CategoriesComponent.razor",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAAAAAAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-18T13:56:25.363Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "BlogAuthStateProvider.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\Github\\Blogifier\\src\\Blogifier.Admin\\BlogAuthStateProvider.cs",
+              "RelativeDocumentMoniker": "src\\Blogifier.Admin\\BlogAuthStateProvider.cs",
+              "ToolTip": "C:\\Users\\Admin\\Documents\\Github\\Blogifier\\src\\Blogifier.Admin\\BlogAuthStateProvider.cs",
+              "RelativeToolTip": "src\\Blogifier.Admin\\BlogAuthStateProvider.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAswBgAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-17T17:31:58.974Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "TokenController.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\Github\\Blogifier\\src\\Blogifier\\API\\TokenController.cs",
+              "RelativeDocumentMoniker": "src\\Blogifier\\API\\TokenController.cs",
+              "ToolTip": "C:\\Users\\Admin\\Documents\\Github\\Blogifier\\src\\Blogifier\\API\\TokenController.cs",
+              "RelativeToolTip": "src\\Blogifier\\API\\TokenController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAA4AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-17T17:23:48.471Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "BlogifierSharedConstant.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\Github\\Blogifier\\src\\Blogifier.Shared\\BlogifierSharedConstant.cs",
+              "RelativeDocumentMoniker": "src\\Blogifier.Shared\\BlogifierSharedConstant.cs",
+              "ToolTip": "C:\\Users\\Admin\\Documents\\Github\\Blogifier\\src\\Blogifier.Shared\\BlogifierSharedConstant.cs",
+              "RelativeToolTip": "src\\Blogifier.Shared\\BlogifierSharedConstant.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-17T17:34:07.805Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\Github\\Blogifier\\src\\Blogifier.Admin\\Program.cs",
+              "RelativeDocumentMoniker": "src\\Blogifier.Admin\\Program.cs",
+              "ToolTip": "C:\\Users\\Admin\\Documents\\Github\\Blogifier\\src\\Blogifier.Admin\\Program.cs",
+              "RelativeToolTip": "src\\Blogifier.Admin\\Program.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAIBJwCQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-17T17:32:07.208Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "UserClaimsPrincipalFactory.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\Github\\Blogifier\\src\\Blogifier\\Core\\Identity\\UserClaimsPrincipalFactory.cs",
+              "RelativeDocumentMoniker": "src\\Blogifier\\Core\\Identity\\UserClaimsPrincipalFactory.cs",
+              "ToolTip": "C:\\Users\\Admin\\Documents\\Github\\Blogifier\\src\\Blogifier\\Core\\Identity\\UserClaimsPrincipalFactory.cs",
+              "RelativeToolTip": "src\\Blogifier\\Core\\Identity\\UserClaimsPrincipalFactory.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAA/AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-17T17:31:38.231Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "NavMenuComponent.razor",
+              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\Github\\Blogifier\\src\\Blogifier.Admin\\Components\\NavMenuComponent.razor",
+              "RelativeDocumentMoniker": "src\\Blogifier.Admin\\Components\\NavMenuComponent.razor",
+              "ToolTip": "C:\\Users\\Admin\\Documents\\Github\\Blogifier\\src\\Blogifier.Admin\\Components\\NavMenuComponent.razor",
+              "RelativeToolTip": "src\\Blogifier.Admin\\Components\\NavMenuComponent.razor",
+              "ViewState": "AgIAACUAAAAAAAAAAAAswDQAAABHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-17T17:44:23.865Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 36,
+              "Title": "BlogsLayout.razor",
+              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\Github\\Blogifier\\src\\Blogifier.Admin\\Shared\\BlogsLayout.razor",
+              "RelativeDocumentMoniker": "src\\Blogifier.Admin\\Shared\\BlogsLayout.razor",
+              "ToolTip": "C:\\Users\\Admin\\Documents\\Github\\Blogifier\\src\\Blogifier.Admin\\Shared\\BlogsLayout.razor",
+              "RelativeToolTip": "src\\Blogifier.Admin\\Shared\\BlogsLayout.razor",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAswB8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-17T17:42:30.664Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 37,
+              "Title": "PostSearch.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\Github\\Blogifier\\src\\Blogifier\\Core\\Posts\\PostSearch.cs",
+              "RelativeDocumentMoniker": "src\\Blogifier\\Core\\Posts\\PostSearch.cs",
+              "ToolTip": "C:\\Users\\Admin\\Documents\\Github\\Blogifier\\src\\Blogifier\\Core\\Posts\\PostSearch.cs",
+              "RelativeToolTip": "src\\Blogifier\\Core\\Posts\\PostSearch.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-17T17:33:03.76Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 38,
+              "Title": "ReverseProvider.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\Github\\Blogifier\\src\\Blogifier\\Core\\Posts\\ReverseProvider.cs",
+              "RelativeDocumentMoniker": "src\\Blogifier\\Core\\Posts\\ReverseProvider.cs",
+              "ToolTip": "C:\\Users\\Admin\\Documents\\Github\\Blogifier\\src\\Blogifier\\Core\\Posts\\ReverseProvider.cs",
+              "RelativeToolTip": "src\\Blogifier\\Core\\Posts\\ReverseProvider.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-17T17:33:01.51Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 39,
+              "Title": "NewsletterProfile.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\Github\\Blogifier\\src\\Blogifier\\Profiles\\NewsletterProfile.cs",
+              "RelativeDocumentMoniker": "src\\Blogifier\\Profiles\\NewsletterProfile.cs",
+              "ToolTip": "C:\\Users\\Admin\\Documents\\Github\\Blogifier\\src\\Blogifier\\Profiles\\NewsletterProfile.cs",
+              "RelativeToolTip": "src\\Blogifier\\Profiles\\NewsletterProfile.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-17T17:32:56.845Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 40,
+              "Title": "PostProfile.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\Github\\Blogifier\\src\\Blogifier\\Profiles\\PostProfile.cs",
+              "RelativeDocumentMoniker": "src\\Blogifier\\Profiles\\PostProfile.cs",
+              "ToolTip": "C:\\Users\\Admin\\Documents\\Github\\Blogifier\\src\\Blogifier\\Profiles\\PostProfile.cs",
+              "RelativeToolTip": "src\\Blogifier\\Profiles\\PostProfile.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-17T17:32:53.736Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 41,
+              "Title": "SubscriberProfile.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\Github\\Blogifier\\src\\Blogifier\\Profiles\\SubscriberProfile.cs",
+              "RelativeDocumentMoniker": "src\\Blogifier\\Profiles\\SubscriberProfile.cs",
+              "ToolTip": "C:\\Users\\Admin\\Documents\\Github\\Blogifier\\src\\Blogifier\\Profiles\\SubscriberProfile.cs",
+              "RelativeToolTip": "src\\Blogifier\\Profiles\\SubscriberProfile.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-17T17:32:52.076Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 42,
+              "Title": "UserProfile.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\Github\\Blogifier\\src\\Blogifier\\Profiles\\UserProfile.cs",
+              "RelativeDocumentMoniker": "src\\Blogifier\\Profiles\\UserProfile.cs",
+              "ToolTip": "C:\\Users\\Admin\\Documents\\Github\\Blogifier\\src\\Blogifier\\Profiles\\UserProfile.cs",
+              "RelativeToolTip": "src\\Blogifier\\Profiles\\UserProfile.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-17T17:32:44.472Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 43,
+              "Title": "PostManager.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\Github\\Blogifier\\src\\Blogifier\\Core\\Posts\\PostManager.cs",
+              "RelativeDocumentMoniker": "src\\Blogifier\\Core\\Posts\\PostManager.cs",
+              "ToolTip": "C:\\Users\\Admin\\Documents\\Github\\Blogifier\\src\\Blogifier\\Core\\Posts\\PostManager.cs",
+              "RelativeToolTip": "src\\Blogifier\\Core\\Posts\\PostManager.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-17T17:32:42.495Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 44,
+              "Title": "PostCategory.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\Github\\Blogifier\\src\\Blogifier\\Core\\Posts\\PostCategory.cs",
+              "RelativeDocumentMoniker": "src\\Blogifier\\Core\\Posts\\PostCategory.cs",
+              "ToolTip": "C:\\Users\\Admin\\Documents\\Github\\Blogifier\\src\\Blogifier\\Core\\Posts\\PostCategory.cs",
+              "RelativeToolTip": "src\\Blogifier\\Core\\Posts\\PostCategory.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-17T17:32:40.524Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 45,
+              "Title": "Post.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\Github\\Blogifier\\src\\Blogifier\\Core\\Posts\\Post.cs",
+              "RelativeDocumentMoniker": "src\\Blogifier\\Core\\Posts\\Post.cs",
+              "ToolTip": "C:\\Users\\Admin\\Documents\\Github\\Blogifier\\src\\Blogifier\\Core\\Posts\\Post.cs",
+              "RelativeToolTip": "src\\Blogifier\\Core\\Posts\\Post.cs",
+              "ViewState": "AgIAABgAAAAAAAAAAAA9wAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-17T17:32:36.999Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 46,
+              "Title": "UserInfo.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\Github\\Blogifier\\src\\Blogifier\\Core\\Identity\\UserInfo.cs",
+              "RelativeDocumentMoniker": "src\\Blogifier\\Core\\Identity\\UserInfo.cs",
+              "ToolTip": "C:\\Users\\Admin\\Documents\\Github\\Blogifier\\src\\Blogifier\\Core\\Identity\\UserInfo.cs",
+              "RelativeToolTip": "src\\Blogifier\\Core\\Identity\\UserInfo.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAYwAoAAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-17T17:22:38.818Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 53,
+              "Title": "20250617172933_AddFullIdentitySchema.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\Github\\Blogifier\\src\\Blogifier\\Core\\Data\\Migrations\\SqlServer\\20250617172933_AddFullIdentitySchema.cs",
+              "RelativeDocumentMoniker": "src\\Blogifier\\Core\\Data\\Migrations\\SqlServer\\20250617172933_AddFullIdentitySchema.cs",
+              "ToolTip": "C:\\Users\\Admin\\Documents\\Github\\Blogifier\\src\\Blogifier\\Core\\Data\\Migrations\\SqlServer\\20250617172933_AddFullIdentitySchema.cs",
+              "RelativeToolTip": "src\\Blogifier\\Core\\Data\\Migrations\\SqlServer\\20250617172933_AddFullIdentitySchema.cs",
+              "ViewState": "AgIAAMwAAAAAAAAAAAAYwNEAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-17T17:29:34.197Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 48,
+              "Title": "ImportController.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\Github\\Blogifier\\src\\Blogifier\\API\\ImportController.cs",
+              "RelativeDocumentMoniker": "src\\Blogifier\\API\\ImportController.cs",
+              "ToolTip": "C:\\Users\\Admin\\Documents\\Github\\Blogifier\\src\\Blogifier\\API\\ImportController.cs",
+              "RelativeToolTip": "src\\Blogifier\\API\\ImportController.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAABhwAoAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-17T17:24:22.055Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 49,
+              "Title": "CategoryController.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\Github\\Blogifier\\src\\Blogifier\\API\\CategoryController.cs",
+              "RelativeDocumentMoniker": "src\\Blogifier\\API\\CategoryController.cs",
+              "ToolTip": "C:\\Users\\Admin\\Documents\\Github\\Blogifier\\src\\Blogifier\\API\\CategoryController.cs",
+              "RelativeToolTip": "src\\Blogifier\\API\\CategoryController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-17T17:24:20.539Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 47,
+              "Title": "SqlServerDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\Github\\Blogifier\\src\\Blogifier\\Core\\Data\\SqlServerDbContext.cs",
+              "RelativeDocumentMoniker": "src\\Blogifier\\Core\\Data\\SqlServerDbContext.cs",
+              "ToolTip": "C:\\Users\\Admin\\Documents\\Github\\Blogifier\\src\\Blogifier\\Core\\Data\\SqlServerDbContext.cs",
+              "RelativeToolTip": "src\\Blogifier\\Core\\Data\\SqlServerDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAIBJwA8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-17T17:17:57.116Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 50,
+              "Title": "AppDbContextExtensions.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\Github\\Blogifier\\src\\Blogifier\\Core\\Data\\AppDbContextExtensions.cs",
+              "RelativeDocumentMoniker": "src\\Blogifier\\Core\\Data\\AppDbContextExtensions.cs",
+              "ToolTip": "C:\\Users\\Admin\\Documents\\Github\\Blogifier\\src\\Blogifier\\Core\\Data\\AppDbContextExtensions.cs",
+              "RelativeToolTip": "src\\Blogifier\\Core\\Data\\AppDbContextExtensions.cs",
+              "ViewState": "AgIAADQAAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-17T17:18:03.755Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 51,
+              "Title": "HomeView.razor",
+              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\Github\\Blogifier\\src\\Blogifier.Admin\\Pages\\HomeView.razor",
+              "RelativeDocumentMoniker": "src\\Blogifier.Admin\\Pages\\HomeView.razor",
+              "ToolTip": "C:\\Users\\Admin\\Documents\\Github\\Blogifier\\src\\Blogifier.Admin\\Pages\\HomeView.razor",
+              "RelativeToolTip": "src\\Blogifier.Admin\\Pages\\HomeView.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-17T17:14:17.211Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 52,
+              "Title": "index.html",
+              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\Github\\Blogifier\\src\\Blogifier.Admin\\wwwroot\\index.html",
+              "RelativeDocumentMoniker": "src\\Blogifier.Admin\\wwwroot\\index.html",
+              "ToolTip": "C:\\Users\\Admin\\Documents\\Github\\Blogifier\\src\\Blogifier.Admin\\wwwroot\\index.html",
+              "RelativeToolTip": "src\\Blogifier.Admin\\wwwroot\\index.html",
+              "ViewState": "AgIAABsAAAAAAAAAAIBJwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2025-06-17T17:14:04.067Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
