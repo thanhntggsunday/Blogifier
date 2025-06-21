@@ -26,7 +26,9 @@ namespace Blogifier.Core.Controllers
 			_db = db;
             _search = search;
 			_theme = $"~/{ApplicationSettings.BlogAdminFolder}/Content/";
-		}
+
+            Logger.LogInformation($" Admin Theme: {_theme}");
+        }
 
         [VerifyProfile]
         [HttpGet]

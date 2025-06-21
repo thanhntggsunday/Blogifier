@@ -22,7 +22,7 @@ namespace Blogifier.Core.Controllers
             _logger = logger;
             _theme = $"~/{ApplicationSettings.BlogThemesFolder}/{BlogSettings.Theme}/";
 
-            Logger.LogInformation($"Theme: {_theme}");
+            Logger.LogInformation($" Client Theme: {_theme}");
             //
             var productProvider = new ProductProvider();
             var items = productProvider.GetProducts();
