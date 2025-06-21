@@ -85,7 +85,10 @@ namespace Blogifier.Core.Services.Packages
                             }
                         }
                     }
-                    catch { }
+                    catch (Exception e)
+                    {
+                        Logger.LogError(e.ToString());
+                    }
 
                     var disabled = Disabled();
                     //var maxLen = 70;

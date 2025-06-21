@@ -60,7 +60,10 @@ namespace Blogifier.Core.Services.FileSystem
                 foreach (string d in Directory.GetDirectories(dir))
                     items.Add(d);
             }
-            catch { }
+            catch (Exception e)
+            {
+                Logger.LogError(e.ToString());
+            }
             return items;
         }     
 

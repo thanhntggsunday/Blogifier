@@ -24,6 +24,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
+using Serilog;
 
 namespace Blogifier.Core
 {
@@ -76,11 +77,18 @@ namespace Blogifier.Core
 
 		public static void InitApplication(IApplicationBuilder app, IHostingEnvironment env)
 		{
-            app.UseMiddleware<AppSettingsLoader>();
-            app.UseMiddleware<EmbeddedResources>();
+            try
+            {
+                app.UseMiddleware<AppSettingsLoader>();
+                app.UseMiddleware<EmbeddedResources>();
 
-            ApplicationSettings.WebRootPath = env.WebRootPath;
-            ApplicationSettings.ContentRootPath = env.ContentRootPath;
+                ApplicationSettings.WebRootPath = env.WebRootPath;
+                ApplicationSettings.ContentRootPath = env.ContentRootPath;
+            }
+            catch (Exception e)
+            {
+                Logger.LogError(e.ToString());
+            }
 
             //if (!ApplicationSettings.UseInMemoryDatabase && ApplicationSettings.InitializeDatabase)
             //{
@@ -117,10 +125,17 @@ namespace Blogifier.Core
                             assemblies.Add(assembly);
                         }
                     }
-                    catch { }
+                    catch (Exception e)
+                    {
+                        Logger.LogError(e.ToString());
+                    }
                 }
             }
-            catch { }
+            catch (Exception e)
+            {
+                Logger.LogError(e.ToString());
+            }
+
             return assemblies;
         }
 
@@ -144,7 +159,10 @@ namespace Blogifier.Core
 
                 LoadThemes();
             }
-            catch { }
+            catch (Exception e)
+            {
+                Logger.LogError(e.ToString());
+            }
         }
 
         static void LoadThemes()
@@ -174,7 +192,10 @@ namespace Blogifier.Core
                     });
                 }
             }
-            catch { }
+            catch (Exception e)
+            {
+                Logger.LogError(e.ToString());
+            }
         }
 
         static void LoadFromConfigFile(IConfiguration config)
@@ -234,7 +255,10 @@ namespace Blogifier.Core
                     }
                 }
             }
-            catch { }
+            catch (Exception e)
+            {
+                Logger.LogError(e.ToString());
+            }
         }
     }
 }

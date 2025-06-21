@@ -257,8 +257,9 @@ namespace Blogifier.Core.Controllers.Api
             {
                 return _db.Profiles.Single(p => p.IdentityName == User.Identity.Name);
             }
-            catch
+            catch (Exception ex)
             {
+                Logger.LogError(ex.ToString());
                 RedirectToAction("Login", "Account");
             }
             return null;

@@ -22,7 +22,10 @@ namespace Blogifier.Core.Common
                     result = DateTime.ParseExact(date, str, DateTimeFormatInfo.InvariantInfo);
                     return result;
                 }
-                catch { }
+                catch (Exception ex)
+                {
+                    Logger.LogError(ex.ToString());
+                }
             }
             return result;
         }

@@ -6,8 +6,10 @@ using Blogifier.Core.Services.Syndication.Rss;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using System;
 using System.Net.Http;
 using System.Threading.Tasks;
+using Blogifier.Core.Common;
 
 namespace Blogifier.Core.Controllers.Api
 {
@@ -88,8 +90,9 @@ namespace Blogifier.Core.Controllers.Api
             {
                 return _db.Profiles.Single(p => p.IdentityName == User.Identity.Name);
             }
-            catch
+            catch(Exception ex)
             {
+                Logger.LogError(ex.ToString());
                 RedirectToAction("Login", "Account");
             }
             return null;

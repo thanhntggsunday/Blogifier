@@ -1,4 +1,5 @@
-﻿using Blogifier.Core.Data.Domain;
+﻿using System;
+using Blogifier.Core.Data.Domain;
 using Blogifier.Core.Data.Interfaces;
 using Microsoft.AspNetCore.Html;
 using Microsoft.AspNetCore.Mvc;
@@ -53,8 +54,9 @@ namespace Blogifier.Core.Common
             {
                 return settings.GetType().GetProperty(prop).GetValue(settings, null);
             }
-            catch
+            catch(Exception ex)
             {
+                Logger.LogError(ex.ToString());
                 return null;
             }
         }

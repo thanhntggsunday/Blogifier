@@ -1,9 +1,11 @@
-﻿using Blogifier.Core.Data.Domain;
+﻿using System;
+using Blogifier.Core.Data.Domain;
 using Blogifier.Core.Data.Interfaces;
 using Blogifier.Core.Data.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
+using Blogifier.Core.Common;
 
 namespace Blogifier.Core.Controllers.Api
 {
@@ -33,8 +35,9 @@ namespace Blogifier.Core.Controllers.Api
             {
                 return _db.Profiles.Single(p => p.IdentityName == User.Identity.Name);
             }
-            catch
+            catch (Exception ex)
             {
+                Logger.LogError(ex.ToString());
                 RedirectToAction("Login", "Account");
             }
             return null;
