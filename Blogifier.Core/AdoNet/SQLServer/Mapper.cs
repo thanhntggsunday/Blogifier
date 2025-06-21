@@ -31,7 +31,10 @@ namespace Blogifier.Core.AdoNet.SQLServer
 
                         if (val == DBNull.Value) { continue; }
 
-                        prop.SetValue(obj, Convert.ChangeType(val, prop.PropertyType));
+                        // prop.SetValue(obj, Convert.ChangeType(val, prop.PropertyType));
+                        var targetType = Nullable.GetUnderlyingType(prop.PropertyType) ?? prop.PropertyType;
+                        prop.SetValue(obj, Convert.ChangeType(val, targetType));
+
                     }
                     catch (Exception ex)
                     {
