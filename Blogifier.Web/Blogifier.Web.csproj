@@ -98,6 +98,12 @@
 
   <ItemGroup>
     <Folder Include="Logs\" />
+    <Folder Include="wwwroot\pms\Scripts\Plugins\ckfinder\plugins\fileeditor\bin\Debug\" />
+    <Folder Include="wwwroot\pms\Scripts\Plugins\ckfinder\plugins\fileeditor\bin\Release\" />
+    <Folder Include="wwwroot\pms\Scripts\Plugins\ckfinder\plugins\imageresize\bin\Debug\" />
+    <Folder Include="wwwroot\pms\Scripts\Plugins\ckfinder\plugins\imageresize\bin\Release\" />
+    <Folder Include="wwwroot\pms\Scripts\Plugins\ckfinder\plugins\watermark\bin\Debug\" />
+    <Folder Include="wwwroot\pms\Scripts\Plugins\ckfinder\plugins\watermark\bin\Release\" />
   </ItemGroup>
 
   <Target Name="PostBuild" AfterTargets="PostBuildEvent" Condition="Exists('$(SolutionDir)Packages\Widgets\Newsletter\bin\Debug\netcoreapp2.0\Newsletter.dll')">
