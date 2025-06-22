@@ -117,30 +117,6 @@ namespace Blogifier.Core.AdoNet.SQLite
             return dt;
         }
 
-        private void BulkInsert_NotSupported()
-        {
-            throw new NotSupportedException("BulkInsert is not supported in SQLite.");
-        }
-
-        public List<string> GetColumnNamesList(string tableName)
-        {
-            var result = new List<string>();
-            var sql = $"PRAGMA table_info([{tableName}]);";
-
-            using (var cmd = new SqliteCommand(sql, _connection))
-            {
-                using (var rdr = cmd.ExecuteReader())
-                {
-                    while (rdr.Read())
-                    {
-                        result.Add(rdr.GetString(1)); // cột "name"
-                    }
-                }
-            }
-
-            return result;
-        }
-
         public void BeginTransaction()
         {
             _transaction = _connection.BeginTransaction();

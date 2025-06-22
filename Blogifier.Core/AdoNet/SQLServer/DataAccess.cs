@@ -131,28 +131,6 @@ namespace Blogifier.Core.AdoNet.SQLServer
             }
         }
 
-        public List<string> GetColumnNamesList(string tableName)
-        {
-            var result = new List<string>();
-
-            var sql = $@"SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = @TableName";
-
-            using (var cmd = new SqlCommand(sql, _connection))
-            {
-                cmd.Parameters.AddWithValue("@TableName", tableName);
-
-                using (var rdr = cmd.ExecuteReader())
-                {
-                    while (rdr.Read())
-                    {
-                        result.Add(rdr.GetString(0));
-                    }
-                }
-            }
-
-            return result;
-        }
-
         public void BeginTransaction()
         {
             _transaction = _connection.BeginTransaction();
