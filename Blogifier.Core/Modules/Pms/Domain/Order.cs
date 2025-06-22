@@ -1,7 +1,7 @@
-﻿using AspnetRun.Core.Entities.Base;
+﻿using Blogifier.Core.Entities.Base;
 using System.Collections.Generic;
 
-namespace AspnetRun.Core.Entities
+namespace Blogifier.Core.Entities
 {
     public class Order : Entity
     {       

@@ -1,4 +1,4 @@
-﻿namespace AspnetRun.Core.Entities.Base
+﻿namespace Blogifier.Core.Entities.Base
 {
     public abstract class EntityBase<TId> : IEntityBase<TId>
     {

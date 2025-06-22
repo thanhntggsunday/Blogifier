@@ -30,5 +30,17 @@ namespace Blogifier.Core.Modules.Pms.Providers
                 _dbContext.Dispose();
             }           
         }
+
+        public void CreatProducts(ProductDto item)
+        {
+            try
+            {
+               
+            }
+            finally
+            {
+                _dbContext.Dispose();
+            }
+        }
     }
 }

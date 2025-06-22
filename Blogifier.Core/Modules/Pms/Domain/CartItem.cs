@@ -1,6 +1,6 @@
-﻿using AspnetRun.Core.Entities.Base;
+﻿using Blogifier.Core.Entities.Base;
 
-namespace AspnetRun.Core.Entities
+namespace Blogifier.Core.Entities
 {
     public class CartItem : Entity
     {       

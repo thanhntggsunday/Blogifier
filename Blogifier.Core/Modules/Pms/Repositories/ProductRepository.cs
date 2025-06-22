@@ -16,5 +16,10 @@ namespace Blogifier.Core.Modules.Pms.Repositories
             var mapper = Blogifier.Core.AdoNet.SQLServer.Mapper.CreateMapper<ProductDto>();
             return dataAccess.GetAllItems<ProductDto>("Select * From Product", CommandType.Text, mapper);
         }
+
+        public static void CreatProducts(ProductDto item)
+        {
+            
+        }
     }
 }

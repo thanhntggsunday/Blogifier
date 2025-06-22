@@ -1,4 +1,4 @@
-﻿namespace AspnetRun.Core.Entities.Base
+﻿namespace Blogifier.Core.Entities.Base
 {
     public interface IEntityBase<TId>
     {

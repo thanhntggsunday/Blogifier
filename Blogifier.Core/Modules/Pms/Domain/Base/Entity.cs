@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace AspnetRun.Core.Entities.Base
+namespace Blogifier.Core.Entities.Base
 {
     public abstract class Entity : EntityBase<int>
     {

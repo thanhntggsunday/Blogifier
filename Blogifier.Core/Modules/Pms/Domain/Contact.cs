@@ -1,7 +1,7 @@
-﻿using AspnetRun.Core.Entities.Base;
+﻿using Blogifier.Core.Entities.Base;
 using System.ComponentModel.DataAnnotations;
 
-namespace AspnetRun.Core.Entities
+namespace Blogifier.Core.Entities
 {
     public class Contact : Entity
     {

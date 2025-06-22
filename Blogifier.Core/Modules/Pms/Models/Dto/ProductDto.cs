@@ -17,6 +17,6 @@ namespace Blogifier.Core.Modules.Pms.Models.Dto
 
         // n-1 relationships
         public int CategoryId { get; set; }
-        public int CategoryName { get; set; }
+        public string CategoryName { get; set; }
     }
 }

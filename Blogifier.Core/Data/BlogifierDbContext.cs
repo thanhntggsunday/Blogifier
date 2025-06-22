@@ -1,4 +1,4 @@
-﻿using AspnetRun.Core.Entities;
+﻿using Blogifier.Core.Entities;
 using Blogifier.Core.Common;
 using Blogifier.Core.Data.Domain;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;

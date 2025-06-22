@@ -1,9 +1,9 @@
-﻿using AspnetRun.Core.Entities.Base;
+﻿using Blogifier.Core.Entities.Base;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 
-namespace AspnetRun.Core.Entities
+namespace Blogifier.Core.Entities
 {
     public class Cart : Entity
     {        

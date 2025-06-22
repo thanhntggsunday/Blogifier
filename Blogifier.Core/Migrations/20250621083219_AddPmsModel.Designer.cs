@@ -22,7 +22,7 @@ namespace Blogifier.Core.Migrations
                 .HasAnnotation("ProductVersion", "2.0.0-rtm-26452")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("AspnetRun.Core.Entities.Cart", b =>
+            modelBuilder.Entity("Blogifier.Core.Entities.Cart", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
@@ -42,7 +42,7 @@ namespace Blogifier.Core.Migrations
                     b.ToTable("Carts");
                 });
 
-            modelBuilder.Entity("AspnetRun.Core.Entities.CartItem", b =>
+            modelBuilder.Entity("Blogifier.Core.Entities.CartItem", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
@@ -76,7 +76,7 @@ namespace Blogifier.Core.Migrations
                     b.ToTable("CartItems");
                 });
 
-            modelBuilder.Entity("AspnetRun.Core.Entities.Compare", b =>
+            modelBuilder.Entity("Blogifier.Core.Entities.Compare", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
@@ -96,7 +96,7 @@ namespace Blogifier.Core.Migrations
                     b.ToTable("Compares");
                 });
 
-            modelBuilder.Entity("AspnetRun.Core.Entities.Product", b =>
+            modelBuilder.Entity("Blogifier.Core.Entities.Product", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
@@ -136,7 +136,7 @@ namespace Blogifier.Core.Migrations
                     b.ToTable("Product");
                 });
 
-            modelBuilder.Entity("AspnetRun.Core.Entities.ProductCategory", b =>
+            modelBuilder.Entity("Blogifier.Core.Entities.ProductCategory", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
@@ -162,7 +162,7 @@ namespace Blogifier.Core.Migrations
                     b.ToTable("ProductCategories");
                 });
 
-            modelBuilder.Entity("AspnetRun.Core.Entities.ProductCompare", b =>
+            modelBuilder.Entity("Blogifier.Core.Entities.ProductCompare", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
@@ -188,7 +188,7 @@ namespace Blogifier.Core.Migrations
                     b.ToTable("ProductCompares");
                 });
 
-            modelBuilder.Entity("AspnetRun.Core.Entities.ProductRelatedProduct", b =>
+            modelBuilder.Entity("Blogifier.Core.Entities.ProductRelatedProduct", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
@@ -210,7 +210,7 @@ namespace Blogifier.Core.Migrations
                     b.ToTable("ProductRelatedProducts");
                 });
 
-            modelBuilder.Entity("AspnetRun.Core.Entities.ProductWishlist", b =>
+            modelBuilder.Entity("Blogifier.Core.Entities.ProductWishlist", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
@@ -236,7 +236,7 @@ namespace Blogifier.Core.Migrations
                     b.ToTable("ProductWishlists");
                 });
 
-            modelBuilder.Entity("AspnetRun.Core.Entities.Review", b =>
+            modelBuilder.Entity("Blogifier.Core.Entities.Review", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
@@ -266,7 +266,7 @@ namespace Blogifier.Core.Migrations
                     b.ToTable("Reviews");
                 });
 
-            modelBuilder.Entity("AspnetRun.Core.Entities.Specification", b =>
+            modelBuilder.Entity("Blogifier.Core.Entities.Specification", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
@@ -292,7 +292,7 @@ namespace Blogifier.Core.Migrations
                     b.ToTable("Specifications");
                 });
 
-            modelBuilder.Entity("AspnetRun.Core.Entities.Tag", b =>
+            modelBuilder.Entity("Blogifier.Core.Entities.Tag", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
@@ -316,7 +316,7 @@ namespace Blogifier.Core.Migrations
                     b.ToTable("Tags");
                 });
 
-            modelBuilder.Entity("AspnetRun.Core.Entities.Wishlist", b =>
+            modelBuilder.Entity("Blogifier.Core.Entities.Wishlist", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
@@ -703,69 +703,69 @@ namespace Blogifier.Core.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("AspnetRun.Core.Entities.CartItem", b =>
+            modelBuilder.Entity("Blogifier.Core.Entities.CartItem", b =>
                 {
-                    b.HasOne("AspnetRun.Core.Entities.Cart")
+                    b.HasOne("Blogifier.Core.Entities.Cart")
                         .WithMany("Items")
                         .HasForeignKey("CartId");
 
-                    b.HasOne("AspnetRun.Core.Entities.Product", "Product")
+                    b.HasOne("Blogifier.Core.Entities.Product", "Product")
                         .WithMany()
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("AspnetRun.Core.Entities.Product", b =>
+            modelBuilder.Entity("Blogifier.Core.Entities.Product", b =>
                 {
-                    b.HasOne("AspnetRun.Core.Entities.ProductCategory", "Category")
+                    b.HasOne("Blogifier.Core.Entities.ProductCategory", "Category")
                         .WithMany()
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("AspnetRun.Core.Entities.ProductCompare", b =>
+            modelBuilder.Entity("Blogifier.Core.Entities.ProductCompare", b =>
                 {
-                    b.HasOne("AspnetRun.Core.Entities.Compare", "Compare")
+                    b.HasOne("Blogifier.Core.Entities.Compare", "Compare")
                         .WithMany("ProductCompares")
                         .HasForeignKey("CompareId")
                         .OnDelete(DeleteBehavior.Cascade);
 
-                    b.HasOne("AspnetRun.Core.Entities.Product", "Product")
+                    b.HasOne("Blogifier.Core.Entities.Product", "Product")
                         .WithMany()
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("AspnetRun.Core.Entities.ProductWishlist", b =>
+            modelBuilder.Entity("Blogifier.Core.Entities.ProductWishlist", b =>
                 {
-                    b.HasOne("AspnetRun.Core.Entities.Product", "Product")
+                    b.HasOne("Blogifier.Core.Entities.Product", "Product")
                         .WithMany()
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade);
 
-                    b.HasOne("AspnetRun.Core.Entities.Wishlist", "Wishlist")
+                    b.HasOne("Blogifier.Core.Entities.Wishlist", "Wishlist")
                         .WithMany("ProductWishlists")
                         .HasForeignKey("WishlistId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("AspnetRun.Core.Entities.Review", b =>
+            modelBuilder.Entity("Blogifier.Core.Entities.Review", b =>
                 {
-                    b.HasOne("AspnetRun.Core.Entities.Product")
+                    b.HasOne("Blogifier.Core.Entities.Product")
                         .WithMany("Reviews")
                         .HasForeignKey("ProductId");
                 });
 
-            modelBuilder.Entity("AspnetRun.Core.Entities.Specification", b =>
+            modelBuilder.Entity("Blogifier.Core.Entities.Specification", b =>
                 {
-                    b.HasOne("AspnetRun.Core.Entities.Product")
+                    b.HasOne("Blogifier.Core.Entities.Product")
                         .WithMany("Specifications")
                         .HasForeignKey("ProductId");
                 });
 
-            modelBuilder.Entity("AspnetRun.Core.Entities.Tag", b =>
+            modelBuilder.Entity("Blogifier.Core.Entities.Tag", b =>
                 {
-                    b.HasOne("AspnetRun.Core.Entities.Product")
+                    b.HasOne("Blogifier.Core.Entities.Product")
                         .WithMany("Tags")
                         .HasForeignKey("ProductId");
                 });
