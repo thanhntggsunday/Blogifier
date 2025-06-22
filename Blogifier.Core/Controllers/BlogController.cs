@@ -3,6 +3,7 @@ using Blogifier.Core.Common;
 using Blogifier.Core.Modules.Pms.Providers;
 using Blogifier.Core.Services.Data;
 using Blogifier.Core.Services.Syndication.Rss;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
@@ -31,6 +32,15 @@ namespace Blogifier.Core.Controllers
 
         public IActionResult Index(int page = 1)
         {
+            var defaultPage = HttpContext.Session.GetString("default_page");
+
+            if (string.IsNullOrEmpty(defaultPage))
+            {
+                HttpContext.Session.SetString("default_page", "/pmshome");
+
+                return RedirectToAction("Index", "PmsHome");
+            }
+
             var model = _ds.GetPosts(page);
             if (model == null)
                 return View(_theme + "Error.cshtml", 404);
@@ -118,5 +128,6 @@ namespace Blogifier.Core.Controllers
         {
             return View(_theme + "Error.cshtml", statusCode);
         }
+
     }
 }

@@ -1,4 +1,5 @@
-﻿using Blogifier.Core;
+﻿using System;
+using Blogifier.Core;
 using Blogifier.Core.Data;
 using Blogifier.Core.Data.Domain;
 using Blogifier.Core.Middleware;
@@ -38,6 +39,14 @@ namespace Blogifier
             services.AddLogging(loggingBuilder =>
                 loggingBuilder.AddSerilog(dispose: true));
 
+            services.AddDistributedMemoryCache(); 
+            services.AddSession(options =>
+            {
+                options.IdleTimeout = TimeSpan.FromMinutes(30);
+                options.Cookie.HttpOnly = true;
+                // options.Cookie.IsEssential = true;
+            });
+
             services.AddMvc()
             .ConfigureApplicationPartManager(p =>
             {
@@ -67,6 +76,8 @@ namespace Blogifier
             app.UseAuthentication();
 
             app.UseETagger();
+
+            app.UseSession();
 
             app.UseMvc(routes =>
             {
