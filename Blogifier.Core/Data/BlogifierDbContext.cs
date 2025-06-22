@@ -34,6 +34,10 @@ namespace Blogifier.Core.Data
         public DbSet<Specification> Specifications { get; set; }
         public DbSet<Tag> Tags { get; set; }
         public DbSet<Wishlist> Wishlists { get; set; }
+
+        public DbSet<Address> Addresses { get; set; }
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<OrderItem> OrderItems { get; set; }
         #endregion
 
 

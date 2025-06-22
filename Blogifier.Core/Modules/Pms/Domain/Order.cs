@@ -11,12 +11,13 @@ namespace Blogifier.Core.Entities
         public PaymentMethod PaymentMethod { get; set; }
         public OrderStatus Status { get; set; }
         public decimal GrandTotal { get; set; }
+        public int AddressId { get; set; }
 
         public List<OrderItem> Items { get; set; } = new List<OrderItem>();
     }
 
     // Value Object    
-    public class Address
+    public class Address : Entity
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }

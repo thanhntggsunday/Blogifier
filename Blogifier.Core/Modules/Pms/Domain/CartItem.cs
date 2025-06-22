@@ -9,6 +9,8 @@ namespace Blogifier.Core.Entities
         public decimal UnitPrice { get; set; }
         public decimal TotalPrice { get; set; }
         public int ProductId { get; set; }
+        public int CartId { get; set; }
         public Product Product { get; set; }
+        public Cart Cart { get; set; }
     }
 }
