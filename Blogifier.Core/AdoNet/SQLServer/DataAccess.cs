@@ -53,70 +53,48 @@ namespace Blogifier.Core.AdoNet.SQLServer
             return items;
         }
 
-        public List<T> GetItems<T>(string sqlQuery, List<SqlParameter> parameters, CommandType commandType, Func<SqlDataReader, T> mapper)
+        public List<T> GetItems<T>(SqlCommand cmd, Func<SqlDataReader, T> mapper)
         {
             var items = new List<T>();
+            cmd.Connection = _connection;
+            cmd.Transaction = _transaction;
 
-            using (var cmd = new SqlCommand(sqlQuery, _connection, _transaction))
+            using (var reader = cmd.ExecuteReader())
             {
-                cmd.CommandType = commandType;
-
-                if (parameters != null)
-                    cmd.Parameters.AddRange(parameters.ToArray());
-
-                using (var reader = cmd.ExecuteReader())
+                while (reader.Read())
                 {
-                    while (reader.Read())
-                    {
-                        items.Add(mapper(reader));
-                    }
+                    items.Add(mapper(reader));
                 }
             }
 
             return items;
         }
 
-        public int ExecuteNonQuery(string sqlQuery, List<SqlParameter> parameters, CommandType commandType)
+        public int ExecuteNonQuery(SqlCommand cmd)
         {
-            using (var cmd = new SqlCommand(sqlQuery, _connection, _transaction))
-            {
-                cmd.CommandType = commandType;
+            cmd.Connection = _connection;
+            cmd.Transaction = _transaction;
 
-                if (parameters != null)
-                    cmd.Parameters.AddRange(parameters.ToArray());
-
-                return cmd.ExecuteNonQuery();
-            }
+            return cmd.ExecuteNonQuery();
         }
 
-        public object ExecuteScalar(string sqlQuery, List<SqlParameter> parameters, CommandType commandType)
+        public object ExecuteScalar(SqlCommand cmd)
         {
-            using (var cmd = new SqlCommand(sqlQuery, _connection, _transaction))
-            {
-                cmd.CommandType = commandType;
+            cmd.Connection = _connection;
+            cmd.Transaction = _transaction;
 
-                if (parameters != null)
-                    cmd.Parameters.AddRange(parameters.ToArray());
-
-                return cmd.ExecuteScalar();
-            }
+            return cmd.ExecuteScalar();
         }
 
-        public DataTable LoadDataTable(string sqlQuery, List<SqlParameter> parameters, CommandType commandType)
+        public DataTable LoadDataTable(SqlCommand cmd)
         {
             var dt = new DataTable();
+            cmd.Connection = _connection;
+            cmd.Transaction = _transaction;
 
-            using (var cmd = new SqlCommand(sqlQuery, _connection, _transaction))
+            using (var reader = cmd.ExecuteReader())
             {
-                cmd.CommandType = commandType;
-
-                if (parameters != null)
-                    cmd.Parameters.AddRange(parameters.ToArray());
-
-                using (var reader = cmd.ExecuteReader())
-                {
-                    dt.Load(reader);
-                }
+                dt.Load(reader);
             }
 
             return dt;

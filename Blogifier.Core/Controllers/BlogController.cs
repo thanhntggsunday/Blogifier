@@ -1,5 +1,6 @@
 ﻿using System;
 using Blogifier.Core.Common;
+using Blogifier.Core.Modules.Pms.Models.Dto;
 using Blogifier.Core.Modules.Pms.Providers;
 using Blogifier.Core.Services.Data;
 using Blogifier.Core.Services.Syndication.Rss;
@@ -24,10 +25,32 @@ namespace Blogifier.Core.Controllers
             _theme = $"~/{ApplicationSettings.BlogThemesFolder}/{BlogSettings.Theme}/";
 
             Logger.LogInformation($" Client Theme: {_theme}");
-            //
-            var productProvider = new ProductProvider();
-            var items = productProvider.GetProducts();
-            Console.WriteLine(items);
+            ////
+            //var productProvider = new ProductProvider();
+            //var items = productProvider.GetProducts();
+            //Console.WriteLine(items);
+
+            ////
+            //productProvider = new ProductProvider();
+
+            //var product = new ProductDto
+            //{
+            //    Name = "Laptop X500--",
+            //    Slug = "laptop-x500",
+            //    Summary = "Gaming laptop",
+            //    Description = "High performance laptop for gaming",
+            //    ImageFile = "x500.jpg",
+            //    UnitPrice = 1599.99m,
+            //    UnitsInStock = 15,
+            //    Star = 4.8,
+            //    CategoryId = 2,
+            //    CreatedBy = "admin",
+            //    ModifiedBy = "admin",
+            //    CreatedDate = DateTime.Now,
+            //    ModifiedDate = DateTime.Now
+            //};
+
+            //productProvider.CreatProducts(product);
         }
 
         public IActionResult Index(int page = 1)
