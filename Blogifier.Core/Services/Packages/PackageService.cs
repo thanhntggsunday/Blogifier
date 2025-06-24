@@ -49,7 +49,7 @@ namespace Blogifier.Core.Services.Packages
         {
             var widgets = new List<PackageListItem>();
 
-            foreach (var assembly in Configuration.GetAssemblies())
+            foreach (var assembly in ApplicationSettings.GetAssemblies())
             {
                 var name = assembly.GetName().Name;
 

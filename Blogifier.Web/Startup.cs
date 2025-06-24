@@ -1,5 +1,6 @@
 ﻿using System;
 using Blogifier.Core;
+using Blogifier.Core.Common;
 using Blogifier.Core.Data;
 using Blogifier.Core.Data.Domain;
 using Blogifier.Core.Middleware;
@@ -50,7 +51,7 @@ namespace Blogifier
             services.AddMvc()
             .ConfigureApplicationPartManager(p =>
             {
-                foreach (var assembly in Core.Configuration.GetAssemblies())
+                foreach (var assembly in ApplicationSettings.GetAssemblies())
                 {
                     if (assembly.GetName().Name != "Blogifier.Web" && assembly.GetName().Name != "Blogifier.Core")
                     {

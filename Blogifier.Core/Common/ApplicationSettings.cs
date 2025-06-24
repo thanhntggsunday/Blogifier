@@ -1,4 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure.Internal;
 using System.Reflection;
 
@@ -77,6 +80,39 @@ namespace Blogifier.Core.Common
 				return System.Runtime.InteropServices.RuntimeInformation.OSDescription;
 			}
 		}
+
+
+        public static IEnumerable<Assembly> GetAssemblies()
+        {
+            var assemblies = new List<Assembly>();
+            try
+            {
+                foreach (string dll in Directory.GetFiles(AppDomain.CurrentDomain.BaseDirectory, "*.dll", SearchOption.TopDirectoryOnly))
+                {
+                    try
+                    {
+                        var assembly = Assembly.LoadFile(dll);
+                        var product = assembly.GetCustomAttribute<AssemblyProductAttribute>().Product;
+
+                        if (product.StartsWith("Blogifier.") && !product.StartsWith("Blogifier.Web"))
+                        {
+                            assemblies.Add(assembly);
+                        }
+                    }
+                    catch (Exception e)
+                    {
+                        Logger.LogError(e.ToString());
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                Logger.LogError(e.ToString());
+            }
+
+            return assemblies;
+        }
+
 
         #endregion
     }
