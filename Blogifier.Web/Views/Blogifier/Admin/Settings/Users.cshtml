@@ -62,7 +62,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form asp-controller="Admin" asp-action="Register" asp-route-returnUrl="~/admin/settings/users" method="post">
+                <form asp-controller="Account" asp-action="CreateUser" asp-route-returnUrl="~/admin/settings/users" method="post">
                     <div class="form-group">
                         <label asp-for="RegisterModel.Email"></label>
                         <input asp-for="RegisterModel.Email" class="form-control" autofocus>

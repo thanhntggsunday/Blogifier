@@ -76,7 +76,7 @@ namespace Blogifier
 
             app.UseAuthentication();
 
-            app.UseETagger();
+            // app.UseETagger();
 
             app.UseSession();
 

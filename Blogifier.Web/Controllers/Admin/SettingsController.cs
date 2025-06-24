@@ -1,4 +1,5 @@
-﻿using Blogifier.Core.Common;
+﻿using System;
+using Blogifier.Core.Common;
 using Blogifier.Core.Data.Domain;
 using Blogifier.Core.Data.Interfaces;
 using Blogifier.Core.Data.Models;
@@ -10,6 +11,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
+using Blogifier.Core.Services.Email;
+using Blogifier.Models.AccountViewModels;
+using Blogifier.Web.Class;
+using Microsoft.AspNetCore.Identity;
 
 namespace Blogifier.Core.Controllers
 {
@@ -17,11 +23,12 @@ namespace Blogifier.Core.Controllers
     [Route("admin/[controller]")]
 	public class SettingsController : Controller
 	{
-		IUnitOfWork _db;
-        ILogger _logger;
-        string _theme;
+        private readonly IUnitOfWork _db;
+        private readonly ILogger _logger;
+        private readonly string _theme;
+        private readonly string _pwdTheme = "~/Views/Account/ChangePassword.cshtml";
 
-		public SettingsController(IUnitOfWork db, ILogger<SettingsController> logger)
+        public SettingsController(IUnitOfWork db, ILogger<SettingsController> logger)
 		{
 			_db = db;
             _logger = logger;
@@ -32,7 +39,7 @@ namespace Blogifier.Core.Controllers
         public IActionResult Profile()
         {
             var model = new SettingsProfile();
-            model.Profile = GetProfile();
+            model.Profile = this.GetProfile(_db);
             
             if(model.Profile != null)
             {
@@ -49,7 +56,7 @@ namespace Blogifier.Core.Controllers
         [Route("profile")]
         public IActionResult Profile(SettingsProfile model)
         {
-            var profile = GetProfile();
+            var profile = this.GetProfile(_db);
             if (ModelState.IsValid)
             {
                 if (profile == null)
@@ -80,7 +87,7 @@ namespace Blogifier.Core.Controllers
                 }
                 _db.Complete();
 
-                model.Profile = GetProfile();
+                model.Profile = this.GetProfile(_db);
 
                 // save custom fields
                 if(profile.Id > 0 && model.CustomFields != null)
@@ -98,14 +105,14 @@ namespace Blogifier.Core.Controllers
         [Route("about")]
         public IActionResult About()
         {
-            return View(_theme + "About.cshtml", new AdminBaseModel { Profile = GetProfile() });
+            return View(_theme + "About.cshtml", new AdminBaseModel { Profile = this.GetProfile(_db) });
         }
 
         [MustBeAdmin]
         [Route("general")]
         public IActionResult General()
         {
-            var profile = GetProfile();
+            var profile = this.GetProfile(_db);
             var storage = new BlogStorage("");
 
             var model = new SettingsGeneral
@@ -132,7 +139,7 @@ namespace Blogifier.Core.Controllers
         {
             var storage = new BlogStorage("");
             model.BlogThemes = BlogSettings.BlogThemes;
-            model.Profile = GetProfile();
+            model.Profile = this.GetProfile(_db);
 
             if (ModelState.IsValid)
             {
@@ -166,7 +173,7 @@ namespace Blogifier.Core.Controllers
         [Route("posts")]
         public IActionResult Posts()
         {
-            var profile = GetProfile();
+            var profile = this.GetProfile(_db);
 
             var model = new SettingsPosts
             {
@@ -183,7 +190,7 @@ namespace Blogifier.Core.Controllers
         [Route("posts")]
         public IActionResult Posts(SettingsPosts model)
         {
-            model.Profile = GetProfile();
+            model.Profile = this.GetProfile(_db);
 
             if (ModelState.IsValid)
             {
@@ -206,7 +213,7 @@ namespace Blogifier.Core.Controllers
         [Route("advanced")]
         public IActionResult Advanced()
         {
-            var profile = GetProfile();
+            var profile = this.GetProfile(_db);
 
             var model = new SettingsAdvanced
             {
@@ -214,12 +221,7 @@ namespace Blogifier.Core.Controllers
             };
             return View(_theme + "Advanced.cshtml", model);
         }
-
-        Profile GetProfile()
-        {
-            return _db.Profiles.Single(p => p.IdentityName == User.Identity.Name);
-        }
-
+      
         void SaveCustomFields(Dictionary<string, string> fields, int profileId)
         {
             if(fields != null && fields.Count > 0)
@@ -228,6 +230,51 @@ namespace Blogifier.Core.Controllers
                 {
                     _db.CustomFields.SetCustomField(CustomType.Profile, profileId, field.Key, field.Value);
                 }
+            }
+        }
+      
+
+        [TempData]
+        public string StatusMessage { get; set; }
+        [TempData]
+        public string ErrorMessage { get; set; }
+
+        [MustBeAdmin]
+        [Route("users")]
+        public IActionResult Users(int page = 1)
+        {
+            var profile = this.GetProfile(_db);
+            var pager = new Pager(page);
+            var blogs = _db.Profiles.ProfileList(p => p.Id > 0, pager);
+
+            var model = this.GetUsersModel(_db);
+            model.Blogs = blogs;
+            model.Pager = pager;
+
+            return View(_theme + "Users.cshtml", model);
+        }
+        
+
+        #region Helpers
+
+       
+        private void AddErrors(IdentityResult result)
+        {
+            foreach (var error in result.Errors)
+            {
+                ModelState.AddModelError(string.Empty, error.Description);
+            }
+        }
+
+        private IActionResult RedirectToLocal(string returnUrl)
+        {
+            if (Url.IsLocalUrl(returnUrl))
+            {
+                return Redirect(returnUrl);
+            }
+            else
+            {
+                return RedirectToAction(nameof(BlogController.Index), "Blog");
             }
         }
 
@@ -246,5 +293,7 @@ namespace Blogifier.Core.Controllers
             }
             return slug;
         }
+
+        #endregion
     }
 }

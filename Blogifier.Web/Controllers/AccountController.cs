@@ -15,6 +15,11 @@ using Microsoft.Extensions.Logging;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
+using Blogifier.Core.Middleware;
+using Blogifier.Models.Admin;
+using Blogifier.Web.Class;
+using SystemClock = Microsoft.Extensions.Internal.SystemClock;
+using Blogifier.Core.Services.FileSystem;
 
 namespace Blogifier.Controllers
 {
@@ -28,6 +33,7 @@ namespace Blogifier.Controllers
         private readonly IConfiguration _config;
         private readonly ILogger _logger;
         private readonly IUnitOfWork _db;
+        private readonly string _pwdTheme = "~/Views/Account/ChangePassword.cshtml";
 
         public AccountController(
             UserManager<ApplicationUser> userManager,
@@ -272,6 +278,183 @@ namespace Blogifier.Controllers
         public IActionResult ResetPasswordConfirmation()
         {
             return View();
+        }
+
+        [HttpPost]
+        [MustBeAdmin]
+        [ValidateAntiForgeryToken]
+        [Route("users")]
+        public async Task<IActionResult> CreateUser(UsersViewModel model, string returnUrl = null)
+        {
+            ViewData["ReturnUrl"] = returnUrl;
+            ViewData["AdminPage"] = true;
+            if (ModelState.IsValid)
+            {
+                var user = new ApplicationUser { UserName = model.RegisterModel.Email, Email = model.RegisterModel.Email };
+                var result = await _userManager.CreateAsync(user, model.RegisterModel.Password);
+                if (result.Succeeded)
+                {
+                    _logger.LogInformation(string.Format("Created a new account for {0}", user.UserName));
+
+                    // create new profile
+                    var profile = new Profile();
+
+                    if (_db.Profiles.All().ToList().Count == 0 || model.RegisterModel.IsAdmin)
+                    {
+                        profile.IsAdmin = true;
+                    }
+
+                    profile.AuthorName = model.RegisterModel.AuthorName;
+                    profile.AuthorEmail = model.RegisterModel.Email;
+                    profile.Title = "New blog";
+                    profile.Description = "New blog description";
+
+                    profile.IdentityName = user.UserName;
+                    profile.Slug = SlugFromTitle(profile.AuthorName);
+                    profile.Avatar = ApplicationSettings.ProfileAvatar;
+                    profile.BlogTheme = BlogSettings.Theme;
+
+                    profile.LastUpdated = Blogifier.Core.Common.SystemClock.Now();
+
+                    _db.Profiles.Add(profile);
+                    _db.Complete();
+
+                    _logger.LogInformation(string.Format("Created a new profile at /{0}", profile.Slug));
+
+                    if (model.RegisterModel.SendEmailNotification)
+                    {
+                        var userUrl = string.Format("{0}://{1}/{2}", Request.Scheme, Request.Host, profile.Slug);
+                        await _emailSender.SendEmailWelcomeAsync(model.RegisterModel.Email, model.RegisterModel.AuthorName, userUrl);
+                    }
+
+                    return RedirectToLocal(returnUrl);
+                }
+                AddErrors(result);
+            }
+
+            // If we got this far, something failed, redisplay form
+            var pager = new Pager(1);
+            var blogs = _db.Profiles.ProfileList(p => p.Id > 0, pager);
+
+            var regModel = this.GetUsersModel(_db);
+            regModel.Blogs = blogs;
+            regModel.Pager = pager;
+            var _theme = $"~/{ApplicationSettings.BlogAdminFolder}/Settings/";
+
+            return View(_theme + "Users.cshtml", regModel);
+        }
+
+        [MustBeAdmin]
+        [HttpDelete("{id}")]
+        [Route("users/{id}")]
+        public async Task<IActionResult> Delete(int id)
+        {
+            var admin = this.GetProfile(_db);
+
+            if (!admin.IsAdmin || admin.Id == id)
+                return NotFound();
+
+            var profile = _db.Profiles.Single(p => p.Id == id);
+
+            _logger.LogInformation(string.Format("Delete blog {0} by {1}", profile.Title, profile.AuthorName));
+
+            var assets = _db.Assets.Find(a => a.ProfileId == id);
+            _db.Assets.RemoveRange(assets);
+            _db.Complete();
+            _logger.LogInformation("Assets deleted");
+
+            var categories = _db.Categories.Find(c => c.ProfileId == id);
+            _db.Categories.RemoveRange(categories);
+            _db.Complete();
+            _logger.LogInformation("Categories deleted");
+
+            var posts = _db.BlogPosts.Find(p => p.ProfileId == id);
+            _db.BlogPosts.RemoveRange(posts);
+            _db.Complete();
+            _logger.LogInformation("Posts deleted");
+
+            var fields = _db.CustomFields.Find(f => f.CustomType == (int)CustomType.Profile && f.ParentId == id);
+            _db.CustomFields.RemoveRange(fields);
+            _db.Complete();
+            _logger.LogInformation("Custom fields deleted");
+
+            var profileToDelete = _db.Profiles.Single(b => b.Id == id);
+
+            var storage = new BlogStorage(profileToDelete.Slug);
+            storage.DeleteFolder("");
+            _logger.LogInformation("Storage deleted");
+
+            _db.Profiles.Remove(profileToDelete);
+            _db.Complete();
+            _logger.LogInformation("Profile deleted");
+
+            // remove login
+
+            var user = await _userManager.FindByNameAsync(profile.IdentityName);
+            if (user == null)
+            {
+                throw new ApplicationException($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
+            }
+            var result = await _userManager.DeleteAsync(user);
+            if (!result.Succeeded)
+            {
+                throw new ApplicationException($"Unexpected error occurred removing login for user with ID '{user.Id}'.");
+            }
+            return new NoContentResult();
+        }
+
+        [HttpGet]
+        [Route("changepassword")]
+        public async Task<IActionResult> ChangePassword()
+        {
+            var user = await _userManager.GetUserAsync(User);
+            if (user == null)
+            {
+                throw new ApplicationException($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
+            }
+
+            var hasPassword = await _userManager.HasPasswordAsync(user);
+            if (!hasPassword)
+            {
+                return RedirectToAction("Login", "Account");
+            }
+
+            var profile = _db.Profiles.Single(p => p.IdentityName == User.Identity.Name);
+            var model = new ChangePasswordViewModel { StatusMessage = StatusMessage, Profile = profile };
+            return View(_pwdTheme, model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [Route("changepassword")]
+        public async Task<IActionResult> ChangePassword(ChangePasswordViewModel model)
+        {
+            model.Profile = this.GetProfile(_db);
+
+            if (!ModelState.IsValid)
+            {
+                return View(_pwdTheme, model);
+            }
+
+            var user = await _userManager.GetUserAsync(User);
+            if (user == null)
+            {
+                model.StatusMessage = $"Error: Unable to load user with ID '{_userManager.GetUserId(User)}'";
+                return View(_pwdTheme, model);
+            }
+
+            var changePasswordResult = await _userManager.ChangePasswordAsync(user, model.OldPassword, model.NewPassword);
+            if (!changePasswordResult.Succeeded)
+            {
+                model.StatusMessage = $"Error: {changePasswordResult.Errors.ToList()[0].Description}";
+                return View(_pwdTheme, model);
+            }
+
+            await _signInManager.SignInAsync(user, isPersistent: false);
+            _logger.LogInformation("User changed their password successfully.");
+            StatusMessage = "Your password has been changed.";
+
+            return RedirectToAction(nameof(ChangePassword));
         }
 
         #region Helpers
