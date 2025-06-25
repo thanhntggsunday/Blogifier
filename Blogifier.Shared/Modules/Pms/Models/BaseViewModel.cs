@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Blogifier.Shared.Modules.Pms.Models
 {
-    public class BaseModel<T> : TransactionalInformation where T : class, new()
+    public class BaseViewModel<T> : TransactionalInformation where T : class, new()
     {
         public T Data { get; set; }
     }
