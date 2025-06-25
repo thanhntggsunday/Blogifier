@@ -23,6 +23,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PostList", "Packages\Widget
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{8DC3881F-FEED-4907-A7DA-155241E8B7FE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blogifier.Shared", "Blogifier.Shared\Blogifier.Shared.csproj", "{534FC52D-7E4F-415E-9E15-3DCC6514CEAB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -49,6 +51,10 @@ Global
 		{9852B814-5D78-467B-A5E7-F42DA06C35DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9852B814-5D78-467B-A5E7-F42DA06C35DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9852B814-5D78-467B-A5E7-F42DA06C35DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{534FC52D-7E4F-415E-9E15-3DCC6514CEAB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{534FC52D-7E4F-415E-9E15-3DCC6514CEAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{534FC52D-7E4F-415E-9E15-3DCC6514CEAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{534FC52D-7E4F-415E-9E15-3DCC6514CEAB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
