@@ -13,7 +13,10 @@ namespace Blogifier.Core.Modules.Pms.Repositories
         public static List<ProductDto> GetProducts(this DataAccess dataAccess, string productName = "")
         {
             var mapper = Mapper.CreateMapper<ProductDto>();
-            var cmd = new SqlCommand("Select * From Product where [Name] like @Name");
+            var cmd = new SqlCommand(@"select pc.[Name], p.* from Product p
+join ProductCategories pc on P.CategoryId = pc.Id
+where [Name] like @Name");
+
             var value = $"'%{productName}%'";
             cmd.Parameters.AddWithValue("@Name", value);
             return dataAccess.GetItems(cmd, mapper);

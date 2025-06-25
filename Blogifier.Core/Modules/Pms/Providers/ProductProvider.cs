@@ -7,22 +7,35 @@ namespace Blogifier.Core.Modules.Pms.Providers
 {
     public class ProductProvider
     {
-        private readonly DataAccess _dbContext;
+        private DataAccess _dbContext;
 
         public ProductProvider()
         {
             _dbContext = new DataAccess();
         }
 
+        public DataAccess DbContext
+        {
+            get
+            {
+                if (_dbContext == null || _dbContext.Disposed == true)
+                {
+                    _dbContext = new DataAccess();
+                }
+
+                return _dbContext;
+            }
+        }
+
         public List<ProductDto> GetProducts(string productName)
         {
             try
             {
-                return _dbContext.GetProducts(productName);
+                return DbContext.GetProducts(productName);
             }
             finally
             {
-                _dbContext.Dispose();
+                DbContext.Dispose();
             }
         }
 
@@ -30,11 +43,11 @@ namespace Blogifier.Core.Modules.Pms.Providers
         {
             try
             {
-                _dbContext.CreatProducts(item);
+                DbContext.CreatProducts(item);
             }
             finally
             {
-                _dbContext.Dispose();
+                DbContext.Dispose();
             }
         }
 
@@ -43,11 +56,11 @@ namespace Blogifier.Core.Modules.Pms.Providers
             try
             {
                 var cols = new List<string>();
-                _dbContext.UpdateProducts(item, cols);
+                DbContext.UpdateProducts(item, cols);
             }
             finally
             {
-                _dbContext.Dispose();
+                DbContext.Dispose();
             }
         }
 
@@ -55,11 +68,11 @@ namespace Blogifier.Core.Modules.Pms.Providers
         {
             try
             {
-                _dbContext.DeleteProducts(item);
+                DbContext.DeleteProducts(item);
             }
             finally
             {
-                _dbContext.Dispose();
+                DbContext.Dispose();
             }
         }
     }
