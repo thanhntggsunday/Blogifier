@@ -26,7 +26,7 @@ namespace Blogifier.Core.Controllers
         private readonly IUnitOfWork _db;
         private readonly ILogger _logger;
         private readonly string _theme;
-        private readonly string _pwdTheme = "~/Views/Account/ChangePassword.cshtml";
+        // private readonly string _pwdTheme = "~/Views/Account/ChangePassword.cshtml";
 
         public SettingsController(IUnitOfWork db, ILogger<SettingsController> logger)
 		{
