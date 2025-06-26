@@ -6,7 +6,7 @@ using Blogifier.Core.Modules.Pms.Models.Dto;
 
 namespace Blogifier.Core.Modules.Pms.Providers
 {
-    public class OrderProvider : IProvider<OrderDto>
+    public class OrderProvider : BaseProvider, IProvider<OrderDto>
     {
         public OrderDto GetById(OrderDto item)
         {
@@ -34,6 +34,11 @@ namespace Blogifier.Core.Modules.Pms.Providers
         }
 
         public void Update(OrderDto entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Update(OrderDto entity, List<string> cols)
         {
             throw new NotImplementedException();
         }

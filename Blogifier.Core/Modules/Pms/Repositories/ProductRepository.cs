@@ -46,7 +46,7 @@ where [Name] like @Name");
             dataAccess.ExecuteScalar(cmd);
         }
 
-        public static void RemoveProducts(this DataAccess dataAccess, ProductDto itemDto)
+        public static void RemoveProduct(this DataAccess dataAccess, ProductDto itemDto)
         {
             var product = itemDto.ToEntity();
             var cmd = product.GenerateDeleteCommand("Product");

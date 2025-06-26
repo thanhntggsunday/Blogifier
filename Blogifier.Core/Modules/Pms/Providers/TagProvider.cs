@@ -6,7 +6,7 @@ using Blogifier.Core.Modules.Pms.Models.Dto;
 
 namespace Blogifier.Core.Modules.Pms.Providers
 {
-    public class TagProvider : IProvider<TagDto>
+    public class TagProvider : BaseProvider, IProvider<TagDto>
     {
         public TagDto GetById(TagDto item)
         {
@@ -34,6 +34,11 @@ namespace Blogifier.Core.Modules.Pms.Providers
         }
 
         public void Update(TagDto entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Update(TagDto entity, List<string> cols)
         {
             throw new NotImplementedException();
         }

@@ -1,36 +1,64 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Text;
+using Blogifier.Core.AdoNet.SQLServer;
 using Blogifier.Core.Modules.Pms.Interfaces;
 using Blogifier.Core.Modules.Pms.Models.Dto;
+using Blogifier.Core.Modules.Pms.Repositories;
 
 namespace Blogifier.Core.Modules.Pms.Providers
 {
-    public class ProductCategoryProvider : IProvider<ProductCategoryDto>
+    public class ProductCategoryProvider : BaseProvider, IProvider<ProductCategoryDto>
     {
         public ProductCategoryDto GetById(ProductCategoryDto item)
         {
-            throw new NotImplementedException();
+            try
+            {
+                return DbContext.GetProductCategoryById(item);
+            }
+            finally
+            {
+                DbContext.Dispose();
+            }
         }
 
         public IEnumerable<ProductCategoryDto> GetAll()
         {
-            throw new NotImplementedException();
+            try
+            {
+                var mapper = Mapper.CreateMapper<ProductCategoryDto>();
+                return DbContext.GetAll("Select * From ProductCategory", CommandType.Text, mapper);
+            }
+            finally
+            {
+                DbContext.Dispose();
+            }
         }
 
         public IEnumerable<ProductCategoryDto> Find(Dictionary<string, object> condition)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var productName = condition["name"] ?? String.Empty;
+                return DbContext.FindProductCategory(productName.ToString());
+            }
+            finally
+            {
+                DbContext.Dispose();
+            }
         }
 
-        public void Add(ProductCategoryDto entity)
+        public void Add(ProductCategoryDto item)
         {
-            throw new NotImplementedException();
-        }
-
-        public void AddRange(IEnumerable<ProductCategoryDto> entities)
-        {
-            throw new NotImplementedException();
+            try
+            {
+                DbContext.AddProductCategory(item);
+            }
+            finally
+            {
+                DbContext.Dispose();
+            }
         }
 
         public void Update(ProductCategoryDto entity)
@@ -38,7 +66,31 @@ namespace Blogifier.Core.Modules.Pms.Providers
             throw new NotImplementedException();
         }
 
-        public void Remove(ProductCategoryDto entity)
+        public void Update(ProductCategoryDto item, List<string> cols)
+        {
+            try
+            {
+                DbContext.UpdateProductCategory(item, cols);
+            }
+            finally
+            {
+                DbContext.Dispose();
+            }
+        }
+
+        public void Remove(ProductCategoryDto item)
+        {
+            try
+            {
+                DbContext.RemoveProductCategory(item);
+            }
+            finally
+            {
+                DbContext.Dispose();
+            }
+        }
+
+        public void AddRange(IEnumerable<ProductCategoryDto> item)
         {
             throw new NotImplementedException();
         }

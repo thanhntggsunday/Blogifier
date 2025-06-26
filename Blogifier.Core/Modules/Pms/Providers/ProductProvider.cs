@@ -8,28 +8,8 @@ using Blogifier.Core.Modules.Pms.Repositories;
 
 namespace Blogifier.Core.Modules.Pms.Providers
 {
-    public class ProductProvider : IProvider<ProductDto>
+    public class ProductProvider : BaseProvider, IProvider<ProductDto>
     {
-        private DataAccess _dbContext;
-
-        public ProductProvider()
-        {
-            _dbContext = new DataAccess();
-        }
-
-        public DataAccess DbContext
-        {
-            get
-            {
-                if (_dbContext == null || _dbContext.Disposed == true)
-                {
-                    _dbContext = new DataAccess();
-                }
-
-                return _dbContext;
-            }
-        }
-
         public ProductDto GetById(ProductDto item)
         {
             try
@@ -80,16 +60,15 @@ namespace Blogifier.Core.Modules.Pms.Providers
             }
         }
 
-        public void AddRange(IEnumerable<ProductDto> entities)
+        public void Update(ProductDto entity)
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
 
-        public void Update(ProductDto item)
+        public void Update(ProductDto item, List<string> cols)
         {
             try
             {
-                var cols = new List<string>();
                 DbContext.UpdateProduct(item, cols);
             }
             finally
@@ -102,7 +81,7 @@ namespace Blogifier.Core.Modules.Pms.Providers
         {
             try
             {
-                DbContext.RemoveProducts(item);
+                DbContext.RemoveProduct(item);
             }
             finally
             {
@@ -110,6 +89,12 @@ namespace Blogifier.Core.Modules.Pms.Providers
             }
         }
 
+
+        public void AddRange(IEnumerable<ProductDto> entities)
+        {
+            throw new System.NotImplementedException();
+        }
+        
         public void RemoveRange(IEnumerable<ProductDto> entities)
         {
             throw new System.NotImplementedException();

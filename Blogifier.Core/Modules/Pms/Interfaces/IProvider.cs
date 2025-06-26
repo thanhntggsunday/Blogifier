@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace Blogifier.Core.Modules.Pms.Interfaces
 {
@@ -8,10 +6,11 @@ namespace Blogifier.Core.Modules.Pms.Interfaces
     {
         TEntity GetById(TEntity item);
         IEnumerable<TEntity> GetAll();
-        IEnumerable<TEntity> Find(Dictionary<string, Object> condition);
+        IEnumerable<TEntity> Find(Dictionary<string, object> condition);
         void Add(TEntity entity);
         void AddRange(IEnumerable<TEntity> entities);
         void Update(TEntity entity);
+        void Update(TEntity entity, List<string> cols);
         void Remove(TEntity entity);
         void RemoveRange(IEnumerable<TEntity> entities);
     }
