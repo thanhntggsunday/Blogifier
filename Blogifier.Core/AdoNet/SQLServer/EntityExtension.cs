@@ -86,6 +86,22 @@ namespace Blogifier.Core.AdoNet.SQLServer
             return command;
         }
 
+        public static SqlCommand GenerateGetByIdCommand<T>(this T entity, string tableName)
+        {
+            var type = typeof(T);
+
+            var idProperty = type.GetProperty("Id");
+            if (idProperty == null)
+                throw new InvalidOperationException("Entity must have an Id property");
+
+            var sql = $"SELECT * FROM {tableName} WHERE Id = @Id";
+            var command = new SqlCommand(sql);
+
+            object idValue = idProperty.GetValue(entity);
+            command.Parameters.AddWithValue("@Id", idValue ?? throw new InvalidOperationException("Id cannot be null"));
+
+            return command;
+        }
 
     }
 }

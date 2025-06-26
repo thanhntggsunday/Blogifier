@@ -13,7 +13,22 @@ using System.Threading.Tasks;
 
 namespace Blogifier.Core.AdoNet.SQLServer
 {
-    public class DataAccess : BaseClass
+    public interface IDataAccess
+    {
+        T GetById<T>(SqlCommand cmd, Func<SqlDataReader, T> mapper);
+        List<T> GetAll<T>(string sqlQuery, CommandType commandType, Func<SqlDataReader, T> mapper);
+        List<T> Find<T>(SqlCommand cmd, Func<SqlDataReader, T> mapper);
+        int ExecuteNonQuery(SqlCommand cmd);
+        object ExecuteScalar(SqlCommand cmd);
+        DataTable LoadDataTable(SqlCommand cmd);
+        void BeginTransaction();
+        void CommitTransaction();
+        void RollbackTransaction();
+        void Dispose();
+        bool Disposed { get; set; }
+    }
+
+    public class DataAccess : BaseClass, IDataAccess
     {
         private SqlConnection _connection;
         private SqlTransaction _transaction;
@@ -33,7 +48,24 @@ namespace Blogifier.Core.AdoNet.SQLServer
             _connection.Open();
         }
 
-        public List<T> GetAllItems<T>(string sqlQuery, CommandType commandType, Func<SqlDataReader, T> mapper)
+        public T GetById<T>(SqlCommand cmd, Func<SqlDataReader, T> mapper)
+        {
+            var items = new List<T>();
+            cmd.Connection = _connection;
+            cmd.Transaction = _transaction;
+
+            using (var reader = cmd.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    items.Add(mapper(reader));
+                }
+            }
+
+            return items[0];
+        }
+
+        public List<T> GetAll<T>(string sqlQuery, CommandType commandType, Func<SqlDataReader, T> mapper)
         {
             var items = new List<T>();
 
@@ -53,7 +85,7 @@ namespace Blogifier.Core.AdoNet.SQLServer
             return items;
         }
 
-        public List<T> GetItems<T>(SqlCommand cmd, Func<SqlDataReader, T> mapper)
+        public List<T> Find<T>(SqlCommand cmd, Func<SqlDataReader, T> mapper)
         {
             var items = new List<T>();
             cmd.Connection = _connection;

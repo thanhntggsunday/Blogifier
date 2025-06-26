@@ -1,11 +1,14 @@
+using System;
 using System.Collections.Generic;
+using System.Data;
 using Blogifier.Core.AdoNet.SQLServer;
+using Blogifier.Core.Modules.Pms.Interfaces;
 using Blogifier.Core.Modules.Pms.Models.Dto;
 using Blogifier.Core.Modules.Pms.Repositories;
 
 namespace Blogifier.Core.Modules.Pms.Providers
 {
-    public class ProductProvider
+    public class ProductProvider : IProvider<ProductDto>
     {
         private DataAccess _dbContext;
 
@@ -27,11 +30,11 @@ namespace Blogifier.Core.Modules.Pms.Providers
             }
         }
 
-        public List<ProductDto> GetProducts(string productName)
+        public ProductDto GetById(ProductDto item)
         {
             try
             {
-                return DbContext.GetProducts(productName);
+                return DbContext.GetProductById(item);
             }
             finally
             {
@@ -39,11 +42,12 @@ namespace Blogifier.Core.Modules.Pms.Providers
             }
         }
 
-        public void CreatProducts(ProductDto item)
+        public IEnumerable<ProductDto> GetAll()
         {
             try
             {
-                DbContext.CreatProducts(item);
+                var mapper = Mapper.CreateMapper<ProductDto>();
+                return DbContext.GetAll("Select * From Product", CommandType.Text, mapper);
             }
             finally
             {
@@ -51,12 +55,42 @@ namespace Blogifier.Core.Modules.Pms.Providers
             }
         }
 
-        public void UpdateProducts(ProductDto item)
+        public IEnumerable<ProductDto> Find(Dictionary<string, object> condition)
+        {
+            try
+            {
+                var productName = condition["name"]?? String.Empty;
+                return DbContext.FindProduct(productName.ToString());
+            }
+            finally
+            {
+                DbContext.Dispose();
+            }
+        }
+
+        public void Add(ProductDto item)
+        {
+            try
+            {
+                DbContext.AddProduct(item);
+            }
+            finally
+            {
+                DbContext.Dispose();
+            }
+        }
+
+        public void AddRange(IEnumerable<ProductDto> entities)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void Update(ProductDto item)
         {
             try
             {
                 var cols = new List<string>();
-                DbContext.UpdateProducts(item, cols);
+                DbContext.UpdateProduct(item, cols);
             }
             finally
             {
@@ -64,16 +98,21 @@ namespace Blogifier.Core.Modules.Pms.Providers
             }
         }
 
-        public void DeleteProduct(ProductDto item)
+        public void Remove(ProductDto item)
         {
             try
             {
-                DbContext.DeleteProducts(item);
+                DbContext.RemoveProducts(item);
             }
             finally
             {
                 DbContext.Dispose();
             }
+        }
+
+        public void RemoveRange(IEnumerable<ProductDto> entities)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

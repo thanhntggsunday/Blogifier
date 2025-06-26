@@ -10,7 +10,15 @@ namespace Blogifier.Core.Modules.Pms.Repositories
 {
     public static class ProductRepository
     {
-        public static List<ProductDto> GetProducts(this DataAccess dataAccess, string productName = "")
+        public static ProductDto GetProductById(this DataAccess dataAccess, ProductDto dto)
+        {
+            var mapper = Mapper.CreateMapper<ProductDto>();
+            var cmd = dto.ToEntity().GenerateGetByIdCommand("Product");
+
+            return dataAccess.GetById(cmd, mapper);
+        }
+
+        public static List<ProductDto> FindProduct(this DataAccess dataAccess, string productName = "")
         {
             var mapper = Mapper.CreateMapper<ProductDto>();
             var cmd = new SqlCommand(@"select pc.[Name], p.* from Product p
@@ -19,10 +27,10 @@ where [Name] like @Name");
 
             var value = $"'%{productName}%'";
             cmd.Parameters.AddWithValue("@Name", value);
-            return dataAccess.GetItems(cmd, mapper);
+            return dataAccess.Find(cmd, mapper);
         }
 
-        public static void CreatProducts(this DataAccess dataAccess, ProductDto itemDto)
+        public static void AddProduct(this DataAccess dataAccess, ProductDto itemDto)
         {
             var product = itemDto.ToEntity();
             var cmd = product.GenerateInsertCommand("Product");
@@ -30,7 +38,7 @@ where [Name] like @Name");
             dataAccess.ExecuteScalar(cmd);
         }
 
-        public static void UpdateProducts(this DataAccess dataAccess, ProductDto itemDto, List<string> cols)
+        public static void UpdateProduct(this DataAccess dataAccess, ProductDto itemDto, List<string> cols)
         {
             var product = itemDto.ToEntity();
             var cmd = product.GenerateUpdateCommand("Product", cols);
@@ -38,7 +46,7 @@ where [Name] like @Name");
             dataAccess.ExecuteScalar(cmd);
         }
 
-        public static void DeleteProducts(this DataAccess dataAccess, ProductDto itemDto)
+        public static void RemoveProducts(this DataAccess dataAccess, ProductDto itemDto)
         {
             var product = itemDto.ToEntity();
             var cmd = product.GenerateDeleteCommand("Product");
