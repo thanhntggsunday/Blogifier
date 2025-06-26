@@ -61,7 +61,7 @@ namespace Blogifier.Core.Controllers
             {
                 HttpContext.Session.SetString("default_page", "/pmshome");
 
-                return RedirectToAction("Index", "PmsHome");
+                return RedirectToAction("Index", "PmsDefault");
             }
 
             var model = _ds.GetPosts(page);

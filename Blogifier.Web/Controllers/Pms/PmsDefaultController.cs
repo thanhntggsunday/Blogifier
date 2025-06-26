@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace Blogifier.Web.Controllers
 {
     [Route("[controller]/[action]")]
-    public class PmsHomeController : Controller
+    public class PmsDefaultController : Controller
     {
         public IActionResult Index()
         {
