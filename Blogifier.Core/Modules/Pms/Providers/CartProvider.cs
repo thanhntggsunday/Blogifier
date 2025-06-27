@@ -6,7 +6,7 @@ using Blogifier.Core.Modules.Pms.Models.Dto;
 
 namespace Blogifier.Core.Modules.Pms.Providers
 {
-    public class CartProvider : BaseProvider, IProvider<CartDto>
+    public class CartProvider : BaseProvider, ICartProvider
     {
         public CartDto GetById(CartDto item)
         {
@@ -49,6 +49,11 @@ namespace Blogifier.Core.Modules.Pms.Providers
         }
 
         public void RemoveRange(IEnumerable<CartDto> entities)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<CartItemDto> FindCartItemByCartId(CartDto condition)
         {
             throw new NotImplementedException();
         }

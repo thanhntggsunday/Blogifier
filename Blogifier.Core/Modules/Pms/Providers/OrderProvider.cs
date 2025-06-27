@@ -6,7 +6,7 @@ using Blogifier.Core.Modules.Pms.Models.Dto;
 
 namespace Blogifier.Core.Modules.Pms.Providers
 {
-    public class OrderProvider : BaseProvider, IProvider<OrderDto>
+    public class OrderProvider : BaseProvider, IOrderProvider
     {
         public OrderDto GetById(OrderDto item)
         {
