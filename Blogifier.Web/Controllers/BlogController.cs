@@ -1,7 +1,4 @@
-﻿using System;
-using Blogifier.Core.Common;
-using Blogifier.Core.Modules.Pms.Models.Dto;
-using Blogifier.Core.Modules.Pms.Providers;
+﻿using Blogifier.Core.Common;
 using Blogifier.Core.Services.Data;
 using Blogifier.Core.Services.Syndication.Rss;
 using Microsoft.AspNetCore.Http;

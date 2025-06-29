@@ -4,7 +4,6 @@ using Blogifier.Core.Data.Domain;
 using Blogifier.Core.Data.Interfaces;
 using Blogifier.Core.Extensions;
 using Blogifier.Core.Services.Email;
-using Blogifier.Models;
 using Blogifier.Models.AccountViewModels;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
@@ -18,7 +17,6 @@ using System.Threading.Tasks;
 using Blogifier.Core.Middleware;
 using Blogifier.Models.Admin;
 using Blogifier.Web.Class;
-using SystemClock = Microsoft.Extensions.Internal.SystemClock;
 using Blogifier.Core.Services.FileSystem;
 
 namespace Blogifier.Controllers

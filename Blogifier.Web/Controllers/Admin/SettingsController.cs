@@ -1,5 +1,4 @@
-﻿using System;
-using Blogifier.Core.Common;
+﻿using Blogifier.Core.Common;
 using Blogifier.Core.Data.Domain;
 using Blogifier.Core.Data.Interfaces;
 using Blogifier.Core.Data.Models;
@@ -11,9 +10,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
-using Blogifier.Core.Services.Email;
-using Blogifier.Models.AccountViewModels;
 using Blogifier.Web.Class;
 using Microsoft.AspNetCore.Identity;
 
