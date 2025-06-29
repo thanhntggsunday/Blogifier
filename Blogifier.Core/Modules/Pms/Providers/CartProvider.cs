@@ -88,9 +88,26 @@ namespace Blogifier.Core.Modules.Pms.Providers
             throw new NotImplementedException();
         }
 
-        public void Update(CartDto entity)
+        public void Update(CartDto dto)
         {
-            throw new NotImplementedException();
+            try
+            {
+                for (int i = 0; i < dto.Items.Count; i++)
+                {
+                    var cartItem = dto.Items[i];
+                    var cols = new List<string>() { "Quantity, TotalPrice, UnitPrice" };
+                    DbContext.UpdateCartItem(cartItem, cols);
+                }
+            }
+            catch (Exception ex)
+            {
+                Logger.LogError(ex.ToString());
+                DbContext.RollbackTransaction();
+            }
+            finally
+            {
+                DbContext.Dispose();
+            }
         }
 
         public void Update(CartDto entity, List<string> cols)
