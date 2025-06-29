@@ -11,7 +11,7 @@ namespace Blogifier.Core.Modules.Pms.Repositories
         public static ProductCategoryDto GetProductCategoryById(this DataAccess dataAccess, ProductCategoryDto dto)
         {
             var mapper = Mapper.CreateMapper<ProductCategoryDto>();
-            var cmd = dto.ToEntity().GenerateGetByIdCommand("ProductCategory");
+            var cmd = dto.ToEntity().GenerateGetByIdCommand("ProductCategories");
 
             return dataAccess.GetById(cmd, mapper);
         }
@@ -19,7 +19,7 @@ namespace Blogifier.Core.Modules.Pms.Repositories
         public static List<ProductCategoryDto> FindProductCategory(this DataAccess dataAccess, string productName = "")
         {
             var mapper = Mapper.CreateMapper<ProductCategoryDto>();
-            var cmd = new SqlCommand(@"select * from ProductCategory where [Name] like @Name");
+            var cmd = new SqlCommand(@"select * from ProductCategories where [Name] like @Name");
 
             var value = $"'%{productName}%'";
             cmd.Parameters.AddWithValue("@Name", value);
@@ -29,7 +29,7 @@ namespace Blogifier.Core.Modules.Pms.Repositories
         public static void AddProductCategory(this DataAccess dataAccess, ProductCategoryDto itemDto)
         {
             var product = itemDto.ToEntity();
-            var cmd = product.GenerateInsertCommand("ProductCategory");
+            var cmd = product.GenerateInsertCommand("ProductCategories");
 
             dataAccess.ExecuteScalar(cmd);
         }
@@ -37,7 +37,7 @@ namespace Blogifier.Core.Modules.Pms.Repositories
         public static void UpdateProductCategory(this DataAccess dataAccess, ProductCategoryDto itemDto, List<string> cols)
         {
             var product = itemDto.ToEntity();
-            var cmd = product.GenerateUpdateCommand("ProductCategory", cols);
+            var cmd = product.GenerateUpdateCommand("ProductCategories", cols);
 
             dataAccess.ExecuteScalar(cmd);
         }
@@ -45,7 +45,7 @@ namespace Blogifier.Core.Modules.Pms.Repositories
         public static void RemoveProductCategory(this DataAccess dataAccess, ProductCategoryDto itemDto)
         {
             var product = itemDto.ToEntity();
-            var cmd = product.GenerateDeleteCommand("ProductCategory");
+            var cmd = product.GenerateDeleteCommand("ProductCategories");
 
             dataAccess.ExecuteScalar(cmd);
         }
