@@ -1,8 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Text;
+using Blogifier.Core.AdoNet.SQLServer;
+using Blogifier.Core.Common;
 using Blogifier.Core.Modules.Pms.Interfaces;
 using Blogifier.Core.Modules.Pms.Models.Dto;
+using Blogifier.Core.Modules.Pms.Repositories;
 
 namespace Blogifier.Core.Modules.Pms.Providers
 {
@@ -10,22 +14,73 @@ namespace Blogifier.Core.Modules.Pms.Providers
     {
         public CartDto GetById(CartDto item)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var cart = DbContext.GetCartById(item);
+                var cartItems = DbContext.FindCartItem(cart.Id);
+
+                cart.Items.AddRange(cartItems);
+
+                return cart;
+            }
+            finally
+            {
+                DbContext.Dispose();
+            }
         }
 
         public IEnumerable<CartDto> GetAll()
         {
-            throw new NotImplementedException();
+            try
+            {
+                var mapper = Mapper.CreateMapper<CartDto>();
+                var carts = DbContext.GetAll("Select * From Carts", CommandType.Text, mapper);
+                
+                return carts;
+            }
+            finally
+            {
+                DbContext.Dispose();
+            }
         }
 
         public IEnumerable<CartDto> Find(Dictionary<string, object> condition)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var name = condition["name"] ?? String.Empty;
+                return DbContext.FindCart(name.ToString());
+            }
+            finally
+            {
+                DbContext.Dispose();
+            }
         }
 
-        public void Add(CartDto entity)
+        public void Add(CartDto item)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var cartId = DbContext.AddCart(item);
+
+                item.SetCartId(cartId);
+
+                for (int i = 0; i < item.Items.Count; i++)
+                {
+                    var cartItem = item.Items[i];
+
+                    DbContext.AddCartItem(cartItem);
+                }
+            }
+            catch (Exception ex)
+            {
+                Logger.LogError(ex.ToString());
+                DbContext.RollbackTransaction();
+            }
+            finally
+            {
+                DbContext.Dispose();
+            }
         }
 
         public void AddRange(IEnumerable<CartDto> entities)

@@ -28,12 +28,14 @@ namespace Blogifier.Core.Modules.Pms.Repositories
             return dataAccess.Find(cmd, mapper);
         }
 
-        public static void AddCart(this DataAccess dataAccess, CartDto itemDto)
+        public static int AddCart(this DataAccess dataAccess, CartDto itemDto)
         {
             var product = itemDto.ToEntity();
             var cmd = product.GenerateInsertCommand("Carts");
 
-            dataAccess.ExecuteScalar(cmd);
+            var id = dataAccess.ExecuteScalar(cmd);
+
+            return Int32.Parse(id.ToString());
         }
 
         public static void UpdateCart(this DataAccess dataAccess, CartDto itemDto, List<string> cols)
