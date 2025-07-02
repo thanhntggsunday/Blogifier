@@ -21,7 +21,7 @@ namespace Blogifier.Core.AdoNet.SQLServer
 
             var columnNames = string.Join(", ", properties.Select(p => p.Name));
             var paramNames = string.Join(", ", properties.Select(p => "@" + p.Name));
-            var sql = $"INSERT INTO {tableName} ({columnNames}) VALUES ({paramNames});";
+            var sql = $@"INSERT INTO {tableName} ({columnNames}) VALUES ({paramNames}); SELECT CAST(SCOPE_IDENTITY() AS INT);";
 
             var command = new SqlCommand(sql);
 
