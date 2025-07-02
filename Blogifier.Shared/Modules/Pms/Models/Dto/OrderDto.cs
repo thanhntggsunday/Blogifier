@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using Blogifier.Core.Entities;
 
@@ -16,5 +17,15 @@ namespace Blogifier.Core.Modules.Pms.Models.Dto
         public int AddressId { get; set; }
 
         public List<OrderItemDto> Items { get; set; } = new List<OrderItemDto>();
+
+        public void SetOrderId(int cartId)
+        {
+            for (int i = 0; i < Items.Count(); i++)
+            {
+                var item = Items[i];
+
+                item.OrderId = cartId;
+            }
+        }
     }
 }

@@ -48,7 +48,7 @@ namespace Blogifier.Core.Modules.Pms.Providers
         {
             try
             {
-                var name = condition["name"] ?? String.Empty;
+                var name = condition["UserName"] ?? String.Empty;
                 return DbContext.FindCart(name.ToString());
             }
             finally
@@ -61,6 +61,8 @@ namespace Blogifier.Core.Modules.Pms.Providers
         {
             try
             {
+                DbContext.BeginTransaction();
+
                 var cartId = DbContext.AddCart(item);
 
                 item.SetCartId(cartId);
@@ -71,6 +73,8 @@ namespace Blogifier.Core.Modules.Pms.Providers
 
                     DbContext.AddCartItem(cartItem);
                 }
+
+                DbContext.CommitTransaction();
             }
             catch (Exception ex)
             {
@@ -95,7 +99,15 @@ namespace Blogifier.Core.Modules.Pms.Providers
                 for (int i = 0; i < dto.Items.Count; i++)
                 {
                     var cartItem = dto.Items[i];
-                    var cols = new List<string>() { "Quantity, TotalPrice, UnitPrice" };
+                    var cols = new List<string>() {
+                        "Quantity",
+                        "TotalPrice",
+                        "UnitPrice",
+                        "ModifiedBy",
+                        "ModifiedBy",
+                        "ModifiedDate"
+                    };
+
                     DbContext.UpdateCartItem(cartItem, cols);
                 }
             }
@@ -117,17 +129,36 @@ namespace Blogifier.Core.Modules.Pms.Providers
 
         public void Remove(CartDto entity)
         {
-            throw new NotImplementedException();
+            try
+            {
+                DbContext.BeginTransaction();
+
+                for (int i = 0; i < entity.Items.Count; i++)
+                {
+                    var cartItem = entity.Items[i];
+
+                    DbContext.RemoveCartItem(cartItem);
+                }
+
+                DbContext.RemoveCart(entity);
+
+                DbContext.CommitTransaction();
+            }
+            catch (Exception ex)
+            {
+                Logger.LogError(ex.ToString());
+                DbContext.RollbackTransaction();
+            }
+            finally
+            {
+                DbContext.Dispose();
+            }
         }
 
         public void RemoveRange(IEnumerable<CartDto> entities)
         {
             throw new NotImplementedException();
         }
-
-        public IEnumerable<CartItemDto> FindCartItemByCartId(CartDto condition)
-        {
-            throw new NotImplementedException();
-        }
+        
     }
 }

@@ -7,6 +7,5 @@ namespace Blogifier.Core.Modules.Pms.Interfaces
 {
     public interface ICartProvider : IProvider<CartDto>
     {
-        IEnumerable<CartItemDto> FindCartItemByCartId(CartDto condition);
     }
 }
