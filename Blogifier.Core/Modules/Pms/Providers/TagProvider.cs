@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Text;
+using Blogifier.Core.AdoNet.SQLServer;
 using Blogifier.Core.Modules.Pms.Interfaces;
 using Blogifier.Core.Modules.Pms.Models.Dto;
+using Blogifier.Core.Modules.Pms.Repositories;
 
 namespace Blogifier.Core.Modules.Pms.Providers
 {
@@ -10,22 +13,52 @@ namespace Blogifier.Core.Modules.Pms.Providers
     {
         public TagDto GetById(TagDto item)
         {
-            throw new NotImplementedException();
+            try
+            {
+                return DbContext.GetTagById(item);
+            }
+            finally
+            {
+                DbContext.Dispose();
+            }
         }
 
         public IEnumerable<TagDto> GetAll()
         {
-            throw new NotImplementedException();
+            try
+            {
+                var mapper = Mapper.CreateMapper<TagDto>();
+                return DbContext.GetAll("Select * From Tags", CommandType.Text, mapper);
+            }
+            finally
+            {
+                DbContext.Dispose();
+            }
         }
 
         public IEnumerable<TagDto> Find(Dictionary<string, object> condition)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var name = condition["name"] ?? String.Empty;
+                return DbContext.FindTag(name.ToString());
+            }
+            finally
+            {
+                DbContext.Dispose();
+            }
         }
 
-        public void Add(TagDto entity)
+        public void Add(TagDto item)
         {
-            throw new NotImplementedException();
+            try
+            {
+                DbContext.AddTag(item);
+            }
+            finally
+            {
+                DbContext.Dispose();
+            }
         }
 
         public void AddRange(IEnumerable<TagDto> entities)
@@ -40,12 +73,26 @@ namespace Blogifier.Core.Modules.Pms.Providers
 
         public void Update(TagDto entity, List<string> cols)
         {
-            throw new NotImplementedException();
+            try
+            {
+                DbContext.UpdateTag(entity, cols);
+            }
+            finally
+            {
+                DbContext.Dispose();
+            }
         }
 
-        public void Remove(TagDto entity)
+        public void Remove(TagDto item)
         {
-            throw new NotImplementedException();
+            try
+            {
+                DbContext.RemoveTag(item);
+            }
+            finally
+            {
+                DbContext.Dispose();
+            }
         }
 
         public void RemoveRange(IEnumerable<TagDto> entities)
