@@ -8,8 +8,13 @@ namespace Blogifier.Core.Modules.Pms.Models.Dto
 {
     public class CartDto : BaseDto
     {
+        public CartDto()
+        {
+            Items = new List<CartItemDto>();
+        }
+
         public string UserName { get; set; }
-        public List<CartItemDto> Items { get; set; } = new List<CartItemDto>();
+        public List<CartItemDto> Items { get; set; }
 
         public void SetCartId(int cartId)
         {

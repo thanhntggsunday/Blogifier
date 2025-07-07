@@ -27,7 +27,8 @@ namespace Blogifier.Core.Modules.Pms.Providers
             try
             {
                 var mapper = Mapper.CreateMapper<ProductDto>();
-                return DbContext.GetAll("Select * From Product", CommandType.Text, mapper);
+                return DbContext.GetAll(@"select pc.[Name] CategoryName, p.* from Product p
+                join ProductCategories pc on P.CategoryId = pc.Id", CommandType.Text, mapper);
             }
             finally
             {

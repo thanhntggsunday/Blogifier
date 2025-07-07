@@ -19,15 +19,23 @@ namespace Blogifier.Web.Controllers
         private IProvider<ProductDto> _productProvider;
         private IProvider<TagDto> _tagProvider;
 
-        public IActionResult Index(ICartProvider cartProvider, IOrderProvider orderProvider,
+        public PmsDefaultController(ICartProvider cartProvider, IOrderProvider orderProvider,
             IProvider<ProductCategoryDto> productCategoryProvider, IProvider<ProductDto> productProvider,
             IProvider<TagDto> tagProvider)
         {
+
             _productCategoryProvider = productCategoryProvider;
             _productProvider = productProvider;
             _cartProvider = cartProvider;
             _orderProvider = orderProvider;
             _tagProvider = tagProvider;
+
+        }
+
+        public IActionResult Index()
+        {
+            var products = _productProvider.GetAll();
+            Console.WriteLine(products);
 
             return View($"~/{ApplicationSettings.BlogThemesFolder}/OneFour/Default.cshtml");
         }
