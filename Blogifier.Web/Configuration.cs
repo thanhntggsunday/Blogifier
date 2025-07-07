@@ -24,6 +24,9 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
+using Blogifier.Core.Modules.Pms.Interfaces;
+using Blogifier.Core.Modules.Pms.Models.Dto;
+using Blogifier.Core.Modules.Pms.Providers;
 using Serilog;
 
 namespace Blogifier.Core
@@ -50,6 +53,13 @@ namespace Blogifier.Core
             services.AddTransient<IEmailService, SendGridService>();
             services.AddTransient<IConfigService, ConfigService>();
             services.AddTransient<IPackageService, PackageService>();
+            
+            // Pms
+            services.AddTransient<IProvider<ProductCategoryDto>, ProductCategoryProvider>();
+            services.AddTransient<IProvider<ProductDto>, ProductProvider>();
+            services.AddTransient<IProvider<TagDto>, TagProvider>();
+            services.AddTransient<ICartProvider, CartProvider>();
+            services.AddTransient<IOrderProvider, OrderProvider>();
 
             // add blog route from ApplicationSettings
             services.Configure<Microsoft.AspNetCore.Mvc.MvcOptions>(opt =>
