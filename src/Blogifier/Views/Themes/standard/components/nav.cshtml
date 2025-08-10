@@ -3,7 +3,7 @@
 @using Microsoft.Extensions.Localization
 @inject IStringLocalizer<Resource> _localizer
 @inject ICategoryProvider _categoryProvider
-@inject IAuthorProvider _authorProvider
+@inject IIdentityProvider _authorProvider
 
 @{
     var categories = await _categoryProvider.Categories();

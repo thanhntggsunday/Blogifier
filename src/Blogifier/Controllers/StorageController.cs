@@ -14,11 +14,11 @@ namespace Blogifier.Controllers
 	public class StorageController : ControllerBase
 	{
 		private readonly IStorageProvider _storageProvider;
-		private readonly IAuthorProvider _authorProvider;
+		private readonly IIdentityProvider _authorProvider;
 		private readonly IBlogProvider _blogProvider;
 		private readonly IPostProvider _postProvider;
 
-        public StorageController(IStorageProvider storageProvider, IAuthorProvider authorProvider, IBlogProvider blogProvider, IPostProvider postProvider)
+        public StorageController(IStorageProvider storageProvider, IIdentityProvider authorProvider, IBlogProvider blogProvider, IPostProvider postProvider)
 		{
 			_storageProvider = storageProvider;
 			_authorProvider = authorProvider;

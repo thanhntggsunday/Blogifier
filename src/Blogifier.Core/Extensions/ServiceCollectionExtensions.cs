@@ -41,7 +41,7 @@ namespace Blogifier.Core.Extensions
 
 		public static IServiceCollection AddBlogProviders(this IServiceCollection services)
 		{
-			services.AddScoped<IAuthorProvider, AuthorProvider>();
+			// services.AddScoped<IAuthorProvider, AuthorProvider>();
 			services.AddScoped<IBlogProvider, BlogProvider>();
 			services.AddScoped<IPostProvider, PostProvider>();
 			services.AddScoped<IStorageProvider, StorageProvider>();

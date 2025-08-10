@@ -1,4 +1,4 @@
-﻿using Blogifier.Core.Providers;
+using Blogifier.Core.Providers;
 using Blogifier.Shared;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
@@ -14,69 +14,69 @@ namespace Blogifier.Controllers
 	[ApiController]
 	public class AuthorController : ControllerBase
 	{
-		private readonly IAuthorProvider _authorProvider;
+		private readonly IIdentityProvider _identityProvider;
 
-		public AuthorController(IAuthorProvider authorProvider)
+		public AuthorController(IIdentityProvider authorProvider)
 		{
-			_authorProvider = authorProvider;
+			_identityProvider = authorProvider;
 		}
 
 		[Authorize]
 		[HttpGet("all")]
-		public async Task<List<Author>> All()
+		public async Task<List<User>> All()
 		{
-			return await _authorProvider.GetAuthors();
+			return await _identityProvider.GetAuthors();
 		}
 
 		[Authorize]
 		[HttpGet("email/{email}")]
-		public async Task<ActionResult<Author>> FindByEmail(string email)
+		public async Task<ActionResult<User>> FindByEmail(string email)
 		{
-			return await _authorProvider.FindByEmail(email);
+			return await _identityProvider.FindByEmail(email);
 		}
 
 		[HttpGet("getcurrent")]
-		public async Task<ActionResult<Author>> GetCurrentAuthor()
+		public async Task<ActionResult<User>> GetCurrentAuthor()
 		{
 			if (User.Identity.IsAuthenticated)
 				return await FindByEmail(User.FindFirstValue(ClaimTypes.Name));
-			return new Author();
+			return new User();
 		}
 
 		[Authorize]
 		[HttpDelete("{id:int}")]
 		public async Task<ActionResult<bool>> RemoveAuthor(int id)
 		{
-			return await _authorProvider.Remove(id);
+			return await _identityProvider.Remove(id);
 		}
 
 		[Authorize]
 		[HttpPost("add")]
-		public async Task<ActionResult<bool>> Add(Author author)
+		public async Task<ActionResult<bool>> Add(User author)
 		{
-			var success = await _authorProvider.Add(author);
+			var success = await _identityProvider.Add(author);
 			return success ? Ok() : BadRequest();
 		}
 
 		[Authorize]
 		[HttpPut("update")]
-		public async Task<ActionResult<bool>> Update(Author author)
+		public async Task<ActionResult<bool>> Update(User author)
 		{
-			var success = await _authorProvider.Update(author);
+			var success = await _identityProvider.Update(author);
 			return success ? Ok() : BadRequest();
 		}
 
 		[HttpPost("register")]
 		public async Task<ActionResult<bool>> Register(RegisterModel model)
 		{
-			var success = await _authorProvider.Register(model);
+			var success = await _identityProvider.Register(model);
 			return success ? Ok() : BadRequest();
 		}
 
 		[HttpPost("login")]
 		public async Task<ActionResult> Login(LoginModel model)
 		{
-			if (await _authorProvider.Verify(model) == false)
+			if (await _identityProvider.Verify(model) == false)
 				return BadRequest();
 
 			var claim = new Claim(ClaimTypes.Name, model.Email);
@@ -98,7 +98,7 @@ namespace Blogifier.Controllers
 		[HttpPut("changepassword")]
 		public async Task<ActionResult<bool>> ChangePassword(RegisterModel model)
 		{
-			var success = await _authorProvider.ChangePassword(model);
+			var success = await _identityProvider.ChangePassword(model);
 			return success ? Ok() : BadRequest();
 		}
 	}

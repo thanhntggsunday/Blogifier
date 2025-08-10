@@ -93,8 +93,13 @@ namespace Blogifier.Core.Providers
 
             author = new User
             {
+                DisplayName = model.Name,
                 Email = model.Email,
-                PasswordHash = model.Password.Hash(_salt)             
+                PasswordHash = model.Password.Hash(_salt),
+                IsAdmin = isAdmin,
+                Avatar = string.Format(Constants.AvatarDataImage, model.Name.Substring(0, 1).ToUpper()),
+                Bio = "The short author bio.",
+                DateCreated = DateTime.UtcNow
             };
 
             // blog.Authors.Add(author);
