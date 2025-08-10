@@ -43,11 +43,13 @@ namespace Blogifier
                     var admin = new User
                     {
                         Email = "admin@example.com",
+                        DisplayName = "administator",
                         PasswordHash = "123456".Hash(Startup.Salt)
                     };
                     var user = new User
                     {
                         Email = "user@example.com",
+                        DisplayName = "user",
                         PasswordHash = "123456".Hash(Startup.Salt)
                     };
 

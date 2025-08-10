@@ -1,3 +1,5 @@
+using System;
+
 namespace Blogifier.Shared
 {
     public class UserRole
@@ -8,6 +10,10 @@ namespace Blogifier.Shared
         public User User { get; set; }
 
         public int RoleId { get; set; }
+
+        public DateTime DateCreated { get; set; }
+        public DateTime DateUpdated { get; set; }
+
         public Role Role { get; set; }
     }
 
