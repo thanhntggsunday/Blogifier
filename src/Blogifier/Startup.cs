@@ -11,6 +11,8 @@ namespace Blogifier
 {
     public class Startup
     {
+        private static string _salt;
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -19,10 +21,13 @@ namespace Blogifier
                   .WriteTo.File("Logs/log-.txt", rollingInterval: RollingInterval.Day)
                   .CreateLogger();
 
+            _salt = configuration.GetSection("Blogifier").GetValue<string>("Salt");
+
             Log.Warning("Application start");
         }
 
         public IConfiguration Configuration { get; }
+        public static string Salt { get => _salt;}
 
         public void ConfigureServices(IServiceCollection services)
         {
@@ -83,6 +88,7 @@ namespace Blogifier
                 endpoints.MapFallbackToFile("admin/{*path:nonfile}", "index.html");
                 endpoints.MapFallbackToFile("account/{*path:nonfile}", "index.html");
             });
+
         }
     }
 }
