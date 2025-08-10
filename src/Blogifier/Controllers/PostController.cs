@@ -1,4 +1,5 @@
-﻿using Blogifier.Core.Providers;
+using Blogifier.Core.Providers;
+using Blogifier.Middleware;
 using Blogifier.Shared;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -50,7 +51,8 @@ namespace Blogifier.Controllers
 		}
 
 		[Authorize]
-		[HttpPut("update")]
+        [AuthorizeRole("Admin")]
+        [HttpPut("update")]
 		public async Task<ActionResult<bool>> UpdatePost(Post post)
 		{
 			return await _postProvider.Update(post);

@@ -1,10 +1,13 @@
 using Blogifier.Core.Providers;
 using Blogifier.Shared;
+using Blogifier.Shared.Models;
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
+using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 
@@ -25,7 +28,7 @@ namespace Blogifier.Controllers
 		[HttpGet("all")]
 		public async Task<List<User>> All()
 		{
-			return await _identityProvider.GetAuthors();
+			return await _identityProvider.GetUsers();
 		}
 
 		[Authorize]
@@ -36,12 +39,21 @@ namespace Blogifier.Controllers
 		}
 
 		[HttpGet("getcurrent")]
-		public async Task<ActionResult<User>> GetCurrentAuthor()
+		public async Task<ActionResult<UserModel>> GetCurrentAuthor()
 		{
-			if (User.Identity.IsAuthenticated)
-				return await FindByEmail(User.FindFirstValue(ClaimTypes.Name));
-			return new User();
-		}
+            if (!User.Identity.IsAuthenticated)
+            {
+                return new UserModel();
+            }
+
+            var u = await _identityProvider.FindByEmail(User.FindFirstValue(ClaimTypes.Name));
+            var uvm = new UserModel();
+            uvm.DisplayName = u.DisplayName;
+            uvm.Email = u.Email;
+            uvm.Roles = _identityProvider.GetRolesOfUser(u);
+
+            return uvm;
+        }
 
 		[Authorize]
 		[HttpDelete("{id:int}")]
@@ -79,11 +91,29 @@ namespace Blogifier.Controllers
 			if (await _identityProvider.Verify(model) == false)
 				return BadRequest();
 
-			var claim = new Claim(ClaimTypes.Name, model.Email);
-			var claimsIdentity = new ClaimsIdentity(new[] { claim }, "serverAuth");
-			var claimsPrincipal = new ClaimsPrincipal(claimsIdentity);
+            //var claim = new Claim(ClaimTypes.Name, model.Email);
+            //var claimsIdentity = new ClaimsIdentity(new[] { claim }, "serverAuth");
+            //var claimsPrincipal = new ClaimsPrincipal(claimsIdentity);
 
-			await HttpContext.SignInAsync(claimsPrincipal);
+            var user = _identityProvider.FindByEmail(model.Email).Result;
+
+            var claims = new List<Claim>
+            {
+                new Claim(ClaimTypes.Name, user.Email),
+                new Claim(ClaimTypes.NameIdentifier, user.Id.ToString())
+            };
+
+            var roles = _identityProvider.GetRolesOfUser(user);
+
+            foreach (var role in roles)
+            {
+                claims.Add(new Claim(ClaimTypes.Role, role.Name));
+            }
+
+            var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+            var principal = new ClaimsPrincipal(identity);
+
+            await HttpContext.SignInAsync(principal);
 			return Ok();
 		}
 

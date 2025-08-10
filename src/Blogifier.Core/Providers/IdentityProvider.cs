@@ -13,7 +13,10 @@ namespace Blogifier.Core.Providers
 {
     public interface IIdentityProvider
     {
-        Task<List<User>> GetAuthors();
+        Task<List<User>> GetUsers();
+        Task<List<Role>> GetRoles();
+        List<Role> GetRolesOfUser(User u);
+        Task<List<UserRole>> GetUserRolses();
         Task<User> FindByEmail(string email);
         Task<bool> Verify(LoginModel model);
         Task<bool> Register(RegisterModel model);
@@ -48,12 +51,7 @@ namespace Blogifier.Core.Providers
         public async Task<User> FindByEmail(string email)
         {
             return await Task.FromResult(_db.Users.Where(a => a.Email == email).FirstOrDefault());
-        }
-
-        public Task<List<User>> GetAuthors()
-        {
-            throw new NotImplementedException();
-        }
+        }       
 
         public async Task<bool> Register(RegisterModel model)
         {
@@ -141,6 +139,29 @@ namespace Blogifier.Core.Providers
                 Serilog.Log.Warning($"Password does not match");
                 return false;
             }
+        }
+
+        public async Task<List<User>> GetUsers()
+        {
+            return await Task.FromResult(_db.Users.ToList());
+        }
+        public async Task<List<Role>> GetRoles()
+        {
+            return await Task.FromResult(_db.Roles.ToList());
+        }
+
+        public async Task<List<UserRole>> GetUserRolses()
+        {
+            return await Task.FromResult(_db.UserRoles.ToList());
+        }
+
+        public List<Role> GetRolesOfUser(User u)
+        {
+            return (from r in _db.Roles
+                    join ur in _db.UserRoles on r.Id equals ur.RoleId
+                    where ur.UserId == u.Id
+                    select r)
+           .ToList();
         }
     }
 }
