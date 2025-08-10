@@ -45,7 +45,8 @@ namespace Blogifier.Controllers
 
 		[Authorize]
 		[HttpPost("add")]
-		public async Task<ActionResult<bool>> AddPost(Post post)
+        [AuthorizeRole("Admin")]
+        public async Task<ActionResult<bool>> AddPost(Post post)
 		{
 			return await _postProvider.Add(post);
 		}
@@ -66,7 +67,8 @@ namespace Blogifier.Controllers
 		}
 
 		[Authorize]
-		[HttpPut("featured/{id:int}")]
+        [AuthorizeRole("Admin")]
+        [HttpPut("featured/{id:int}")]
 		public async Task<ActionResult<bool>> FeaturedPost(int id, [FromBody] bool featured)
 		{
 			return await _postProvider.Featured(id, featured);
@@ -74,7 +76,8 @@ namespace Blogifier.Controllers
 
 		[Authorize]
 		[HttpDelete("{id:int}")]
-		public async Task<ActionResult<bool>> RemovePost(int id)
+        [AuthorizeRole("Admin")]
+        public async Task<ActionResult<bool>> RemovePost(int id)
 		{
 			return await _postProvider.Remove(id);
 		}

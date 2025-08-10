@@ -1,4 +1,5 @@
 using Blogifier.Core.Providers;
+using Blogifier.Middleware;
 using Blogifier.Shared;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -18,13 +19,15 @@ namespace Blogifier.Controllers
 		}
 
 		[Authorize]
-		[HttpGet]
+        [AuthorizeRole("Admin")]
+        [HttpGet]
 		public async Task<AnalyticsModel> GetAnalytics()
 		{
 			return await _analyticsProvider.GetAnalytics();
 		}
 
         [Authorize]
+        [AuthorizeRole("Admin")]
         [HttpPut("displayType/{typeId:int}")]
         public async Task<ActionResult<bool>> SaveDisplayType(int typeId)
         {
@@ -32,6 +35,7 @@ namespace Blogifier.Controllers
         }
 
         [Authorize]
+        [AuthorizeRole("Admin")]
         [HttpPut("displayPeriod/{typeId:int}")]
         public async Task<ActionResult<bool>> SaveDisplayPeriod(int typeId)
         {

@@ -1,4 +1,5 @@
 using Blogifier.Core.Providers;
+using Blogifier.Middleware;
 using Blogifier.Shared;
 using Blogifier.Shared.Models;
 using Microsoft.AspNetCore.Authentication;
@@ -25,14 +26,16 @@ namespace Blogifier.Controllers
 		}
 
 		[Authorize]
-		[HttpGet("all")]
+        [AuthorizeRole("Admin")]
+        [HttpGet("all")]
 		public async Task<List<User>> All()
 		{
 			return await _identityProvider.GetUsers();
 		}
 
 		[Authorize]
-		[HttpGet("email/{email}")]
+        [AuthorizeRole("Admin")]
+        [HttpGet("email/{email}")]
 		public async Task<ActionResult<User>> FindByEmail(string email)
 		{
 			return await _identityProvider.FindByEmail(email);
@@ -56,14 +59,16 @@ namespace Blogifier.Controllers
         }
 
 		[Authorize]
-		[HttpDelete("{id:int}")]
+        [AuthorizeRole("Admin")]
+        [HttpDelete("{id:int}")]
 		public async Task<ActionResult<bool>> RemoveAuthor(int id)
 		{
 			return await _identityProvider.Remove(id);
 		}
 
 		[Authorize]
-		[HttpPost("add")]
+        [AuthorizeRole("Admin")]
+        [HttpPost("add")]
 		public async Task<ActionResult<bool>> Add(User author)
 		{
 			var success = await _identityProvider.Add(author);
@@ -71,7 +76,8 @@ namespace Blogifier.Controllers
 		}
 
 		[Authorize]
-		[HttpPut("update")]
+        [AuthorizeRole("Admin")]
+        [HttpPut("update")]
 		public async Task<ActionResult<bool>> Update(User author)
 		{
 			var success = await _identityProvider.Update(author);

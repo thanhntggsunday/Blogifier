@@ -1,4 +1,5 @@
-﻿using Blogifier.Core.Providers;
+using Blogifier.Core.Providers;
+using Blogifier.Middleware;
 using Blogifier.Shared;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -31,7 +32,8 @@ namespace Blogifier.Controllers
 		}
 
 		[Authorize]
-		[HttpPut]
+        [AuthorizeRole("Admin")]
+        [HttpPut]
 		public async Task<ActionResult<bool>> ChangeTheme([FromBody] Blog blog)
 		{
 			return await _blogProvider.Update(blog);

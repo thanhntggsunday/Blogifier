@@ -1,5 +1,6 @@
-﻿using Blogifier.Core.Data;
+using Blogifier.Core.Data;
 using Blogifier.Core.Providers;
+using Blogifier.Middleware;
 using Blogifier.Shared;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -25,7 +26,8 @@ namespace Blogifier.Controllers
 		}
 
 		[Authorize]
-		[HttpGet("getitems")]
+        [AuthorizeRole("Admin")]
+        [HttpGet("getitems")]
 		public async Task<List<Post>> GetItems(string feedUrl, string baseUrl)
 		{
 			Author author = await _dbContext.Authors
@@ -38,7 +40,8 @@ namespace Blogifier.Controllers
 		}
 
 		[Authorize]
-		[HttpPost("import")]
+        [AuthorizeRole("Admin")]
+        [HttpPost("import")]
 		public async Task<ActionResult<bool>> Import(Post post)
 		{
 			var success = await _syndicationProvider.ImportPost(post);

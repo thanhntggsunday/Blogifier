@@ -1,4 +1,5 @@
 using Blogifier.Core.Providers;
+using Blogifier.Middleware;
 using Blogifier.Shared;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -43,13 +44,15 @@ namespace Blogifier.Controllers
         }
 
         [Authorize]
-		[HttpPost("{postId:int}/{tag}")]
+        [AuthorizeRole("Admin")]
+        [HttpPost("{postId:int}/{tag}")]
 		public async Task<ActionResult<bool>> AddPostCategory(int postId, string tag)
 		{
 			return await _categoryProvider.AddPostCategory(postId, tag);
 		}
 
         [Authorize]
+        [AuthorizeRole("Admin")]
         [HttpPut]
         public async Task<ActionResult<bool>> SaveCategory(Category category)
         {
@@ -57,6 +60,7 @@ namespace Blogifier.Controllers
         }
 
         [Authorize]
+        [AuthorizeRole("Admin")]
         [HttpPut("{postId:int}")]
         public async Task<ActionResult<bool>> SavePostCategories(int postId, List<Category> categories)
         {
@@ -64,6 +68,7 @@ namespace Blogifier.Controllers
         }
 
         [Authorize]
+        [AuthorizeRole("Admin")]
         [HttpDelete("{categoryId:int}")]
         public async Task<ActionResult<bool>> RemoveCategory(int categoryId)
         {

@@ -1,4 +1,5 @@
 using Blogifier.Core.Providers;
+using Blogifier.Middleware;
 using Blogifier.Shared;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -27,21 +28,24 @@ namespace Blogifier.Controllers
 		}
 
 		[Authorize]
-		[HttpGet("themes")]
+        [AuthorizeRole("Admin")]
+        [HttpGet("themes")]
 		public async Task<IList<string>> GetThemes()
 		{
 			return await _storageProvider.GetThemes();
 		}
 
 		[Authorize]
-		[HttpPut("exists")]
+        [AuthorizeRole("Admin")]
+        [HttpPut("exists")]
 		public async Task<IActionResult> FileExists([FromBody] string path)
 		{
 			return (await Task.FromResult(_storageProvider.FileExists(path))) ? Ok() : BadRequest();
 		}
 
 		[Authorize]
-		[HttpPost("upload/{uploadType}")]
+        [AuthorizeRole("Admin")]
+        [HttpPost("upload/{uploadType}")]
 		public async Task<ActionResult> Upload(IFormFile file, UploadType uploadType, int postId = 0)
 		{
 			var author = await _authorProvider.FindByEmail(User.Identity.Name);

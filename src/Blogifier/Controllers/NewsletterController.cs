@@ -1,4 +1,5 @@
 using Blogifier.Core.Providers;
+using Blogifier.Middleware;
 using Blogifier.Shared;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -25,7 +26,8 @@ namespace Blogifier.Controllers
 		}
 
 		[Authorize]
-		[HttpGet("subscribers")]
+        [AuthorizeRole("Admin")]
+        [HttpGet("subscribers")]
 		public async Task<List<Subscriber>> GetSubscribers()
 		{
 			return await _newsletterProvider.GetSubscribers();
@@ -38,35 +40,40 @@ namespace Blogifier.Controllers
 		}
 
 		[Authorize]
-		[HttpGet("newsletters")]
+        [AuthorizeRole("Admin")]
+        [HttpGet("newsletters")]
 		public async Task<List<Newsletter>> GetNewsletters()
 		{
 			return await _newsletterProvider.GetNewsletters();
 		}
 
 		[Authorize]
-		[HttpGet("send/{postId:int}")]
+        [AuthorizeRole("Admin")]
+        [HttpGet("send/{postId:int}")]
 		public async Task<bool> SendNewsletter(int postId)
 		{
 			return await _newsletterProvider.SendNewsletter(postId);
 		}
 
 		[Authorize]
-		[HttpDelete("remove/{id:int}")]
+        [AuthorizeRole("Admin")]
+        [HttpDelete("remove/{id:int}")]
 		public async Task<ActionResult<bool>> RemoveNewsletter(int id)
 		{
 			return await _newsletterProvider.RemoveNewsletter(id);
 		}
 
 		[Authorize]
-		[HttpGet("mailsettings")]
+        [AuthorizeRole("Admin")]
+        [HttpGet("mailsettings")]
 		public async Task<MailSetting> GetMailSettings()
 		{
 			return await _newsletterProvider.GetMailSettings();
 		}
 
 		[Authorize]
-		[HttpPut("mailsettings")]
+        [AuthorizeRole("Admin")]
+        [HttpPut("mailsettings")]
 		public async Task<ActionResult<bool>> SaveMailSettings([FromBody] MailSetting mailSettings)
 		{
 			return await _newsletterProvider.SaveMailSettings(mailSettings);
