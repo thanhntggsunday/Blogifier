@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Identity;
 
 namespace Blogifier.Core.Data
 {
-	public class BlogifierDbContext : IdentityDbContext<ApplicationUser, IdentityRole, string>
+	public class BlogifierDbContext : IdentityDbContext<ApplicationUser>
     {
         public BlogifierDbContext(DbContextOptions<BlogifierDbContext> options) : base(options) { }
 

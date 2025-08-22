@@ -31,7 +31,9 @@ namespace Blogifier.Core.Middleware
             using (var context = new BlogifierDbContext(_options))
             {
                 var user = filterContext.HttpContext.User.Identity.Name;
-                if (context.Profiles.SingleOrDefaultAsync(p => p.IdentityName == user).Result == null)
+                var profile = context.GetProfile(user);
+
+                if (profile == null)
                 {
                     filterContext.Result = new RedirectResult("~/admin/setup");
                 }
@@ -57,9 +59,10 @@ namespace Blogifier.Core.Middleware
             using (var context = new BlogifierDbContext(_options))
             {
                 var loggedUser = filterContext.HttpContext.User.Identity.Name;
-                var profile = context.Profiles.SingleOrDefaultAsync(p => p.IdentityName == loggedUser).Result;
+                // var profile = context.Profiles.SingleOrDefaultAsync(p => p.IdentityName == loggedUser).Result;
+                var profile = context.GetProfile(loggedUser);
 
-                if(profile == null || !profile.IsAdmin)
+                if (profile == null || !profile.IsAdmin)
                 {
                     filterContext.Result = new RedirectResult("~/Error/403");
                 }

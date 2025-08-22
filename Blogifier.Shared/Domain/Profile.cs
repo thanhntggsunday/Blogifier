@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.AspNetCore.Identity;
 
 namespace Blogifier.Core.Data.Domain
@@ -52,6 +53,8 @@ namespace Blogifier.Core.Data.Domain
 
         public List<BlogPost> BlogPosts { get; set; }
         public List<Asset> Assets { get; set; }
-        // public List<IdentityRole<string>> Roles { get; set; }
+
+        [NotMapped]
+        public List<IdentityRole> Roles { get; set; }
     }
 }
