@@ -1,4 +1,5 @@
-﻿using Blogifier.Core.Common;
+﻿using System.Linq;
+using Blogifier.Core.Common;
 using Blogifier.Core.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
@@ -62,7 +63,7 @@ namespace Blogifier.Core.Middleware
                 // var profile = context.Profiles.SingleOrDefaultAsync(p => p.IdentityName == loggedUser).Result;
                 var profile = context.GetProfile(loggedUser);
 
-                if (profile == null || !profile.IsAdmin)
+                if (profile == null || profile.Roles.All(r => r.Name.ToUpper() != Constants.Admin.ToUpper()))
                 {
                     filterContext.Result = new RedirectResult("~/Error/403");
                 }

@@ -14,7 +14,7 @@ using System;
 namespace Blogifier.Core.Migrations
 {
     [DbContext(typeof(BlogifierDbContext))]
-    [Migration("20250822134540_InitModel")]
+    [Migration("20250822163652_InitModel")]
     partial class InitModel
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

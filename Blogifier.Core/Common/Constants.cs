@@ -24,5 +24,9 @@
         public const string HeadCode = "Head";
         public const string FooterCode = "Footer";
         public const string PostCode = "Post";
+
+        public const string Admin = "Admin";
+        public const string Manager = "Manager";
+        public const string User = "User";
     }
 }
