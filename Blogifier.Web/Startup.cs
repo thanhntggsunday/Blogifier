@@ -89,22 +89,23 @@ namespace Blogifier
 
             app.UseBlogifier(env);
 
-            //if (!Core.Common.ApplicationSettings.UseInMemoryDatabase && Core.Common.ApplicationSettings.InitializeDatabase)
-            //{
-            //    try
-            //    {
-            //        using (var scope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
-            //        {
-            //            var db = scope.ServiceProvider.GetService<BlogifierDbContext>().Database;
-            //            db.EnsureCreated();
-            //            if (db.GetPendingMigrations() != null)
-            //            {
-            //                db.Migrate();
-            //            }
-            //        }
-            //    }
-            //    catch { }
-            //}
+            // 🔑 Seed với scope
+            using (var scope = app.ApplicationServices.CreateScope())
+            {
+                try
+                {
+                    var services = scope.ServiceProvider;
+                    var userManager = scope.ServiceProvider.GetRequiredService<UserManager<ApplicationUser>>();
+                    var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+                    DbSeeder.SeedDataAsync(services, userManager, roleManager).Wait();
+                }
+                catch (Exception e)
+                {
+                    Log.Error(e.ToString());
+                }
+               
+            }
+
         }
     }
 }
