@@ -50,5 +50,18 @@ namespace Blogifier.Core.Data.Repositories
                 LastUpdated = p.LastUpdated
             });
         }
+
+        public Profile GetProfileSingle(Expression<Func<Profile, bool>> predicate)
+        {
+            var p =  _entities.SingleOrDefault(predicate);
+            if (p == null)
+            {
+                return p;
+            }
+
+            var result = _db.GetProfile(p.AuthorEmail);
+
+            return result;
+        }
     }
 }

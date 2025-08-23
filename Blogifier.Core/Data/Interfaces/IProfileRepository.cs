@@ -10,6 +10,7 @@ namespace Blogifier.Core.Data.Interfaces
     public interface IProfileRepository : IRepository<Profile>
     {
         IEnumerable<ProfileListItem> ProfileList(Expression<Func<Profile, bool>> predicate, Pager pager);
+        Profile GetProfileSingle(Expression<Func<Profile, bool>> predicate);
     }
 
     public enum BlogImgType

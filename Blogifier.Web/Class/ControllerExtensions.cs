@@ -30,7 +30,7 @@ namespace Blogifier.Web.Class
 
         public static Profile GetProfile(this Controller controller, IUnitOfWork _db)
         {
-            return _db.Profiles.Single(b => b.IdentityName == controller.User.Identity.Name);
+            return _db.Profiles.GetProfileSingle(b => b.IdentityName == controller.User.Identity.Name);
         }
     }
 }
