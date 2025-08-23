@@ -41,12 +41,12 @@ namespace Blogifier.Core.Middleware
 
                 if (profile == null || profile.Roles.Count == 0)
                 {
-                    filterContext.Result = new RedirectResult("~/Account/Login");
+                    filterContext.Result = new RedirectResult("~/Error/403");
                 }
 
                 if (!AminPageRoleAllowAccess.Any(r => profile != null && profile.Roles.Any(r2=>r2.Name.ToUpper() == r.ToUpper())))
                 {
-                    filterContext.Result = new RedirectResult("~/Account/Login");
+                    filterContext.Result = new RedirectResult("~/Error/403");
                 }
             }
         }

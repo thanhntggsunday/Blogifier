@@ -84,7 +84,7 @@ namespace Blogifier.Controllers
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User logged in.");
-                    return RedirectToLocal(returnUrl);
+                    return RedirectToLocal("/");
                 }
                 if (result.IsLockedOut)
                 {
@@ -112,8 +112,8 @@ namespace Blogifier.Controllers
         public IActionResult Register(string returnUrl = null)
         {
             // block registration if admin already added
-            if (!IsFirstAdminAccount())
-                return View("Error");
+            //if (!IsFirstAdminAccount())
+            //    return View("Error");
 
             ViewData["ReturnUrl"] = returnUrl;
             return View();
@@ -136,7 +136,7 @@ namespace Blogifier.Controllers
                     // create new profile
                     var profile = new Profile();
 
-                    if (_db.Profiles.All().ToList().Count == 0 || model.IsAdmin)
+                    if (_db.Profiles.All().ToList().Count == 0)
                     {
                         profile.IsAdmin = true;
                     }
