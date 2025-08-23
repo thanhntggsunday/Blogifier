@@ -1,4 +1,5 @@
 ﻿@using Blogifier.Core.Common
+@using Serilog
 @{
     var customFooter = "";
     var returnUrl = Url.Action("Index", "Admin");
@@ -6,8 +7,12 @@
     {
         var cf = Model.CustomFields;
         customFooter = (cf.ContainsKey(Constants.FooterCode) && !string.IsNullOrEmpty(cf[Constants.FooterCode])) ? cf[Constants.FooterCode] : "";
+        returnUrl = Context.Request.Path + Context.Request.QueryString;
     }
-    catch { }
+    catch (Exception ex)
+    {
+        Log.Logger.Error(ex.ToString());
+    }
 }
 
 <div class="modal fade blog-search" id="blog-search" tabindex="-1" role="dialog" aria-hidden="true">
