@@ -4,6 +4,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Blogifier.Core.Common;
 using Blogifier.Core.Data.Domain;
+using DocumentFormat.OpenXml.VariantTypes;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
@@ -16,7 +17,7 @@ namespace Blogifier.Core.Data
         {
             using (var scope = serviceProvider.CreateScope())
             {
-                string[] roleNames = { "Admin", "Manager", "User" };
+                string[] roleNames = { "Admin", "Manager", "Employee", "World" };
 
                 foreach (var roleName in roleNames)
                 {
@@ -28,49 +29,38 @@ namespace Blogifier.Core.Data
                 }
 
               
-                var adminEmail = "admin@demo.com";
-                var adminUser = await userManager.FindByEmailAsync(adminEmail);
+                await CreateUser(userManager, "admin@demo.com", "Admin@123", "Admin");
+                await CreateUser(userManager, "manager@demo.com", "Manager@123", "Manager");
+                await CreateUser(userManager, "employee01@demo.com", "Employee01@123", "Employee");
+                await CreateUser(userManager, "guest01@demo.com", "Guest01@123", "World");
 
-                if (adminUser == null)
+              
+            }
+        }
+
+        private static async Task CreateUser(UserManager<ApplicationUser> userManager, string email, string pass, string roleName)
+        {
+            var acc = await userManager.FindByEmailAsync(email);
+
+            if (acc == null)
+            {
+                var user = new ApplicationUser
                 {
-                    var user = new ApplicationUser
-                    {
-                        UserName = adminEmail,
-                        Email = adminEmail,
-                        EmailConfirmed = true
-                    };
+                    UserName = email,
+                    Email = email,
+                    EmailConfirmed = true
+                };
 
-                    var result = await userManager.CreateAsync(user, "Admin@123"); // pass mặc định
+                var result = await userManager.CreateAsync(user, pass);
 
-                    if (result.Succeeded)
-                    {
-                        await userManager.AddToRoleAsync(user, "Admin");
-                    }
-
-                    AddProfile(adminEmail, true);
+                if (result.Succeeded)
+                {
+                    await userManager.AddToRoleAsync(user, roleName);
                 }
 
-                var manaEmail = "manager@demo.com";
-                var manaUser = await userManager.FindByEmailAsync(manaEmail);
+                bool isAdmin = roleName.ToUpper() == RoleName.Admin.ToUpper();
 
-                if (manaUser == null)
-                {
-                    var user = new ApplicationUser
-                    {
-                        UserName = manaEmail,
-                        Email = manaEmail,
-                        EmailConfirmed = true
-                    };
-
-                    var result = await userManager.CreateAsync(user, "Manager@123"); 
-
-                    if (result.Succeeded)
-                    {
-                        await userManager.AddToRoleAsync(user, "Manager");
-                    }
-
-                    AddProfile(manaEmail, false);
-                }
+                AddProfile(email, isAdmin);
             }
         }
 

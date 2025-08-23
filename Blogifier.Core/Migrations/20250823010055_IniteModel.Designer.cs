@@ -14,8 +14,8 @@ using System;
 namespace Blogifier.Core.Migrations
 {
     [DbContext(typeof(BlogifierDbContext))]
-    [Migration("20250822163652_InitModel")]
-    partial class InitModel
+    [Migration("20250823010055_IniteModel")]
+    partial class IniteModel
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -737,7 +737,7 @@ namespace Blogifier.Core.Migrations
 
                     b.HasIndex("RoleId");
 
-                    b.ToTable("AspNetRoleClaims");
+                    b.ToTable("AppRoleClaims");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>

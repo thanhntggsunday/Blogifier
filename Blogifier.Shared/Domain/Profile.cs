@@ -55,6 +55,6 @@ namespace Blogifier.Core.Data.Domain
         public List<Asset> Assets { get; set; }
 
         [NotMapped]
-        public List<IdentityRole> Roles { get; set; }
+        public List<IdentityRole> Roles { get; set; } = new List<IdentityRole>();
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using Blogifier.Core.Common;
 using Blogifier.Core.Data;
 using Microsoft.AspNetCore.Mvc;
@@ -17,6 +18,10 @@ namespace Blogifier.Core.Middleware
     public class VerifyProfile : ActionFilterAttribute
     {
         DbContextOptions<BlogifierDbContext> _options;
+        List<string> AminPageRoleAllowAccess = new List<string>()
+        {
+            RoleName.Admin, RoleName.Manager, RoleName.Employee
+        };
 
         public VerifyProfile()
         {
@@ -34,9 +39,14 @@ namespace Blogifier.Core.Middleware
                 var user = filterContext.HttpContext.User.Identity.Name;
                 var profile = context.GetProfile(user);
 
-                if (profile == null)
+                if (profile == null || profile.Roles.Count == 0)
                 {
-                    filterContext.Result = new RedirectResult("~/admin/setup");
+                    filterContext.Result = new RedirectResult("~/Account/Login");
+                }
+
+                if (!AminPageRoleAllowAccess.Any(r => profile != null && profile.Roles.Any(r2=>r2.Name.ToUpper() == r.ToUpper())))
+                {
+                    filterContext.Result = new RedirectResult("~/Account/Login");
                 }
             }
         }
@@ -63,7 +73,7 @@ namespace Blogifier.Core.Middleware
                 // var profile = context.Profiles.SingleOrDefaultAsync(p => p.IdentityName == loggedUser).Result;
                 var profile = context.GetProfile(loggedUser);
 
-                if (profile == null || profile.Roles.All(r => r.Name.ToUpper() != Constants.Admin.ToUpper()))
+                if (profile == null || profile.Roles.All(r => r.Name.ToUpper() != RoleName.Admin.ToUpper()))
                 {
                     filterContext.Result = new RedirectResult("~/Error/403");
                 }

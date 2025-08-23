@@ -16,6 +16,7 @@ namespace Blogifier.Core.Extensions
             modelBuilder.Entity<IdentityUserRole<string>>().ToTable("AppUserRoles");
             modelBuilder.Entity<IdentityUserLogin<string>>().ToTable("AppUserLogins");
             modelBuilder.Entity<IdentityUserClaim<string>>().ToTable("AppUserClaims");
+            modelBuilder.Entity<IdentityRoleClaim<string>>().ToTable("AppRoleClaims");
             modelBuilder.Entity<IdentityUserToken<string>>().ToTable("AppUserTokens"); 
         }
     }

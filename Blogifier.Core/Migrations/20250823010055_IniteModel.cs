@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace Blogifier.Core.Migrations
 {
-    public partial class InitModel : Migration
+    public partial class IniteModel : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -248,7 +248,7 @@ namespace Blogifier.Core.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "AspNetRoleClaims",
+                name: "AppRoleClaims",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -259,9 +259,9 @@ namespace Blogifier.Core.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_AspNetRoleClaims", x => x.Id);
+                    table.PrimaryKey("PK_AppRoleClaims", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_AspNetRoleClaims_AppRoles_RoleId",
+                        name: "FK_AppRoleClaims_AppRoles_RoleId",
                         column: x => x.RoleId,
                         principalTable: "AppRoles",
                         principalColumn: "Id",
@@ -671,6 +671,11 @@ namespace Blogifier.Core.Migrations
                 });
 
             migrationBuilder.CreateIndex(
+                name: "IX_AppRoleClaims_RoleId",
+                table: "AppRoleClaims",
+                column: "RoleId");
+
+            migrationBuilder.CreateIndex(
                 name: "RoleNameIndex",
                 table: "AppRoles",
                 column: "NormalizedName",
@@ -703,11 +708,6 @@ namespace Blogifier.Core.Migrations
                 column: "NormalizedUserName",
                 unique: true,
                 filter: "[NormalizedUserName] IS NOT NULL");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_AspNetRoleClaims_RoleId",
-                table: "AspNetRoleClaims",
-                column: "RoleId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Assets_ProfileId",
@@ -796,6 +796,9 @@ namespace Blogifier.Core.Migrations
                 name: "Addresses");
 
             migrationBuilder.DropTable(
+                name: "AppRoleClaims");
+
+            migrationBuilder.DropTable(
                 name: "AppUserClaims");
 
             migrationBuilder.DropTable(
@@ -806,9 +809,6 @@ namespace Blogifier.Core.Migrations
 
             migrationBuilder.DropTable(
                 name: "AppUserTokens");
-
-            migrationBuilder.DropTable(
-                name: "AspNetRoleClaims");
 
             migrationBuilder.DropTable(
                 name: "Assets");
@@ -844,10 +844,10 @@ namespace Blogifier.Core.Migrations
                 name: "Tags");
 
             migrationBuilder.DropTable(
-                name: "AppUsers");
+                name: "AppRoles");
 
             migrationBuilder.DropTable(
-                name: "AppRoles");
+                name: "AppUsers");
 
             migrationBuilder.DropTable(
                 name: "Carts");
