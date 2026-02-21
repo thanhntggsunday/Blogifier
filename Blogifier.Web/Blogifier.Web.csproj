@@ -96,7 +96,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Blogifier.Core\Blogifier.Core.csproj" />
-    <ProjectReference Include="..\Blogifier.Shared\Blogifier.Shared.csproj" />
   </ItemGroup>
 
   <ItemGroup>
