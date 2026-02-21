@@ -5,26 +5,53 @@ using System.Collections.Generic;
 
 namespace Blogifier.Core.Migrations
 {
-    public partial class AddPmsModel : Migration
+    public partial class InitModel : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "AspNetRoles",
+                name: "Addresses",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    AddressLine = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    City = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CompanyName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Country = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    EmailAddress = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    FirstName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    LastName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ModifiedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ModifiedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    PhoneNo = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    State = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ZipCode = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Addresses", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "AppRoles",
                 columns: table => new
                 {
                     Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     ConcurrencyStamp = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Discriminator = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     NormalizedName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_AspNetRoles", x => x.Id);
+                    table.PrimaryKey("PK_AppRoles", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "AspNetUsers",
+                name: "AppUsers",
                 columns: table => new
                 {
                     Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
@@ -45,7 +72,7 @@ namespace Blogifier.Core.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_AspNetUsers", x => x.Id);
+                    table.PrimaryKey("PK_AppUsers", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -118,6 +145,27 @@ namespace Blogifier.Core.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_CustomFields", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Orders",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    AddressId = table.Column<int>(type: "int", nullable: false),
+                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    GrandTotal = table.Column<decimal>(type: "decimal(18, 2)", nullable: false),
+                    ModifiedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ModifiedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    PaymentMethod = table.Column<int>(type: "int", nullable: false),
+                    Status = table.Column<int>(type: "int", nullable: false),
+                    UserName = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Orders", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -213,15 +261,15 @@ namespace Blogifier.Core.Migrations
                 {
                     table.PrimaryKey("PK_AspNetRoleClaims", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_AspNetRoleClaims_AspNetRoles_RoleId",
+                        name: "FK_AspNetRoleClaims_AppRoles_RoleId",
                         column: x => x.RoleId,
-                        principalTable: "AspNetRoles",
+                        principalTable: "AppRoles",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
-                name: "AspNetUserClaims",
+                name: "AppUserClaims",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -232,17 +280,17 @@ namespace Blogifier.Core.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_AspNetUserClaims", x => x.Id);
+                    table.PrimaryKey("PK_AppUserClaims", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_AspNetUserClaims_AspNetUsers_UserId",
+                        name: "FK_AppUserClaims_AppUsers_UserId",
                         column: x => x.UserId,
-                        principalTable: "AspNetUsers",
+                        principalTable: "AppUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
-                name: "AspNetUserLogins",
+                name: "AppUserLogins",
                 columns: table => new
                 {
                     LoginProvider = table.Column<string>(type: "nvarchar(450)", nullable: false),
@@ -252,17 +300,17 @@ namespace Blogifier.Core.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_AspNetUserLogins", x => new { x.LoginProvider, x.ProviderKey });
+                    table.PrimaryKey("PK_AppUserLogins", x => new { x.LoginProvider, x.ProviderKey });
                     table.ForeignKey(
-                        name: "FK_AspNetUserLogins_AspNetUsers_UserId",
+                        name: "FK_AppUserLogins_AppUsers_UserId",
                         column: x => x.UserId,
-                        principalTable: "AspNetUsers",
+                        principalTable: "AppUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
-                name: "AspNetUserRoles",
+                name: "AppUserRoles",
                 columns: table => new
                 {
                     UserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
@@ -270,23 +318,23 @@ namespace Blogifier.Core.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_AspNetUserRoles", x => new { x.UserId, x.RoleId });
+                    table.PrimaryKey("PK_AppUserRoles", x => new { x.UserId, x.RoleId });
                     table.ForeignKey(
-                        name: "FK_AspNetUserRoles_AspNetRoles_RoleId",
+                        name: "FK_AppUserRoles_AppRoles_RoleId",
                         column: x => x.RoleId,
-                        principalTable: "AspNetRoles",
+                        principalTable: "AppRoles",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_AspNetUserRoles_AspNetUsers_UserId",
+                        name: "FK_AppUserRoles_AppUsers_UserId",
                         column: x => x.UserId,
-                        principalTable: "AspNetUsers",
+                        principalTable: "AppUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
-                name: "AspNetUserTokens",
+                name: "AppUserTokens",
                 columns: table => new
                 {
                     UserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
@@ -296,11 +344,11 @@ namespace Blogifier.Core.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_AspNetUserTokens", x => new { x.UserId, x.LoginProvider, x.Name });
+                    table.PrimaryKey("PK_AppUserTokens", x => new { x.UserId, x.LoginProvider, x.Name });
                     table.ForeignKey(
-                        name: "FK_AspNetUserTokens_AspNetUsers_UserId",
+                        name: "FK_AppUserTokens_AppUsers_UserId",
                         column: x => x.UserId,
-                        principalTable: "AspNetUsers",
+                        principalTable: "AppUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -397,7 +445,7 @@ namespace Blogifier.Core.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    CartId = table.Column<int>(type: "int", nullable: true),
+                    CartId = table.Column<int>(type: "int", nullable: false),
                     Color = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
@@ -416,9 +464,43 @@ namespace Blogifier.Core.Migrations
                         column: x => x.CartId,
                         principalTable: "Carts",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_CartItems_Product_ProductId",
+                        column: x => x.ProductId,
+                        principalTable: "Product",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "OrderItems",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Color = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    ModifiedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ModifiedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    OrderId = table.Column<int>(type: "int", nullable: false),
+                    ProductId = table.Column<int>(type: "int", nullable: false),
+                    Quantity = table.Column<int>(type: "int", nullable: false),
+                    TotalPrice = table.Column<decimal>(type: "decimal(18, 2)", nullable: false),
+                    UnitPrice = table.Column<decimal>(type: "decimal(18, 2)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_OrderItems", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_OrderItems_Orders_OrderId",
+                        column: x => x.OrderId,
+                        principalTable: "Orders",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_OrderItems_Product_ProductId",
                         column: x => x.ProductId,
                         principalTable: "Product",
                         principalColumn: "Id",
@@ -589,43 +671,43 @@ namespace Blogifier.Core.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_AspNetRoleClaims_RoleId",
-                table: "AspNetRoleClaims",
-                column: "RoleId");
-
-            migrationBuilder.CreateIndex(
                 name: "RoleNameIndex",
-                table: "AspNetRoles",
+                table: "AppRoles",
                 column: "NormalizedName",
                 unique: true,
                 filter: "[NormalizedName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
-                name: "IX_AspNetUserClaims_UserId",
-                table: "AspNetUserClaims",
+                name: "IX_AppUserClaims_UserId",
+                table: "AppUserClaims",
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_AspNetUserLogins_UserId",
-                table: "AspNetUserLogins",
+                name: "IX_AppUserLogins_UserId",
+                table: "AppUserLogins",
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_AspNetUserRoles_RoleId",
-                table: "AspNetUserRoles",
+                name: "IX_AppUserRoles_RoleId",
+                table: "AppUserRoles",
                 column: "RoleId");
 
             migrationBuilder.CreateIndex(
                 name: "EmailIndex",
-                table: "AspNetUsers",
+                table: "AppUsers",
                 column: "NormalizedEmail");
 
             migrationBuilder.CreateIndex(
                 name: "UserNameIndex",
-                table: "AspNetUsers",
+                table: "AppUsers",
                 column: "NormalizedUserName",
                 unique: true,
                 filter: "[NormalizedUserName] IS NOT NULL");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_AspNetRoleClaims_RoleId",
+                table: "AspNetRoleClaims",
+                column: "RoleId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Assets_ProfileId",
@@ -645,6 +727,16 @@ namespace Blogifier.Core.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_CartItems_ProductId",
                 table: "CartItems",
+                column: "ProductId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_OrderItems_OrderId",
+                table: "OrderItems",
+                column: "OrderId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_OrderItems_ProductId",
+                table: "OrderItems",
                 column: "ProductId");
 
             migrationBuilder.CreateIndex(
@@ -701,19 +793,22 @@ namespace Blogifier.Core.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
+                name: "Addresses");
+
+            migrationBuilder.DropTable(
+                name: "AppUserClaims");
+
+            migrationBuilder.DropTable(
+                name: "AppUserLogins");
+
+            migrationBuilder.DropTable(
+                name: "AppUserRoles");
+
+            migrationBuilder.DropTable(
+                name: "AppUserTokens");
+
+            migrationBuilder.DropTable(
                 name: "AspNetRoleClaims");
-
-            migrationBuilder.DropTable(
-                name: "AspNetUserClaims");
-
-            migrationBuilder.DropTable(
-                name: "AspNetUserLogins");
-
-            migrationBuilder.DropTable(
-                name: "AspNetUserRoles");
-
-            migrationBuilder.DropTable(
-                name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
                 name: "Assets");
@@ -723,6 +818,9 @@ namespace Blogifier.Core.Migrations
 
             migrationBuilder.DropTable(
                 name: "CustomFields");
+
+            migrationBuilder.DropTable(
+                name: "OrderItems");
 
             migrationBuilder.DropTable(
                 name: "PostCategories");
@@ -746,13 +844,16 @@ namespace Blogifier.Core.Migrations
                 name: "Tags");
 
             migrationBuilder.DropTable(
-                name: "AspNetRoles");
+                name: "AppUsers");
 
             migrationBuilder.DropTable(
-                name: "AspNetUsers");
+                name: "AppRoles");
 
             migrationBuilder.DropTable(
                 name: "Carts");
+
+            migrationBuilder.DropTable(
+                name: "Orders");
 
             migrationBuilder.DropTable(
                 name: "BlogPosts");

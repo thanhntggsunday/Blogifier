@@ -3,6 +3,8 @@ using Blogifier.Core.Common;
 using Blogifier.Core.Data.Domain;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Blogifier.Core.Extensions;
+using Microsoft.AspNetCore.Identity;
 
 namespace Blogifier.Core.Data
 {
@@ -49,6 +51,8 @@ namespace Blogifier.Core.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+
+            modelBuilder.CreateAspNetModel();
         }
     }
 }

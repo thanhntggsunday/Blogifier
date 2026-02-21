@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage;
 using Microsoft.EntityFrameworkCore.Storage.Internal;
+using Microsoft.EntityFrameworkCore.ValueGeneration;
 using System;
 
 namespace Blogifier.Core.Migrations
@@ -70,7 +71,7 @@ namespace Blogifier.Core.Migrations
                         .HasName("UserNameIndex")
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
-                    b.ToTable("AspNetUsers");
+                    b.ToTable("AppUsers");
                 });
 
             modelBuilder.Entity("Blogifier.Core.Data.Domain.Asset", b =>
@@ -695,13 +696,16 @@ namespace Blogifier.Core.Migrations
                     b.ToTable("Wishlists");
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole<string>", b =>
                 {
                     b.Property<string>("Id")
                         .ValueGeneratedOnAdd();
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken();
+
+                    b.Property<string>("Discriminator")
+                        .IsRequired();
 
                     b.Property<string>("Name")
                         .HasMaxLength(256);
@@ -711,12 +715,9 @@ namespace Blogifier.Core.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("NormalizedName")
-                        .IsUnique()
-                        .HasName("RoleNameIndex")
-                        .HasFilter("[NormalizedName] IS NOT NULL");
+                    b.ToTable("AppRoles");
 
-                    b.ToTable("AspNetRoles");
+                    b.HasDiscriminator<string>("Discriminator").HasValue("IdentityRole<string>");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -754,7 +755,7 @@ namespace Blogifier.Core.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("AspNetUserClaims");
+                    b.ToTable("AppUserClaims");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
@@ -772,7 +773,7 @@ namespace Blogifier.Core.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("AspNetUserLogins");
+                    b.ToTable("AppUserLogins");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
@@ -785,7 +786,7 @@ namespace Blogifier.Core.Migrations
 
                     b.HasIndex("RoleId");
 
-                    b.ToTable("AspNetUserRoles");
+                    b.ToTable("AppUserRoles");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
@@ -800,7 +801,22 @@ namespace Blogifier.Core.Migrations
 
                     b.HasKey("UserId", "LoginProvider", "Name");
 
-                    b.ToTable("AspNetUserTokens");
+                    b.ToTable("AppUserTokens");
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
+                {
+                    b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityRole<string>");
+
+
+                    b.HasIndex("NormalizedName")
+                        .IsUnique()
+                        .HasName("RoleNameIndex")
+                        .HasFilter("[NormalizedName] IS NOT NULL");
+
+                    b.ToTable("AspNetRoles");
+
+                    b.HasDiscriminator().HasValue("IdentityRole");
                 });
 
             modelBuilder.Entity("Blogifier.Core.Data.Domain.Asset", b =>

@@ -100,28 +100,41 @@ namespace Blogifier.Core
                 Logger.LogError(e.ToString());
             }
 
-            //if (!ApplicationSettings.UseInMemoryDatabase && ApplicationSettings.InitializeDatabase)
-            //{
-            //    try
-            //    {
-            //        using (var scope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
-            //        {
-            //            var db = scope.ServiceProvider.GetService<BlogifierDbContext>().Database;
-            //            db.EnsureCreated();
-            //            if (db.GetPendingMigrations() != null)
-            //            {
-            //                db.Migrate();
-            //            }
-            //        }
-            //    }
-            //    catch { }
-            //}
+            if (!ApplicationSettings.UseInMemoryDatabase && ApplicationSettings.InitializeDatabase)
+            {
+                Log.Information("Migaration starting...");
+
+                try
+                {
+                    using (var scope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
+                    {
+                        var db = scope.ServiceProvider.GetService<BlogifierDbContext>().Database;
+                        db.EnsureCreated();
+                        if (db.GetPendingMigrations() != null)
+                        {
+                            try
+                            {
+                                db.Migrate();
+                            }
+                            catch (Exception e)
+                            {
+                                Log.Error("Error at db.Migrate()");
+                                Log.Error(e.ToString());
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Log.Error(ex.ToString());
+                }
+            }
         }
 
         static void AddDatabase(IServiceCollection services)
 		{
 			services.AddScoped<IUnitOfWork, UnitOfWork>();
-            // services.AddDbContext<BlogifierDbContext>(ApplicationSettings.DatabaseOptions);
+            services.AddDbContext<BlogifierDbContext>(ApplicationSettings.DatabaseOptions);
         }
 
 		static void AddFileProviders(IServiceCollection services)
