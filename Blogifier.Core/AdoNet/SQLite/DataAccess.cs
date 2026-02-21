@@ -28,27 +28,7 @@ namespace Blogifier.Core.AdoNet.SQLite
             _connection.Open();
         }
 
-        public List<T> GetAllItems<T>(string sqlQuery, CommandType commandType, Func<SqliteDataReader, T> mapper)
-        {
-            var items = new List<T>();
-
-            using (var cmd = new SqliteCommand(sqlQuery, _connection, _transaction))
-            {
-                cmd.CommandType = commandType;
-
-                using (var reader = cmd.ExecuteReader())
-                {
-                    while (reader.Read())
-                    {
-                        items.Add(mapper(reader));
-                    }
-                }
-            }
-
-            return items;
-        }
-
-        public List<T> GetItems<T>(string sqlQuery, List<SqliteParameter> parameters, CommandType commandType, Func<SqliteDataReader, T> mapper)
+        public List<T> Find<T>(string sqlQuery, List<SqliteParameter> parameters, CommandType commandType, Func<SqliteDataReader, T> mapper)
         {
             var items = new List<T>();
 
